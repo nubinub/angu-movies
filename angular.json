@@ -95,6 +95,13 @@
               "src/styles.scss"
             ],
             "scripts": []
+          },
+          "configurations": {
+            "ci": {
+              "watch": false,
+              "progress": false,
+              "browsers": "ChromeHeadlessCustom"
+            }
           }
         },
         "lint": {
@@ -118,6 +125,10 @@
           },
           "configurations": {
             "production": {
+              "devServerTarget": "angu-movies:serve:production"
+            },
+            "ci": {
+              "protractorConfig": "e2e/protractor-ci.conf.js",
               "devServerTarget": "angu-movies:serve:production"
             }
           }
