@@ -6,4 +6,4 @@
 
 ## CI initialization
 
-* Setting up CI in order to automatically run build in production mode, unit tests and e2e tests on each push. Insprired by [ng-githubg-actions](https://github.com/filipesilva/ng-github-actions).
+* Setting up CI in order to automatically run build in production mode, unit tests and e2e tests on each push. Insprired by [ng-githubg-actions](https://github.com/filipesilva/ng-github-actions) and [Cory Rylan](https://coryrylan.com/blog/building-angular-cli-projects-with-github-actions).
