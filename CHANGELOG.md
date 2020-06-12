@@ -6,4 +6,4 @@
 
 ## CI initialization
 
-* Using existing `mayurrawte/github-angular-actions` to run build and test on every push.
+* Setting up CI in order to automatically run build in production mode, unit tests and e2e tests on each push. Insprired by [ng-githubg-actions](https://github.com/filipesilva/ng-github-actions).
