@@ -1,15 +1,15 @@
-<mat-card class="example-card">
+<mat-card class="movie-card">
   <mat-card-header>
     <mat-card-title>{{movie?.original_title}}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image [src]="getMoviePoster()" [alt]="movie?.original_title" >
+  <img mat-card-image [src]="getMoviePoster()" [alt]="movie?.original_title">
   <mat-card-content>
-    <p>
-      {{movie?.release_date}}
-    </p>
-    <p>
-      {{movie?.runtime}}
-    </p>
+    <div class="info-content">
+      <mat-icon>calendar_today</mat-icon><span class="info-label">{{movie?.release_date}}</span>
+    </div>
+    <div class="info-content">
+      <mat-icon>timer</mat-icon><span class="info-label">{{movie?.runtime}}</span>
+    </div>
   </mat-card-content>
   <mat-card-actions>
   </mat-card-actions>

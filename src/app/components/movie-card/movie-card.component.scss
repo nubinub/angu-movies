@@ -1,3 +1,13 @@
-.example-card {
+.movie-card {
   width: 150px;
+
+  .info-content {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    .material-icons {
+      vertical-align: bottom;
+      margin-right: 1rem;
+      font-weight: bold;
+    }
+  }
 }
