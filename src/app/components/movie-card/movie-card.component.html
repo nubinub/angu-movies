@@ -5,10 +5,10 @@
   <img mat-card-image [src]="getMoviePoster()" [alt]="movie?.original_title">
   <mat-card-content>
     <div class="info-content">
-      <mat-icon>calendar_today</mat-icon><span class="info-label">{{movie?.release_date}}</span>
+      <mat-icon>calendar_today</mat-icon><span class="info-label">{{movie?.release_date | releaseDate}}</span>
     </div>
     <div class="info-content">
-      <mat-icon>timer</mat-icon><span class="info-label">{{movie?.runtime}}</span>
+      <mat-icon>timer</mat-icon><span class="info-label">{{movie?.runtime | runtime}}</span>
     </div>
   </mat-card-content>
   <mat-card-actions>

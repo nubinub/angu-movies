@@ -7,11 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { RuntimePipe } from './pipes/runtime.pipe';
+import { ReleaseDatePipe } from './pipes/release-date.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    RuntimePipe,
+    ReleaseDatePipe
   ],
   imports: [
     BrowserModule,

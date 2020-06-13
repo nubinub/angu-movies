@@ -2,6 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieCardComponent } from './movie-card.component';
 import movies from 'src/app/mock/movies-mock';
+import { RuntimePipe } from 'src/app/pipes/runtime.pipe';
+import { ReleaseDatePipe } from 'src/app/pipes/release-date.pipe';
+import { MatCard, MatCardContent, MatCardHeader } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -9,7 +13,7 @@ describe('MovieCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieCardComponent ]
+      declarations: [ MovieCardComponent, RuntimePipe, ReleaseDatePipe ]
     })
     .compileComponents();
   }));
@@ -42,21 +46,21 @@ describe('MovieCardComponent', () => {
     expect(header.textContent).toBe(movies[0].original_title); // 3
   });
 
-  it('should render a mat card content with the given movie runtime', () => {
+  it('should render a mat card content with the given movie runtime formatted', () => {
     component.movie = movies[0];
     fixture.detectChanges()
     const compiled = fixture.debugElement.nativeElement; // 2
     const content = compiled.querySelector('mat-card-content');
     expect(content).toBeTruthy();
-    expect(content.textContent).toContain(movies[0].runtime); // 3
+    expect(content.textContent).toContain('2h03'); // 3
   });
 
-  it('should render a mat card content with the given movie release date', () => {
+  it('should render a mat card content with the given movie release date formatted', () => {
     component.movie = movies[0];
     fixture.detectChanges()
     const compiled = fixture.debugElement.nativeElement; // 2
     const content = compiled.querySelector('mat-card-content');
     expect(content).toBeTruthy();
-    expect(content.textContent).toContain(movies[0].release_date); // 3
+    expect(content.textContent).toContain('Sep 17, 2019'); // 3
   });
 });
