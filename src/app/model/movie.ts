@@ -1,6 +1,6 @@
 interface Movie {
   id: number;
-  orginial_title: string;
+  original_title: string;
   poster_path: string;
   release_date: string;
   runtime: number;
