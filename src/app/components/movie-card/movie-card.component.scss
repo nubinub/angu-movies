@@ -1,11 +1,14 @@
 .movie-card {
-  width: 200px;
+  width: 150px;
   margin: 1rem;
 
   /* using ::ng-deeep selector, need to come up with a better solution in the future */
   mat-card-header::ng-deep .mat-card-header-text {
     margin: 0;
-    font-size: 16px;
+
+    .mat-card-title {
+      font-size: 15px;
+    }
   }
 
   .info-content {
