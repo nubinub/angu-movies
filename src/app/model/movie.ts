@@ -3,7 +3,8 @@ interface Movie {
   original_title: string;
   poster_path: string;
   release_date: string;
-  runtime: number;
+  runtime?: number;
+  overview: string;
 }
 
 export default Movie;

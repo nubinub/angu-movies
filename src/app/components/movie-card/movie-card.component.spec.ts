@@ -57,21 +57,12 @@ describe('MovieCardComponent', () => {
     expect(header.textContent).toBe(movies[0].original_title); // 3
   });
 
-  it('should render a mat card content with the given movie runtime formatted', () => {
-    component.movie = movies[0];
-    fixture.detectChanges()
-    const compiled = fixture.debugElement.nativeElement; // 2
-    const content = compiled.querySelector('mat-card-content');
-    expect(content).toBeTruthy();
-    expect(content.textContent).toContain('2h03'); // 3
-  });
-
   it('should render a mat card content with the given movie release date formatted', () => {
     component.movie = movies[0];
     fixture.detectChanges()
     const compiled = fixture.debugElement.nativeElement; // 2
     const content = compiled.querySelector('mat-card-content');
     expect(content).toBeTruthy();
-    expect(content.textContent).toContain('Sep 17, 2019'); // 3
+    expect(content.textContent).toContain('Feb 12, 2020'); // 3
   });
 });

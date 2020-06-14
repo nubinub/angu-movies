@@ -9,13 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { RuntimePipe } from './pipes/runtime.pipe';
 import { ReleaseDatePipe } from './pipes/release-date.pipe';
+import { MoviesListComponent } from './components/movies-list/movies-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieCardComponent,
     RuntimePipe,
-    ReleaseDatePipe
+    ReleaseDatePipe,
+    MoviesListComponent
   ],
   imports: [
     BrowserModule,
