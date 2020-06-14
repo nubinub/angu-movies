@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import movies from './mock/movies-mock';
-import Movie from './model/movie';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +6,4 @@ import Movie from './model/movie';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  movies: Movie[] = movies;
 }

@@ -16,3 +16,19 @@ To fullfill first scenario requirements, I decided to develop a `MovieCard` comp
 * `release_date` and `runtime` data provided by the API are not user-friendly, so I added some [custom pipes](https://angular.io/guide/pipes) using [moment](https://momentjs.com/) to improve their readability.
 * Using [ngMocks](https://www.npmjs.com/package/ng-mocks) to remove warning from tests and keep the unit testing as unitary as possible.
 * movie-card up and running !
+
+## scenario-1
+
+Time to implement scenario 1.
+* First step, creating `MoviesListComponent` in order to display multiple movie cards using flex css property.
+* Data fetching here we are! Time to actually query the api. To do so I will create two services:
+  * MovieRepository: which will be responsible for accessing the data from the API and will rely on [HttpClient](https://angular.io/guide/http).
+  * MovieService: which will add a logic layer on top of the repository.
+  * At first the application will display the popular movies delivered by [themoviedb](https://developers.themoviedb.org/3/movies/get-popular-movies). 
+  * Since I don't want to share my developper API key, you need to use your own API key by adding it to the localstorage. Via the developper console for example. I will deliver a more integrated way to add your api key in a later version.
+```js
+  localStorage.setItem('api_key', '<your_api_key>');
+```
+  * Runtime value has been remove from movie card as the data is not returned by the various search services from the moviedb.
+  * Displaying 20 movies instead of 10 as the popular services returns 20 results.
+* Adding a top bar to improve the overall looking.
