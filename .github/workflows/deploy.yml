@@ -1,8 +1,8 @@
-name: Build and Deploy
+name: deploy to gh-pages
 on:
   push:
     branches:
-      - ci-gh-pages
+      - master
 jobs:
   build:
 
@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: All things angular
+    - name: deploy
       uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.2.0
       with:
         github_access_token: ${{ secrets.ACCESS_TOKEN }} # see the Configuration section for how you can create secrets
