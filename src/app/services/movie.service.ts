@@ -21,4 +21,12 @@ export class MovieService {
       )
     );
   }
+
+  /**
+   * Returns the movie matching the given id
+   * @param id Movie id
+   */
+  getMovie(id: number): Observable<Movie> {
+    return this.repository.getById(id);
+  }
 }

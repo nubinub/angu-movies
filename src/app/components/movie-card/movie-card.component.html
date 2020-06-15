@@ -9,5 +9,8 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
+      <a mat-icon-button [routerLink]="['/movies', movie?.id]">
+        <mat-icon>remove_red_eye</mat-icon>
+      </a>
   </mat-card-actions>
 </mat-card>
