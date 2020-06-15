@@ -15,8 +15,9 @@ describe('MovieComponent', () => {
   let fixture: ComponentFixture<MovieComponent>;
 
   beforeEach(async(() => {
-    const spy = jasmine.createSpyObj('MovieService', ['getMovie']);
+    const spy = jasmine.createSpyObj('MovieService', ['getMovie', 'getCast']);
     spy.getMovie.and.returnValue(of(movies[0]));
+    spy.getCast.and.returnValue(of([]));
     TestBed.configureTestingModule({
       declarations: [
         MovieComponent,

@@ -18,6 +18,7 @@ import { MoviesComponent } from './views/movies/movies.component';
 import { MovieComponent } from './views/movie/movie.component';
 import { MoviePosterComponent } from './components/movie-poster/movie-poster.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
+import { CastCardComponent } from './components/cast-card/cast-card.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MovieInfoComponent } from './components/movie-info/movie-info.component
     MovieComponent,
     MoviePosterComponent,
     MovieInfoComponent,
+    CastCardComponent,
   ],
   imports: [
     BrowserModule,
