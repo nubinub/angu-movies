@@ -7,6 +7,8 @@ import { MovieService } from 'src/app/services/movie.service';
 import { ActivatedRoute } from '@angular/router';
 import { MockComponent } from 'ng-mocks';
 import { MoviePosterComponent } from 'src/app/components/movie-poster/movie-poster.component';
+import { MatGridList, MatGridTile } from '@angular/material/grid-list';
+import { MovieInfoComponent } from 'src/app/components/movie-info/movie-info.component';
 
 describe('MovieComponent', () => {
   let component: MovieComponent;
@@ -16,7 +18,13 @@ describe('MovieComponent', () => {
     const spy = jasmine.createSpyObj('MovieService', ['getMovie']);
     spy.getMovie.and.returnValue(of(movies[0]));
     TestBed.configureTestingModule({
-      declarations: [ MovieComponent, MockComponent(MoviePosterComponent) ],
+      declarations: [
+        MovieComponent,
+        MockComponent(MoviePosterComponent),
+        MockComponent(MatGridList),
+        MockComponent(MatGridTile),
+        MockComponent(MovieInfoComponent)
+      ],
       providers: [
         {provide: ActivatedRoute, useValue: {
           params: of({ id: movies[0].id })

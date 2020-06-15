@@ -1,5 +1,8 @@
-<mat-grid-list cols="5">
+<mat-grid-list cols="3" rowHeight="350" gutterSize="1rem">
   <mat-grid-tile [colspan]="1">
     <movie-poster [movie]="movie"></movie-poster>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2">
+    <movie-info [movie]="movie"></movie-info>
   </mat-grid-tile>
 </mat-grid-list>

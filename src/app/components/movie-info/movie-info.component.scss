@@ -1,0 +1,24 @@
+.movie-info {
+  .movie-info-genres {
+    .movie-info-genre::after {
+      content: ', ';
+    }
+    .movie-info-genre:last-of-type::after {
+      content: '';
+    }
+  }
+  .material-icons {
+    vertical-align: bottom;
+  }
+
+  .movie-info-overview {
+    text-align: justify;
+  }
+
+  .movie-info-panel {
+    margin-bottom: 1rem;
+    .movie-info-release-date {
+      margin-right: 1rem;
+    }
+  }
+}
