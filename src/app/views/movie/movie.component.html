@@ -1,1 +1,5 @@
-<p>{{movie?.original_title}}</p>
+<mat-grid-list cols="5">
+  <mat-grid-tile [colspan]="1">
+    <movie-poster [movie]="movie"></movie-poster>
+  </mat-grid-tile>
+</mat-grid-list>

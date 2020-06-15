@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { ReleaseDatePipe } from './pipes/release-date.pipe';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { MoviesComponent } from './views/movies/movies.component';
 import { MovieComponent } from './views/movie/movie.component';
+import { MoviePosterComponent } from './components/movie-poster/movie-poster.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MovieComponent } from './views/movie/movie.component';
     ReleaseDatePipe,
     MoviesListComponent,
     MoviesComponent,
-    MovieComponent
+    MovieComponent,
+    MoviePosterComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { MovieComponent } from './views/movie/movie.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
