@@ -47,3 +47,9 @@ Time to implement scenario 1.
 * The overall look and feel of the page could really be improved, I'll come back at it later.
 * Runtime and release date could become components, rather than reusing only the pipes.
 * Top bar should really be made more generic.
+
+## scenario-3
+
+* `MoviesListComponent` now receives movies as input rather than fetching them on init. This will allow me to reuse that component for scenario-5.
+* Using [`ReactiveFormsModule`](https://angular.io/guide/reactive-forms) to handle search input. 
+* With [`debounceTime`](https://rxjs-dev.firebaseapp.com/api/operators/debounceTime), the search will be effective after the user stops typing for 500ms.
