@@ -5,10 +5,7 @@ import { of, Observable } from 'rxjs';
 import movies from 'src/app/mock/movies-mock';
 import { MovieService } from 'src/app/services/movie.service';
 import { ActivatedRoute } from '@angular/router';
-import { MockComponent } from 'ng-mocks';
-import { MoviePosterComponent } from 'src/app/components/movie-poster/movie-poster.component';
-import { MatGridList, MatGridTile } from '@angular/material/grid-list';
-import { MovieInfoComponent } from 'src/app/components/movie-info/movie-info.component';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 
 describe('MovieComponent', () => {
   let component: MovieComponent;
@@ -21,17 +18,14 @@ describe('MovieComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         MovieComponent,
-        MockComponent(MoviePosterComponent),
-        MockComponent(MatGridList),
-        MockComponent(MatGridTile),
-        MockComponent(MovieInfoComponent)
       ],
       providers: [
         {provide: ActivatedRoute, useValue: {
           params: of({ id: movies[0].id })
         }},
         {provide: MovieService, useValue: spy}
-      ]
+      ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
