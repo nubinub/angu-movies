@@ -42,4 +42,16 @@ export class MovieService {
       )
     );
   }
+
+  /**
+   * Returns the movies matching the given search value
+   * @param value Search value
+   */
+  searchMovies(value: string): Observable<Movie[]> {
+    return this.repository.search(value).pipe(
+      map(
+        response => response.results
+      )
+    );
+  }
 }
