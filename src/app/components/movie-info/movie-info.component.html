@@ -1,0 +1,15 @@
+<div class="movie-info">
+  <h1>{{movie?.original_title}}</h1>
+  <div class="movie-info-genres">
+    <span *ngFor="let genre of movie?.genres" class="movie-info-genre">{{genre.name}}</span>
+  </div>
+  <div class="movie-info-panel">
+    <span class="movie-info-release-date">
+      <mat-icon>calendar_today</mat-icon><span>{{movie?.release_date | releaseDate}}</span>
+    </span>
+    <span class="movie-info-timer">
+      <mat-icon>timer</mat-icon><span>{{movie?.runtime | runtime }}</span>
+    </span>
+  </div>
+  <p class="movie-info-overview">{{movie?.overview}}</p>
+</div>

@@ -1,0 +1,11 @@
+.cast-card {
+  width: 150px;
+
+  mat-card-header::ng-deep .mat-card-header-text {
+    margin: 0;
+
+    .mat-card-title {
+      font-size: 15px;
+    }
+  }
+}

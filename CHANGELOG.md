@@ -32,3 +32,18 @@ Time to implement scenario 1.
   * Runtime value has been remove from movie card as the data is not returned by the various search services from the moviedb.
   * Displaying 20 movies instead of 10 as the popular services returns 20 results.
 * Adding a top bar to improve the overall looking.
+
+
+## scenario-2
+
+* Adding the detail page using [`AngularRoutingModule`](https://angular.io/guide/router).
+* Reusing pipes created at step 1 to display formatted runtime and release date.
+* Enhancing `MovieService` and `MovieRepository` with methods to access [movie detail](https://developers.themoviedb.org/3/movies/get-movie-details) and [cast](https://developers.themoviedb.org/3/movies/get-movie-credits) information.
+* I couldn't find the information about the director. Perhaps I missed something, but the information is not in the movie detail service nor in the movie credits.
+* Adding a back button in the top bar to improve user experience.
+
+### improvements
+
+* The overall look and feel of the page could really be improved, I'll come back at it later.
+* Runtime and release date could become components, rather than reusing only the pipes.
+* Top bar should really be made more generic.
