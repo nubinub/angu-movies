@@ -1,11 +1,12 @@
-<mat-grid-list cols="5" rowHeight="350" gutterSize="1rem">
-  <mat-grid-tile [colspan]="2">
+<div class="movie-view">
+  <div class="movie-info">
     <movie-poster [movie]="movie"></movie-poster>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="3">
     <movie-info [movie]="movie"></movie-info>
-  </mat-grid-tile>
-</mat-grid-list>
-<div class="movie-casts">
-  <cast-card *ngFor="let cast of casts" [cast]="cast"></cast-card>
+  </div>
+  <div class="movie-casting">
+    <h2>Casting</h2>
+    <div class="movie-casting-list">
+      <cast-card *ngFor="let cast of casts" [cast]="cast"></cast-card>
+    </div>
+  </div>
 </div>

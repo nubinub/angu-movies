@@ -1,6 +1,12 @@
-mat-grid-list {
+.movie-view {
   margin: 1rem;
-}
-.movie-casts {
-  display: flex;
+  .movie-casting-list, .movie-info {
+    display: flex;
+    cast-card, movie-poster {
+      margin-right: 1rem;
+    }
+  }
+  .movie-info {
+    margin-bottom: 1rem;
+  }
 }
