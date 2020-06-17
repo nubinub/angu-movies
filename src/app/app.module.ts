@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +22,7 @@ import { MovieComponent } from './views/movie/movie.component';
 import { MoviePosterComponent } from './components/movie-poster/movie-poster.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { CastCardComponent } from './components/cast-card/cast-card.component';
+import { MovieSearchComponent } from './components/movie-search/movie-search.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,7 @@ import { CastCardComponent } from './components/cast-card/cast-card.component';
     MoviePosterComponent,
     MovieInfoComponent,
     CastCardComponent,
+    MovieSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,10 @@ import { CastCardComponent } from './components/cast-card/cast-card.component';
     MatIconModule,
     MatButtonModule,
     MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

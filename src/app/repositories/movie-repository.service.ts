@@ -54,4 +54,21 @@ export class MovieRepository {
       {responseType: "json", params}
     );
   }
+
+  /**
+   * Returns the list of the movies matching the given value.
+   * @param value
+   */
+  search(value: string): Observable<PopularResponse> {
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('language', 'en-US')
+      .set('page', '1')
+      .set('includ_adult', 'false')
+      .set('query', value);
+
+    return this.httpClient.get<PopularResponse>(`https://api.themoviedb.org/3/search/movie`,
+      {responseType: "json", params}
+    );
+  }
 }

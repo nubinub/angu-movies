@@ -4,4 +4,5 @@
   </a>
   <span>Angular Movies</span>
 </mat-toolbar>
+<movie-search (onChange)="onSearch($event)"></movie-search>
 <movies-list [movies]="movies"></movies-list>
