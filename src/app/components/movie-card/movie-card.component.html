@@ -12,13 +12,7 @@
       <a mat-icon-button [routerLink]="['/movies', movie?.id]" matTooltip="Open movie detail"  matTooltipPosition="below">
         <mat-icon>open_in_new</mat-icon>
       </a>
-      <button mat-icon-button (click)="toggleSeen()">
-        <mat-icon *ngIf="isSeen(); else elseSeenBlock" matTooltip="Remove from seen movies"  matTooltipPosition="below" color="primary">visibility_off</mat-icon>
-        <ng-template #elseSeenBlock><mat-icon matTooltip="Add to seen movies"  matTooltipPosition="below">visibility</mat-icon></ng-template>
-      </button>
-      <button mat-icon-button (click)="toggleWatch()">
-        <mat-icon *ngIf="isWatch(); else elseWatchBlock" matTooltip="Remove from watch list"  matTooltipPosition="below" color="primary">tv_off</mat-icon>
-        <ng-template #elseWatchBlock><mat-icon matTooltip="Add to watch list"  matTooltipPosition="below">tv</mat-icon></ng-template>
-      </button>
+      <seen-list-toggle [movie]="movie"></seen-list-toggle>
+      <watch-list-toggle [movie]="movie"></watch-list-toggle>
   </mat-card-actions>
 </mat-card>

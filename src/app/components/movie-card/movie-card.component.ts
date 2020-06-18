@@ -19,29 +19,4 @@ export class MovieCardComponent implements OnInit {
   getMoviePoster(): string {
     return  this.movie ? `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}` : '';
   }
-
-  toggleSeen(): void {
-    this.seenListService.toggleMovie(this.movie);
-  }
-
-  /**
-   * Returns true if the movie is in the seen list, false if not.
-   */
-  isSeen(): boolean {
-    return this.seenListService.hasMovie(this.movie);
-  }
-
-  /**
-   * Toggle the movie in the watch list, remove it if he is already in it, else add it.
-   */
-  toggleWatch(): void {
-    this.watchListService.toggleMovie(this.movie);
-  }
-
-  /**
-   * Returns true if the movie is in the watch list, false if not
-   */
-  isWatch(): boolean {
-    return this.watchListService.hasMovie(this.movie);
-  }
 }
