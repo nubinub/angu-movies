@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Movie from 'src/app/model/movie';
-import { SeenListService } from 'src/app/services/seen-list.service';
-import { WatchListService } from 'src/app/services/watch-list.service';
 
 @Component({
   selector: 'movie-card',
@@ -11,7 +9,7 @@ import { WatchListService } from 'src/app/services/watch-list.service';
 export class MovieCardComponent implements OnInit {
   @Input() movie: Movie;
 
-  constructor(private seenListService: SeenListService, private watchListService: WatchListService) {}
+  constructor() {}
 
   ngOnInit(): void {
   }

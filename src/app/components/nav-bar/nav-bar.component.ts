@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+
+  @Output() onDrawerToggle: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private location: Location, private router: Router) { }
 
