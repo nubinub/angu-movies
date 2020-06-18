@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { debounceTime } from 'rxjs/operators';
   templateUrl: './movie-search.component.html',
   styleUrls: ['./movie-search.component.scss']
 })
-export class MovieSearchComponent implements OnInit {
+export class MovieSearchComponent implements OnInit, OnDestroy {
 
   public searchControl: FormControl = new FormControl();
   private searchControlSub: Subscription;

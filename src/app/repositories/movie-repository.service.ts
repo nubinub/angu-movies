@@ -4,15 +4,13 @@ import PopularResponse from '../model/popular-response';
 import { Observable } from 'rxjs';
 import Movie from '../model/movie';
 import CreditsResponse from '../model/credits-response';
+import { ApiKeyService } from '../services/api-key.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieRepository {
-  private apiKey: string;
-
-  constructor(private httpClient: HttpClient, ) {
-    this.apiKey = localStorage.getItem('api_key');
+  constructor(private httpClient: HttpClient, private apiKeyService: ApiKeyService) {
   }
 
   /**
@@ -22,7 +20,7 @@ export class MovieRepository {
     const params = new HttpParams()
       .set('language', 'en-US')
       .set('page', '1')
-      .set('api_key', this.apiKey);
+      .set('api_key', this.apiKeyService.getKeyOrNavigate());
     return this.httpClient.get<PopularResponse>(`https://api.themoviedb.org/3/movie/popular`,
       {responseType: "json", params}
     );
@@ -36,7 +34,7 @@ export class MovieRepository {
   getById(id: number): Observable<Movie> {
     const params = new HttpParams()
       .set('language', 'en-US')
-      .set('api_key', this.apiKey);
+      .set('api_key', this.apiKeyService.getKeyOrNavigate());
     return this.httpClient.get<Movie>(`https://api.themoviedb.org/3/movie/${id}`,
       {responseType: "json", params}
     );
@@ -49,7 +47,7 @@ export class MovieRepository {
    */
   getMovieCredits(id: number): Observable<CreditsResponse> {
     const params = new HttpParams()
-      .set('api_key', this.apiKey);
+      .set('api_key', this.apiKeyService.getKeyOrNavigate());
     return this.httpClient.get<CreditsResponse>(`https://api.themoviedb.org/3/movie/${id}/credits`,
       {responseType: "json", params}
     );
@@ -61,7 +59,7 @@ export class MovieRepository {
    */
   search(value: string): Observable<PopularResponse> {
     const params = new HttpParams()
-      .set('api_key', this.apiKey)
+      .set('api_key', this.apiKeyService.getKeyOrNavigate())
       .set('language', 'en-US')
       .set('page', '1')
       .set('includ_adult', 'false')
