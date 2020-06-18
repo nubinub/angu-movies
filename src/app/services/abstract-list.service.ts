@@ -1,5 +1,4 @@
 import Movie from '../model/movie';
-import movies from '../mock/movies-mock';
 
 export abstract class AbstractListService {
 

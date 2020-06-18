@@ -25,6 +25,7 @@ import { MovieInfoComponent } from './components/movie-info/movie-info.component
 import { CastCardComponent } from './components/cast-card/cast-card.component';
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
 import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
+import { WatchMoviesComponent } from './views/watch-movies/watch-movies.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
     CastCardComponent,
     MovieSearchComponent,
     SeenMoviesComponent,
+    WatchMoviesComponent,
   ],
   imports: [
     BrowserModule,

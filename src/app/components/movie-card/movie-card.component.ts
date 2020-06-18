@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Movie from 'src/app/model/movie';
 import { SeenListService } from 'src/app/services/seen-list.service';
+import { WatchListService } from 'src/app/services/watch-list.service';
 
 @Component({
   selector: 'movie-card',
@@ -10,7 +11,7 @@ import { SeenListService } from 'src/app/services/seen-list.service';
 export class MovieCardComponent implements OnInit {
   @Input() movie: Movie;
 
-  constructor(private seenListService: SeenListService) {}
+  constructor(private seenListService: SeenListService, private watchListService: WatchListService) {}
 
   ngOnInit(): void {
   }
@@ -28,5 +29,19 @@ export class MovieCardComponent implements OnInit {
    */
   isSeen(): boolean {
     return this.seenListService.hasMovie(this.movie);
+  }
+
+  /**
+   * Toggle the movie in the watch list, remove it if he is already in it, else add it.
+   */
+  toggleWatch(): void {
+    this.watchListService.toggleMovie(this.movie);
+  }
+
+  /**
+   * Returns true if the movie is in the watch list, false if not
+   */
+  isWatch(): boolean {
+    return this.watchListService.hasMovie(this.movie);
   }
 }
