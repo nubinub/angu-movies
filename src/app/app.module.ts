@@ -9,6 +9,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,10 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { CastCardComponent } from './components/cast-card/cast-card.component';
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
+import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
+import { WatchMoviesComponent } from './views/watch-movies/watch-movies.component';
+import { WatchListToggleComponent } from './components/watch-list-toggle/watch-list-toggle.component';
+import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list-toggle.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,10 @@ import { MovieSearchComponent } from './components/movie-search/movie-search.com
     MovieInfoComponent,
     CastCardComponent,
     MovieSearchComponent,
+    SeenMoviesComponent,
+    WatchMoviesComponent,
+    WatchListToggleComponent,
+    SeenListToggleComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +61,8 @@ import { MovieSearchComponent } from './components/movie-search/movie-search.com
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

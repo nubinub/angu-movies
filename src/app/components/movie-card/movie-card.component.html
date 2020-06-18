@@ -9,8 +9,10 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-      <a mat-icon-button [routerLink]="['/movies', movie?.id]">
-        <mat-icon>remove_red_eye</mat-icon>
+      <a mat-icon-button [routerLink]="['/movies', movie?.id]" matTooltip="Open movie detail"  matTooltipPosition="below">
+        <mat-icon>open_in_new</mat-icon>
       </a>
+      <seen-list-toggle [movie]="movie"></seen-list-toggle>
+      <watch-list-toggle [movie]="movie"></watch-list-toggle>
   </mat-card-actions>
 </mat-card>
