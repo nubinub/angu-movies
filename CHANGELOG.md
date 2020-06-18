@@ -88,8 +88,18 @@ Some shortcuts have been taken on the test department:
 * For convenience purpose and time reason, I went for a single module application. However, I feel this application could clearly benefit of a modular approach, maybe by [feature](https://angular.io/guide/feature-modules).
 * Some components might need some refactor and some splitting in order to provide an ideal world where one component has one purpose.
 * Adding a state management system such as [redux](https://redux.js.org/) or [mobx](https://redux.js.org/) should be considered as well.
+* An error management system could really improve application robustness. At the moment I have no error notification, nor fallback in case of error.
 
 ### Features
 
 * The search form is quite simple and doesn't offer the features required by the fourth scenario.
 * The list management system could rely on the moviedb list API rather than using only the local storage.
+
+### UI
+
+* A success notification system should be added, especially for the list management system. Maybe something based on [snackbar](https://material.angular.io/components/snack-bar/overview) could really improve user experience.
+* Some [placeholders](https://www.npmjs.com/package/angular-placeholder) could be added to notify the user that an asynchronous loading is progress.
+
+### Github-pages
+
+At the moment it's not possible to navigate directly to a page or to refresh a page on the github-pages application. It has something to do with the deploy configuration. I haven't been able to figure out what was wrong from [this documentation](https://angular.io/guide/deployment#deploy-to-github-pages).
