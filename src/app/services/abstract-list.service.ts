@@ -2,20 +2,20 @@ import Movie from '../model/movie';
 
 export abstract class AbstractListService {
 
-  private list: Movie[];
+  private _list: Movie[];
 
-  constructor() {
-    this.list = JSON.parse(localStorage.getItem(this.getLocalStorageKey())) || [];
+  private _key: string
+
+  constructor(key: string) {
+    this._key = key;
+    this._list = JSON.parse(localStorage.getItem(this._key)) || [];
   }
 
-  /** Returns the localStorage key used to store the list */
-  abstract getLocalStorageKey(): string;
-
   /**
-  * Persist the list in the localStorage.
-  */
+   * Persist the list in the local storage.
+   */
   private _persist(): void {
-    localStorage.setItem(this.getLocalStorageKey(), JSON.stringify(this.list));
+    localStorage.setItem(this._key, JSON.stringify(this._list));
   }
 
   /**
@@ -24,8 +24,8 @@ export abstract class AbstractListService {
    * @param movie Movie to be added
    */
   private _addMovie(movie: Movie): void {
-      this.list.push(movie);
-      this._persist();
+    this._list.push(movie);
+    this._persist();
   }
 
   /**
@@ -34,7 +34,7 @@ export abstract class AbstractListService {
    * @param movie Movie to be removed
    */
   private _removeMovie(movie: Movie): void {
-    this.list = this.list.filter(m => m.id !== movie.id);
+    this._list = this._list.filter(m => m.id !== movie.id);
     this._persist();
   }
 
@@ -56,13 +56,13 @@ export abstract class AbstractListService {
    * @param movie
    */
   hasMovie(movie: Movie): boolean {
-    return !!this.list.find(m => m.id === movie.id);
+    return !!this._list.find(m => m.id === movie.id);
   }
 
   /**
    * Returns the list
    */
   getList(): Movie[] {
-    return this.list;
+    return this._list;
   }
 }
