@@ -9,6 +9,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { CastCardComponent } from './components/cast-card/cast-card.component';
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
+import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { MovieSearchComponent } from './components/movie-search/movie-search.com
     MovieInfoComponent,
     CastCardComponent,
     MovieSearchComponent,
+    SeenMoviesComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { MovieSearchComponent } from './components/movie-search/movie-search.com
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

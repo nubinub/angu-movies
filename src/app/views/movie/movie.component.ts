@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import Movie from 'src/app/model/movie';
 import { MovieService } from 'src/app/services/movie.service';
 import Cast from 'src/app/model/cast';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie',
@@ -15,7 +16,8 @@ export class MovieComponent implements OnInit {
 
   public casts: Cast[];
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private location: Location) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -35,5 +37,9 @@ export class MovieComponent implements OnInit {
         }
       );
     });
+  }
+
+  getBack() {
+    this.location.back();
   }
 }

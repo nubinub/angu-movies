@@ -9,8 +9,12 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-      <a mat-icon-button [routerLink]="['/movies', movie?.id]">
-        <mat-icon>remove_red_eye</mat-icon>
+      <a mat-icon-button [routerLink]="['/movies', movie?.id]" matTooltip="Open movie detail"  matTooltipPosition="below">
+        <mat-icon>open_in_new</mat-icon>
       </a>
+      <button mat-icon-button (click)="toggleSeen()">
+        <mat-icon *ngIf="isSeen(); else elseBlock" matTooltip="Remove from seen movies"  matTooltipPosition="below" color="primary">visibility</mat-icon>
+        <ng-template #elseBlock><mat-icon matTooltip="Add to seen movies"  matTooltipPosition="below">visibility_off</mat-icon></ng-template>
+      </button>
   </mat-card-actions>
 </mat-card>
