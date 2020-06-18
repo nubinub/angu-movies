@@ -60,3 +60,10 @@ Time to implement scenario 1.
 * Adding two services thant inherits `AbstractListService` to manage the seen movies list and the watch list. Only difference is the local storage key used to store the list.
 * `WatchCardComponent` can now uses those services to provide actions to add the displayed movie in the watch list or seen list.
 * Extracting those toggle actions into components in order to reuse them in the movie details page.
+
+
+## nav-bar
+
+* Creating a `NavbarComponent` to avoid code duplication between all the pages.
+* Using `MatSideNav` from material angular to allow easy navigation between all the pages.
+* Various UI modifications to improve orerall user experience.

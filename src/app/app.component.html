@@ -1,1 +1,22 @@
-<router-outlet></router-outlet>
+<nav-bar (onDrawerToggle)="toggleDrawer()"></nav-bar>
+<mat-sidenav-container [hasBackdrop]="true">
+  <mat-sidenav #drawer mode="side" [fixedInViewport]="true" [fixedTopGap]="64">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/movies']">
+        <mat-icon matListIcon>movie</mat-icon>
+        Movies
+      </a>
+      <a mat-list-item [routerLink]="['/movies', 'seen']">
+        <mat-icon matListIcon>visibility</mat-icon>
+        Seen list
+      </a>
+      <a mat-list-item [routerLink]="['/movies', 'watch']">
+        <mat-icon matListIcon>tv</mat-icon>
+        Watch list
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

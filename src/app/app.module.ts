@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +30,7 @@ import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
 import { WatchMoviesComponent } from './views/watch-movies/watch-movies.component';
 import { WatchListToggleComponent } from './components/watch-list-toggle/watch-list-toggle.component';
 import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list-toggle.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,7 @@ import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list
     WatchMoviesComponent,
     WatchListToggleComponent,
     SeenListToggleComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,9 @@ import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 .movie-card {
   width: 150px;
-  margin: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 
   /* using ::ng-deeep selector, need to come up with a better solution in the future */
   mat-card-header::ng-deep .mat-card-header-text {
@@ -9,6 +10,10 @@
     .mat-card-title {
       font-size: 15px;
     }
+  }
+
+  .movie-card-actions {
+    float: right;
   }
 
   .info-content {
