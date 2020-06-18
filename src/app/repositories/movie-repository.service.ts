@@ -22,7 +22,7 @@ export class MovieRepository {
       .set('page', '1')
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
     return this.httpClient.get<PopularResponse>(`https://api.themoviedb.org/3/movie/popular`,
-      {responseType: "json", params}
+      {responseType: 'json', params}
     );
   }
 
@@ -36,7 +36,7 @@ export class MovieRepository {
       .set('language', 'en-US')
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
     return this.httpClient.get<Movie>(`https://api.themoviedb.org/3/movie/${id}`,
-      {responseType: "json", params}
+      {responseType: 'json', params}
     );
   }
 
@@ -49,13 +49,13 @@ export class MovieRepository {
     const params = new HttpParams()
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
     return this.httpClient.get<CreditsResponse>(`https://api.themoviedb.org/3/movie/${id}/credits`,
-      {responseType: "json", params}
+      {responseType: 'json', params}
     );
   }
 
   /**
    * Returns the list of the movies matching the given value.
-   * @param value
+   * @param value Search value
    */
   search(value: string): Observable<PopularResponse> {
     const params = new HttpParams()
@@ -66,7 +66,7 @@ export class MovieRepository {
       .set('query', value);
 
     return this.httpClient.get<PopularResponse>(`https://api.themoviedb.org/3/search/movie`,
-      {responseType: "json", params}
+      {responseType: 'json', params}
     );
   }
 }

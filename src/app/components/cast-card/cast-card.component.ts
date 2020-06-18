@@ -16,6 +16,6 @@ export class CastCardComponent implements OnInit {
   }
 
   getProfileUrl() {
-    return this.cast ? `https://image.tmdb.org/t/p/w138_and_h175_face${this.cast.profile_path}`: ``;
+    return this.cast ? `https://image.tmdb.org/t/p/w138_and_h175_face${this.cast.profile_path}` : ``;
   }
 }

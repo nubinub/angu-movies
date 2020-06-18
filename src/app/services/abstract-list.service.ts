@@ -2,20 +2,20 @@ import Movie from '../model/movie';
 
 export abstract class AbstractListService {
 
-  private _list: Movie[];
+  private list: Movie[];
 
-  private _key: string
+  private key: string;
 
   constructor(key: string) {
-    this._key = key;
-    this._list = JSON.parse(localStorage.getItem(this._key)) || [];
+    this.key = key;
+    this.list = JSON.parse(localStorage.getItem(this.key)) || [];
   }
 
   /**
    * Persist the list in the local storage.
    */
   private _persist(): void {
-    localStorage.setItem(this._key, JSON.stringify(this._list));
+    localStorage.setItem(this.key, JSON.stringify(this.list));
   }
 
   /**
@@ -24,7 +24,7 @@ export abstract class AbstractListService {
    * @param movie Movie to be added
    */
   private _addMovie(movie: Movie): void {
-    this._list.push(movie);
+    this.list.push(movie);
     this._persist();
   }
 
@@ -34,7 +34,7 @@ export abstract class AbstractListService {
    * @param movie Movie to be removed
    */
   private _removeMovie(movie: Movie): void {
-    this._list = this._list.filter(m => m.id !== movie.id);
+    this.list = this.list.filter(m => m.id !== movie.id);
     this._persist();
   }
 
@@ -53,16 +53,16 @@ export abstract class AbstractListService {
   /**
    * Reutrn true if the given movie is already in the list, false if not.
    *
-   * @param movie
+   * @param movie Movie to check
    */
   hasMovie(movie: Movie): boolean {
-    return !!this._list.find(m => m.id === movie.id);
+    return !!this.list.find(m => m.id === movie.id);
   }
 
   /**
    * Returns the list
    */
   getList(): Movie[] {
-    return this._list;
+    return this.list;
   }
 }

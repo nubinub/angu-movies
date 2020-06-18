@@ -21,7 +21,7 @@ export class MovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.movieService.getMovie(params['id']).subscribe(
+      this.movieService.getMovie(params.id).subscribe(
         {
           next: (movie) => {
             this.movie = movie;
@@ -29,7 +29,7 @@ export class MovieComponent implements OnInit {
         }
       );
 
-      this.movieService.getCast(params['id']).subscribe(
+      this.movieService.getCast(params.id).subscribe(
         {
           next: (cast) => {
             this.casts = cast.slice(0, 5);

@@ -3,7 +3,7 @@ import { MovieService } from 'src/app/services/movie.service';
 import Movie from 'src/app/model/movie';
 
 @Component({
-  selector: 'movies',
+  selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss']
 })
@@ -17,7 +17,7 @@ export class MoviesComponent implements OnInit {
       next: (movies) => {
         this.movies = movies;
       }
-    })
+    });
   }
 
   onSearch(value: string): void {
