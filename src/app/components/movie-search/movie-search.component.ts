@@ -13,7 +13,7 @@ export class MovieSearchComponent implements OnInit, OnDestroy {
   public searchControl: FormControl = new FormControl();
   private searchControlSub: Subscription;
 
-  @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() search: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class MovieSearchComponent implements OnInit, OnDestroy {
       debounceTime(500)
     ).subscribe({
       next: (value) => {
-        this.onChange.emit(value);
+        this.search.emit(value);
       }
     });
   }

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  @Output() onDrawerToggle: EventEmitter<void> = new EventEmitter<void>();
+  @Output() drawerToggle: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private location: Location, private router: Router) { }
 
@@ -17,7 +17,6 @@ export class NavBarComponent implements OnInit {
   }
 
   isMovieDetailPage(): boolean  {
-    console.log(this.router.url);
     return !!this.router.url.match('movies/[0-9]+');
   }
 

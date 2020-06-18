@@ -8,15 +8,15 @@ describe('SettingsComponent', () => {
   let fixture: ComponentFixture<SettingsComponent>;
 
   beforeEach(async(() => {
-    const spy = jasmine.createSpyObj('ApiKeyService', ['getKey',' setKey']);
+    const spy = jasmine.createSpyObj('ApiKeyService', ['getKey', ' setKey']);
     spy.getKey.and.returnValue('abcef');
     TestBed.configureTestingModule({
-      declarations: [ SettingsComponent ],
+      declarations: [SettingsComponent],
       providers: [
-        {provide: ApiKeyService, useValue: spy}
+        { provide: ApiKeyService, useValue: spy }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

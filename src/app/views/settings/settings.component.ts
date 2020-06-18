@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'settings',
+  selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })

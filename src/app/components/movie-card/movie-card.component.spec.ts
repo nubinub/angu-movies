@@ -41,7 +41,7 @@ describe('MovieCardComponent', () => {
 
   it('should render an image with the given movie poster_path', () => {
     component.movie = movies[0];
-    fixture.detectChanges()
+    fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement; // 2
     const img = compiled.querySelector('img');
     expect(img).toBeTruthy();
@@ -50,7 +50,7 @@ describe('MovieCardComponent', () => {
 
   it('should render a mat card title with the given movie original_title', () => {
     component.movie = movies[0];
-    fixture.detectChanges()
+    fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement; // 2
     const header = compiled.querySelector('mat-card-title');
     expect(header).toBeTruthy();
@@ -59,7 +59,7 @@ describe('MovieCardComponent', () => {
 
   it('should render a mat card content with the given movie release date formatted', () => {
     component.movie = movies[0];
-    fixture.detectChanges()
+    fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement; // 2
     const content = compiled.querySelector('mat-card-content');
     expect(content).toBeTruthy();

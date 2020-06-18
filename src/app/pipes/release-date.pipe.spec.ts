@@ -11,5 +11,5 @@ describe('ReleaseDatePipe', () => {
       const pipe = new ReleaseDatePipe();
       expect(pipe.transform('1970-01-01')).toEqual('Jan 1, 1970');
     });
-  })
+  });
 });
