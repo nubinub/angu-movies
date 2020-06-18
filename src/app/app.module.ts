@@ -28,6 +28,7 @@ import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
 import { WatchMoviesComponent } from './views/watch-movies/watch-movies.component';
 import { WatchListToggleComponent } from './components/watch-list-toggle/watch-list-toggle.component';
 import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list-toggle.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list
     WatchMoviesComponent,
     WatchListToggleComponent,
     SeenListToggleComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
