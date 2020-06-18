@@ -67,3 +67,7 @@ Time to implement scenario 1.
 * Creating a `NavbarComponent` to avoid code duplication between all the pages.
 * Using `MatSideNav` from material angular to allow easy navigation between all the pages.
 * Various UI modifications to improve orerall user experience.
+
+## settings
+
+In order to avoid to share my api key on github, I added a settings page so the user can input his own api key. The api key is then stored in the local storage. If no api key is found in the local storage, the user is automatically redirected toward the settings page. The settings page is also accessible via the sidenav menu at any times.
