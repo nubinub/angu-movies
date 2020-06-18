@@ -53,3 +53,10 @@ Time to implement scenario 1.
 * `MoviesListComponent` now receives movies as input rather than fetching them on init. This will allow me to reuse that component for scenario-5.
 * Using [`ReactiveFormsModule`](https://angular.io/guide/reactive-forms) to handle search input. 
 * With [`debounceTime`](https://rxjs-dev.firebaseapp.com/api/operators/debounceTime), the search will be effective after the user stops typing for 500ms.
+
+## scenario-5
+
+* Adding an abstract class `AbstractListService` which provides utility methods to easily add a movie to a given list, removing it and persisting it in the locasl storage. 
+* Adding two services thant inherits `AbstractListService` to manage the seen movies list and the watch list. Only difference is the local storage key used to store the list.
+* `WatchCardComponent` can now uses those services to provide actions to add the displayed movie in the watch list or seen list.
+* Extracting those toggle actions into components in order to reuse them in the movie details page.
