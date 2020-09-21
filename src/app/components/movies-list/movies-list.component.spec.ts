@@ -5,7 +5,7 @@ import { MockComponent, MockModule } from 'ng-mocks';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import movies from 'src/app/mock/movies-mock';
 import { By } from '@angular/platform-browser';
-import { MovieService } from 'src/app/services/movie.service';
+import { MovieService } from 'src/app/services/movie/movie.service';
 import { of } from 'rxjs';
 
 describe('MoviesListComponent', () => {

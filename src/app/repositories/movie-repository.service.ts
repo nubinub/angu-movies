@@ -4,7 +4,7 @@ import PopularResponse from '../model/popular-response';
 import { Observable } from 'rxjs';
 import Movie from '../model/movie';
 import CreditsResponse from '../model/credits-response';
-import { ApiKeyService } from '../services/api-key.service';
+import { ApiKeyService } from '../services/api-key/api-key.service';
 
 @Injectable({
   providedIn: 'root'

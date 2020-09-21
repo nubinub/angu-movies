@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SeenListService } from 'src/app/services/seen-list.service';
+import { SeenListService } from 'src/app/services/seen-list/seen-list.service';
 import Movie from 'src/app/model/movie';
 
 @Component({
