@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieComponent } from './movie.component';
 import { of, Observable } from 'rxjs';
-import movies from 'src/app/mock/movies-mock';
+import movies from 'src/testing/mock/movies-mock';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { ActivatedRoute } from '@angular/router';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';

@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MoviesComponent } from './movies.component';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { of } from 'rxjs';
-import movies from 'src/app/mock/movies-mock';
+import movies from 'src/testing/mock/movies-mock';
 import { MovieService } from 'src/app/services/movie/movie.service';
 
 describe('MoviesComponent', () => {
