@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import moment, { duration } from 'moment';
 
 @Pipe({
   name: 'runtime'
@@ -11,7 +10,7 @@ export class RuntimePipe implements PipeTransform {
    *
    * @param value Number of minutes
    */
-  transform(value: number): string {
-    return moment.utc(duration(value, 'minutes').asMilliseconds()).format('H[h]mm');
+  transform(minutes: number): string {
+    return minutes ? `${Math.floor(minutes / 60)}h${minutes % 60}` : '0h00';
   }
 }
