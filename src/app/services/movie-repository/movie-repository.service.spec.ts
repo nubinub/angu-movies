@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { MovieRepository } from './movie-repository.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ApiKeyService } from '../services/api-key/api-key.service';
+import { ApiKeyService } from '../api-key/api-key.service';
 
 describe('MovieRepository', () => {
   let service: MovieRepository;

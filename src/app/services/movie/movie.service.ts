@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MovieRepository } from '../../repositories/movie-repository.service';
+import { MovieRepository } from '../movie-repository/movie-repository.service';
 import Movie from '../../model/movie';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
