@@ -1,4 +1,4 @@
-import Movie from '../model/movie';
+import Movie from '../model/movie/movie';
 
 const movies: Movie[] = [
   {

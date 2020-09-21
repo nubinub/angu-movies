@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MovieRepository } from '../movie-repository/movie-repository.service';
-import Movie from '../../model/movie';
+import Movie from '../../model/movie/movie';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import Cast from '../../model/cast';
+import Cast from '../../model/cast/cast';
 
 @Injectable({
   providedIn: 'root'

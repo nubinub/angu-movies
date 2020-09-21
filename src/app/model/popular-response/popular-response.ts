@@ -1,4 +1,4 @@
-import Movie from './movie';
+import Movie from '../movie/movie';
 
 interface PopularResponse {
   results: Movie[];

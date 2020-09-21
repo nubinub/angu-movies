@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import PopularResponse from '../../model/popular-response';
+import PopularResponse from '../../model/popular-response/popular-response';
 import { Observable } from 'rxjs';
-import Movie from '../../model/movie';
-import CreditsResponse from '../../model/credits-response';
+import Movie from '../../model/movie/movie';
+import CreditsResponse from '../../model/credits-response/credits-response';
 import { ApiKeyService } from '../api-key/api-key.service';
 
 @Injectable({
