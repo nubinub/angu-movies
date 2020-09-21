@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import Movie from 'src/app/model/movie/movie';
 
 @Component({
@@ -6,15 +6,16 @@ import Movie from 'src/app/model/movie/movie';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-export class MovieCardComponent implements OnInit {
+export class MovieCardComponent implements OnChanges, OnInit {
   @Input() movie: Movie;
 
-  constructor() {}
+  moviePosterUrl: string;
 
   ngOnInit(): void {
+    this.moviePosterUrl = this.movie ? `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}` : '';
   }
 
-  getMoviePoster(): string {
-    return  this.movie ? `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}` : '';
+  ngOnChanges(changes: SimpleChanges): void {
+    this.moviePosterUrl = changes.movie.currentValue ? `https://image.tmdb.org/t/p/w500/${changes.movie.currentValue.poster_path}` : '';
   }
 }

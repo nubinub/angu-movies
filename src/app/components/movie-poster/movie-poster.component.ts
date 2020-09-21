@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import Movie from 'src/app/model/movie/movie';
 
 @Component({
@@ -6,16 +6,13 @@ import Movie from 'src/app/model/movie/movie';
   templateUrl: './movie-poster.component.html',
   styleUrls: ['./movie-poster.component.scss']
 })
-export class MoviePosterComponent implements OnInit {
+export class MoviePosterComponent implements OnChanges {
 
   @Input() movie: Movie;
 
-  constructor() { }
+  moviePosterUrl: string;
 
-  ngOnInit(): void {
-  }
-
-  getMoviePoster() {
-    return  this.movie ? `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}` : '';
+  ngOnChanges() {
+    this.moviePosterUrl = this.movie ? `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}` : '';
   }
 }
