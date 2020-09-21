@@ -3,9 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MoviesListComponent } from './movies-list.component';
 import { MockComponent, MockModule } from 'ng-mocks';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
-import movies from 'src/app/mock/movies-mock';
+import movies from 'src/testing/mock/movies-mock';
 import { By } from '@angular/platform-browser';
-import { MovieService } from 'src/app/services/movie.service';
+import { MovieService } from 'src/app/services/movie/movie.service';
 import { of } from 'rxjs';
 
 describe('MoviesListComponent', () => {

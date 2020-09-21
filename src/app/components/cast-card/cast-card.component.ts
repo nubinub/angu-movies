@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import Cast from 'src/app/model/cast';
+import Cast from 'src/app/model/cast/cast';
 
 @Component({
   selector: 'cast-card',

@@ -1,4 +1,4 @@
-import Cast from './cast';
+import Cast from '../cast/cast';
 
 interface CreditsResponse {
   id: number;

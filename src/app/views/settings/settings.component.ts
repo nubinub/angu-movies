@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ApiKeyService } from 'src/app/services/api-key.service';
+import { ApiKeyService } from 'src/app/services/api-key/api-key.service';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 

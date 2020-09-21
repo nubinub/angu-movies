@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SeenMoviesComponent } from './seen-movies.component';
-import { SeenListService } from 'src/app/services/seen-list.service';
+import { SeenListService } from 'src/app/services/seen-list/seen-list.service';
 import { of } from 'rxjs';
-import movies from 'src/app/mock/movies-mock';
+import movies from 'src/testing/mock/movies-mock';
 
 describe('SeenMoviesComponent', () => {
   let component: SeenMoviesComponent;
