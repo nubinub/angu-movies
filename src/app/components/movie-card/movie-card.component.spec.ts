@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieCardComponent } from './movie-card.component';
 import movies from 'src/app/mock/movies-mock';
-import { RuntimePipe } from 'src/app/pipes/runtime.pipe';
-import { ReleaseDatePipe } from 'src/app/pipes/release-date.pipe';
+import { RuntimePipe } from 'src/app/pipes/runtime/runtime.pipe';
+import { ReleaseDatePipe } from 'src/app/pipes/release-date/release-date.pipe';
 import { MatCard, MatCardContent, MatCardHeader, MatCardActions, MatCardTitle } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { MockComponent } from 'ng-mocks';
