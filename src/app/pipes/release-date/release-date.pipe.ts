@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import moment from 'moment';
+import { parse, format } from 'date-fns';
 
 @Pipe({
   name: 'releaseDate'
@@ -12,6 +12,6 @@ export class ReleaseDatePipe implements PipeTransform {
    * @param value Date value respecting the 'YYYY-MM-DD' format
    */
   transform(value: string): string {
-    return moment(value, 'YYYY-MM-DD').format('MMM D, YYYY');
+    return value ? format(parse(value, 'yyyy-MM-dd', new Date()), 'MMM d, yyyy') : 'Invalid date';
   }
 }
