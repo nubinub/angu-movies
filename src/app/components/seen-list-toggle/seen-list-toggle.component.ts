@@ -11,20 +11,19 @@ export class SeenListToggleComponent implements OnInit {
 
   @Input() movie: Movie;
 
+  hasBeenSeen: boolean;
+
   constructor(private seenListService: SeenListService) { }
 
   ngOnInit(): void {
-  }
-
-  toggleMovie(): void {
-    this.seenListService.toggleMovie(this.movie);
+    this.hasBeenSeen = this.seenListService.hasMovie(this.movie);
   }
 
   /**
-   * Returns true if the movie is in the seen list, false if not.
+   * Add the movie to the seen list if the movie is not already in it, else removes it
    */
-  hasMovie(): boolean {
-    return this.seenListService.hasMovie(this.movie);
+  toggleMovie(): void {
+    this.seenListService.toggleMovie(this.movie);
+    this.hasBeenSeen = this.seenListService.hasMovie(this.movie);
   }
-
 }
