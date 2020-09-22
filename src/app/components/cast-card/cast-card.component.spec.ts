@@ -11,7 +11,7 @@ describe('CastCardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CastCardComponent ],
-        providers: [
+      providers: [
         { provide: MOVIE_API_BASE_URL, useValue: 'movie-api' },
         { provide: IMAGE_BASE_URL, useValue: 'image-api' },
       ]
