@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { SeenListService } from 'src/app/services/seen-list/seen-list.service';
+import { Component, Inject, OnInit } from '@angular/core';
 import Movie from 'src/app/model/movie/movie';
+import { ListService, SEEN_MOVIES_SERVICE } from 'src/app/services/list/list.service';
 
 @Component({
   selector: 'app-seen-movies',
@@ -10,7 +10,7 @@ import Movie from 'src/app/model/movie/movie';
 export class SeenMoviesComponent implements OnInit {
   movies: Movie[];
 
-  constructor(private seenListService: SeenListService) { }
+  constructor(@Inject(SEEN_MOVIES_SERVICE) private seenListService: ListService) { }
 
   ngOnInit(): void {
     this.movies = this.seenListService.getList();

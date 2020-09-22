@@ -1,6 +1,21 @@
+import { Injectable, InjectionToken } from '@angular/core';
 import Movie from '../../model/movie/movie';
 
-export abstract class AbstractListService {
+export const WATCH_LIST_SERVICE = new InjectionToken<ListService>('Watch list service', {
+  providedIn: 'root',
+  factory: () => new ListService('watch-list'),
+});
+
+export const SEEN_MOVIES_SERVICE = new InjectionToken<ListService>('Watch list service', {
+  providedIn: 'root',
+  factory: () => new ListService('seen-movies')
+});
+
+@Injectable({
+  providedIn: 'root',
+  useFactory: (key) => new ListService(key),
+})
+export class ListService {
 
   private list: Movie[];
 
@@ -59,7 +74,7 @@ export abstract class AbstractListService {
    * @param movie Movie to check
    */
   hasMovie(movie: Movie): boolean {
-    return !!this.list.find(m => m.id === movie.id);
+    return !!movie && !!this.list.find(m => m.id === movie.id);
   }
 
   /**

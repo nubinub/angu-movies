@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { WatchListService } from 'src/app/services/watch-list/watch-list.service';
+import { Component, Inject, OnInit } from '@angular/core';
 import Movie from 'src/app/model/movie/movie';
+import { ListService, WATCH_LIST_SERVICE } from 'src/app/services/list/list.service';
 
 @Component({
   selector: 'app-watch-movies',
@@ -11,7 +11,7 @@ export class WatchMoviesComponent implements OnInit {
 
   movies: Movie[];
 
-  constructor(private watchListService: WatchListService) { }
+  constructor(@Inject(WATCH_LIST_SERVICE) private watchListService: ListService) { }
 
   ngOnInit(): void {
     this.movies = this.watchListService.getList();

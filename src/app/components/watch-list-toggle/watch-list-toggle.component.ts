@@ -1,21 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { WatchListService } from 'src/app/services/watch-list/watch-list.service';
+import { Component, OnInit, Input, Inject, OnChanges } from '@angular/core';
 import Movie from 'src/app/model/movie/movie';
+import { ListService, WATCH_LIST_SERVICE } from 'src/app/services/list/list.service';
 
 @Component({
   selector: 'watch-list-toggle',
   templateUrl: './watch-list-toggle.component.html',
   styleUrls: ['./watch-list-toggle.component.scss']
 })
-export class WatchListToggleComponent implements OnInit {
+export class WatchListToggleComponent implements OnInit, OnChanges {
 
   @Input() movie: Movie;
 
   toBeWatched: boolean;
 
-  constructor(private watchListService: WatchListService) { }
+  constructor(@Inject(WATCH_LIST_SERVICE) private watchListService: ListService) { }
 
   ngOnInit(): void {
+    this.toBeWatched = this.watchListService.hasMovie(this.movie);
+  }
+
+  ngOnChanges(): void {
     this.toBeWatched = this.watchListService.hasMovie(this.movie);
   }
 
