@@ -34,7 +34,10 @@ export abstract class AbstractListService {
    * @param movie Movie to be removed
    */
   private _removeMovie(movie: Movie): void {
-    this.list = this.list.filter(m => m.id !== movie.id);
+    const index = this.list.findIndex((m) => m.id === movie.id);
+    if (index !== -1) {
+      this.list.splice(index, 1);
+    }
     this._persist();
   }
 

@@ -9,13 +9,11 @@ import Movie from 'src/app/model/movie/movie';
 })
 export class WatchMoviesComponent implements OnInit {
 
+  movies: Movie[];
+
   constructor(private watchListService: WatchListService) { }
 
   ngOnInit(): void {
+    this.movies = this.watchListService.getList();
   }
-
-  getMovies(): Movie[] {
-    return this.watchListService.getList();
-  }
-
 }
