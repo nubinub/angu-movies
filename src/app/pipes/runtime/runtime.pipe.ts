@@ -11,6 +11,6 @@ export class RuntimePipe implements PipeTransform {
    * @param value Number of minutes
    */
   transform(minutes: number): string {
-    return minutes ? `${Math.floor(minutes / 60)}h${minutes % 60}` : '0h00';
+    return minutes ? `${Math.floor(minutes / 60)}h${(minutes % 60).toString().padStart(2, '0')}` : '0h00';
   }
 }
