@@ -16,5 +16,10 @@ describe('RuntimePipe', () => {
       const pipe = new RuntimePipe();
       expect(pipe.transform(85)).toEqual('1h25');
     });
+
+    it('should display 0h05 when 5 given', () => {
+      const pipe = new RuntimePipe();
+      expect(pipe.transform(5)).toEqual('0h05');
+    });
   });
 });
