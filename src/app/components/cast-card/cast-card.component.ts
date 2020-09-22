@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import Cast from 'src/app/model/cast/cast';
+import { PosterService } from 'src/app/services/poster/poster.service';
 
 @Component({
   selector: 'cast-card',
@@ -12,7 +13,7 @@ export class CastCardComponent implements OnInit, OnChanges {
 
   profileUrl: string;
 
-  constructor() { }
+  constructor(private posterService: PosterService) { }
 
   ngOnInit(): void {
     this.updateProfileUrl();
@@ -23,6 +24,6 @@ export class CastCardComponent implements OnInit, OnChanges {
   }
 
   private updateProfileUrl() {
-    this.profileUrl = this.cast ? `https://image.tmdb.org/t/p/w138_and_h175_face${this.cast.profile_path}` : ``;
+    this.profileUrl = this.posterService.getCastPosterUrl(this.cast);
   }
 }

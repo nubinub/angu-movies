@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import PopularResponse from '../../model/popular-response/popular-response';
 import { Observable } from 'rxjs';
@@ -6,13 +6,17 @@ import Movie from '../../model/movie/movie';
 import CreditsResponse from '../../model/credits-response/credits-response';
 import { ApiKeyService } from '../api-key/api-key.service';
 
+export const MOVIE_API_BASE_URL = new InjectionToken<string>('API base url');
+
 @Injectable({
   providedIn: 'root'
 })
 export class MovieRepository {
-  private baseUrl = 'https://api.themoviedb.org/3/';
-
-  constructor(private httpClient: HttpClient, private apiKeyService: ApiKeyService) {
+  constructor(
+    private httpClient: HttpClient,
+    private apiKeyService: ApiKeyService,
+    @Inject(MOVIE_API_BASE_URL) private movieApiBaseUrl: string
+    ){
   }
 
   /**
@@ -23,7 +27,7 @@ export class MovieRepository {
       .set('language', 'en-US')
       .set('page', '1')
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
-    return this.httpClient.get<PopularResponse>(`${this.baseUrl}movie/popular`,
+    return this.httpClient.get<PopularResponse>(`${this.movieApiBaseUrl}movie/popular`,
       {responseType: 'json', params}
     );
   }
@@ -37,7 +41,7 @@ export class MovieRepository {
     const params = new HttpParams()
       .set('language', 'en-US')
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
-    return this.httpClient.get<Movie>(`${this.baseUrl}movie/${id}`,
+    return this.httpClient.get<Movie>(`${this.movieApiBaseUrl}movie/${id}`,
       {responseType: 'json', params}
     );
   }
@@ -50,7 +54,7 @@ export class MovieRepository {
   getMovieCredits(id: number): Observable<CreditsResponse> {
     const params = new HttpParams()
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
-    return this.httpClient.get<CreditsResponse>(`${this.baseUrl}movie/${id}/credits`,
+    return this.httpClient.get<CreditsResponse>(`${this.movieApiBaseUrl}movie/${id}/credits`,
       {responseType: 'json', params}
     );
   }
@@ -67,7 +71,7 @@ export class MovieRepository {
       .set('includ_adult', 'false')
       .set('query', value);
 
-    return this.httpClient.get<PopularResponse>(`${this.baseUrl}search/movie`,
+    return this.httpClient.get<PopularResponse>(`${this.movieApiBaseUrl}search/movie`,
       {responseType: 'json', params}
     );
   }

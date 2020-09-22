@@ -32,6 +32,8 @@ import { WatchListToggleComponent } from './components/watch-list-toggle/watch-l
 import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list-toggle.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SettingsComponent } from './views/settings/settings.component';
+import { MOVIE_API_BASE_URL } from './services/movie-repository/movie-repository.service';
+import { IMAGE_BASE_URL } from './services/poster/poster.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,10 @@ import { SettingsComponent } from './views/settings/settings.component';
     MatSidenavModule,
     MatListModule,
   ],
-  providers: [],
+  providers: [
+    {provide: MOVIE_API_BASE_URL, useValue: 'https://api.themoviedb.org/3/'},
+    {provide: IMAGE_BASE_URL, useValue: 'https://image.tmdb.org/'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MovieRepository } from './movie-repository.service';
+import { MovieRepository, MOVIE_API_BASE_URL } from './movie-repository.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ApiKeyService } from '../api-key/api-key.service';
 
@@ -14,6 +14,8 @@ describe('MovieRepository', () => {
       imports: [HttpClientTestingModule],
       providers: [{
         provide: ApiKeyService, useValue: spy,
+      }, {
+        provide: MOVIE_API_BASE_URL, useValue: 'movie-api'
       }]
     });
     service = TestBed.inject(MovieRepository);
