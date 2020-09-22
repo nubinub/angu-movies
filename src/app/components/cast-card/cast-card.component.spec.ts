@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MOVIE_API_BASE_URL } from 'src/app/services/movie-repository/movie-repository.service';
+import { IMAGE_BASE_URL } from 'src/app/services/poster/poster.service';
 
 import { CastCardComponent } from './cast-card.component';
 
@@ -8,7 +10,11 @@ describe('CastCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CastCardComponent ]
+      declarations: [ CastCardComponent ],
+      providers: [
+        { provide: MOVIE_API_BASE_URL, useValue: 'movie-api' },
+        { provide: IMAGE_BASE_URL, useValue: 'image-api' },
+      ]
     })
     .compileComponents();
   }));

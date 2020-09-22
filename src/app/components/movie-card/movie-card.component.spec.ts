@@ -8,6 +8,8 @@ import { MatCard, MatCardContent, MatCardHeader, MatCardActions, MatCardTitle } 
 import { MatIcon } from '@angular/material/icon';
 import { MockComponent } from 'ng-mocks';
 import { SimpleChange } from '@angular/core';
+import { MOVIE_API_BASE_URL } from 'src/app/services/movie-repository/movie-repository.service';
+import { IMAGE_BASE_URL } from 'src/app/services/poster/poster.service';
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -25,6 +27,10 @@ describe('MovieCardComponent', () => {
         MockComponent(MatIcon),
         MockComponent(MatCardActions),
         MockComponent(MatCardTitle)
+      ],
+      providers: [
+        {provide: MOVIE_API_BASE_URL, useValue: 'movie-api'},
+        {provide: IMAGE_BASE_URL, useValue: 'image'}
       ]
     })
     .compileComponents();
@@ -42,7 +48,7 @@ describe('MovieCardComponent', () => {
 
   it('should render an image with the given movie poster_path', () => {
     component.movie = movies[0];
-    component.ngOnChanges({movie: new SimpleChange(undefined,  movies[0], false)});
+    component.ngOnChanges();
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement; // 2
     const img = compiled.querySelector('img');

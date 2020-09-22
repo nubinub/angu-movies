@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import Movie from 'src/app/model/movie/movie';
+import { PosterService } from 'src/app/services/poster/poster.service';
 
 @Component({
   selector: 'movie-poster',
@@ -12,7 +13,10 @@ export class MoviePosterComponent implements OnChanges {
 
   moviePosterUrl: string;
 
+  constructor(private posterService: PosterService) {
+  }
+
   ngOnChanges() {
-    this.moviePosterUrl = this.movie ? `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}` : '';
+    this.moviePosterUrl = this.posterService.getMoviePosterUrl(this.movie);
   }
 }
