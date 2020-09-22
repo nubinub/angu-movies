@@ -12,10 +12,14 @@ export class MovieCardComponent implements OnChanges, OnInit {
   moviePosterUrl: string;
 
   ngOnInit(): void {
-    this.moviePosterUrl = this.movie ? `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}` : '';
+    this.updateMoviePosterUrl();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.moviePosterUrl = changes.movie.currentValue ? `https://image.tmdb.org/t/p/w500/${changes.movie.currentValue.poster_path}` : '';
+  ngOnChanges(): void {
+    this.updateMoviePosterUrl();
+  }
+
+  private updateMoviePosterUrl() {
+    this.moviePosterUrl = this.movie ? `https://image.tmdb.org/t/p/w500${this.movie.poster_path}` : '';
   }
 }

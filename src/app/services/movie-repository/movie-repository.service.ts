@@ -10,6 +10,8 @@ import { ApiKeyService } from '../api-key/api-key.service';
   providedIn: 'root'
 })
 export class MovieRepository {
+  private baseUrl = 'https://api.themoviedb.org/3/';
+
   constructor(private httpClient: HttpClient, private apiKeyService: ApiKeyService) {
   }
 
@@ -21,7 +23,7 @@ export class MovieRepository {
       .set('language', 'en-US')
       .set('page', '1')
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
-    return this.httpClient.get<PopularResponse>(`https://api.themoviedb.org/3/movie/popular`,
+    return this.httpClient.get<PopularResponse>(`${this.baseUrl}movie/popular`,
       {responseType: 'json', params}
     );
   }
@@ -35,7 +37,7 @@ export class MovieRepository {
     const params = new HttpParams()
       .set('language', 'en-US')
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
-    return this.httpClient.get<Movie>(`https://api.themoviedb.org/3/movie/${id}`,
+    return this.httpClient.get<Movie>(`${this.baseUrl}movie/${id}`,
       {responseType: 'json', params}
     );
   }
@@ -48,7 +50,7 @@ export class MovieRepository {
   getMovieCredits(id: number): Observable<CreditsResponse> {
     const params = new HttpParams()
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
-    return this.httpClient.get<CreditsResponse>(`https://api.themoviedb.org/3/movie/${id}/credits`,
+    return this.httpClient.get<CreditsResponse>(`${this.baseUrl}movie/${id}/credits`,
       {responseType: 'json', params}
     );
   }
@@ -65,7 +67,7 @@ export class MovieRepository {
       .set('includ_adult', 'false')
       .set('query', value);
 
-    return this.httpClient.get<PopularResponse>(`https://api.themoviedb.org/3/search/movie`,
+    return this.httpClient.get<PopularResponse>(`${this.baseUrl}search/movie`,
       {responseType: 'json', params}
     );
   }

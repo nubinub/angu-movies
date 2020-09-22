@@ -42,7 +42,7 @@ describe('MovieCardComponent', () => {
 
   it('should render an image with the given movie poster_path', () => {
     component.movie = movies[0];
-    component.ngOnChanges({movie: new SimpleChange(undefined,  movies[0], false)});
+    component.ngOnChanges();
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement; // 2
     const img = compiled.querySelector('img');

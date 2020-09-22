@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import Cast from 'src/app/model/cast/cast';
 
 @Component({
@@ -6,16 +6,23 @@ import Cast from 'src/app/model/cast/cast';
   templateUrl: './cast-card.component.html',
   styleUrls: ['./cast-card.component.scss']
 })
-export class CastCardComponent implements OnInit {
+export class CastCardComponent implements OnInit, OnChanges {
 
   @Input() cast: Cast;
+
+  profileUrl: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.updateProfileUrl();
   }
 
-  getProfileUrl() {
-    return this.cast ? `https://image.tmdb.org/t/p/w138_and_h175_face${this.cast.profile_path}` : ``;
+  ngOnChanges(): void {
+    this.updateProfileUrl();
+  }
+
+  private updateProfileUrl() {
+    this.profileUrl = this.cast ? `https://image.tmdb.org/t/p/w138_and_h175_face${this.cast.profile_path}` : ``;
   }
 }
