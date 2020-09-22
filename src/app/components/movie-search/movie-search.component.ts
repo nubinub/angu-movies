@@ -15,8 +15,6 @@ export class MovieSearchComponent implements OnInit, OnDestroy {
 
   @Output() search: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
-
   ngOnInit(): void {
     this.searchControlSub = this.searchControl.valueChanges.pipe(
       debounceTime(500)

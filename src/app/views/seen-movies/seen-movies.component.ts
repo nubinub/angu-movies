@@ -8,12 +8,11 @@ import Movie from 'src/app/model/movie/movie';
   styleUrls: ['./seen-movies.component.scss']
 })
 export class SeenMoviesComponent implements OnInit {
+  movies: Movie[];
+
   constructor(private seenListService: SeenListService) { }
 
   ngOnInit(): void {
-  }
-
-  getMovies(): Movie[] {
-    return this.seenListService.getList();
+    this.movies = this.seenListService.getList();
   }
 }

@@ -6,13 +6,6 @@ import Movie from 'src/app/model/movie/movie';
   templateUrl: './movie-info.component.html',
   styleUrls: ['./movie-info.component.scss']
 })
-export class MovieInfoComponent implements OnInit {
-
+export class MovieInfoComponent {
   @Input() movie: Movie;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

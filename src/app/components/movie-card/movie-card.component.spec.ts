@@ -7,6 +7,7 @@ import { ReleaseDatePipe } from 'src/app/pipes/release-date/release-date.pipe';
 import { MatCard, MatCardContent, MatCardHeader, MatCardActions, MatCardTitle } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { MockComponent } from 'ng-mocks';
+import { SimpleChange } from '@angular/core';
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -41,6 +42,7 @@ describe('MovieCardComponent', () => {
 
   it('should render an image with the given movie poster_path', () => {
     component.movie = movies[0];
+    component.ngOnChanges({movie: new SimpleChange(undefined,  movies[0], false)});
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement; // 2
     const img = compiled.querySelector('img');
