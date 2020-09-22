@@ -11,20 +11,19 @@ export class WatchListToggleComponent implements OnInit {
 
   @Input() movie: Movie;
 
+  toBeWatched: boolean;
+
   constructor(private watchListService: WatchListService) { }
 
   ngOnInit(): void {
-  }
-
-  toggleMovie(): void {
-    this.watchListService.toggleMovie(this.movie);
+    this.toBeWatched = this.watchListService.hasMovie(this.movie);
   }
 
   /**
-   * Returns true if the movie is in the seen list, false if not.
+   * Add the movie to the watch list if it not already in it, else removes it
    */
-  hasMovie(): boolean {
-    return this.watchListService.hasMovie(this.movie);
+  toggleMovie(): void {
+    this.watchListService.toggleMovie(this.movie);
+    this.toBeWatched = this.watchListService.hasMovie(this.movie);
   }
-
 }

@@ -1,4 +1,4 @@
 <button mat-icon-button (click)="toggleMovie()">
-  <mat-icon *ngIf="hasMovie(); else elseBlock" matTooltip="Remove from watch list"  matTooltipPosition="below" color="primary">tv_off</mat-icon>
+  <mat-icon *ngIf="toBeWatched; else elseBlock" matTooltip="Remove from watch list"  matTooltipPosition="below" color="primary">tv_off</mat-icon>
   <ng-template #elseBlock><mat-icon matTooltip="Add to watch list"  matTooltipPosition="below">tv</mat-icon></ng-template>
 </button>
