@@ -1,11 +1,11 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import PopularResponse from '../../model/popular-response/popular-response';
 import { Observable } from 'rxjs';
 import Movie from '../../model/movie/movie';
 import CreditsResponse from '../../model/credits-response/credits-response';
 import { ApiKeyService } from '../api-key/api-key.service';
 import SearchMovieResponse from 'src/app/model/search-movie-response/search-movie-response';
+import PopularMoviesResponse from 'src/app/model/popular-movies-response/popular-movies-response';
 
 export const MOVIE_API_BASE_URL = new InjectionToken<string>('API base url');
 
@@ -23,12 +23,12 @@ export class MovieRepository {
   /**
    * Calls themoviedb api to access popular movies.
    */
-  getPopular(): Observable<PopularResponse> {
+  getPopular(): Observable<PopularMoviesResponse> {
     const params = new HttpParams()
       .set('language', 'en-US')
       .set('page', '1')
       .set('api_key', this.apiKeyService.getKeyOrNavigate());
-    return this.httpClient.get<PopularResponse>(`${this.movieApiBaseUrl}movie/popular`,
+    return this.httpClient.get<PopularMoviesResponse>(`${this.movieApiBaseUrl}movie/popular`,
       {responseType: 'json', params}
     );
   }

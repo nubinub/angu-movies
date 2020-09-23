@@ -1,0 +1,24 @@
+.tv-show-card {
+    width: 150px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+
+    /* using ::ng-deeep selector, need to come up with a better solution in the future */
+    mat-card-header::ng-deep .mat-card-header-text {
+        margin: 0;
+
+        .mat-card-title {
+        font-size: 15px;
+        }
+    }
+
+    .info-content {
+        margin-bottom: 1rem;
+        .material-icons {
+        vertical-align: bottom;
+        margin-right: 1rem;
+        font-weight: bold;
+        }
+    }
+}
+  

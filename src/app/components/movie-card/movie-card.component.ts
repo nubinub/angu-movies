@@ -27,6 +27,6 @@ export class MovieCardComponent implements OnChanges, OnInit {
    * Update the moviePosterUrl variable accodring to the movie
    */
   private updateMoviePosterUrl() {
-    this.moviePosterUrl = this.posterService.getMoviePosterUrl(this.movie);
+    this.moviePosterUrl = this.posterService.getMediaPosterUrl(this.movie);
   }
 }

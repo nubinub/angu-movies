@@ -17,6 +17,6 @@ export class MoviePosterComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    this.moviePosterUrl = this.posterService.getMoviePosterUrl(this.movie);
+    this.moviePosterUrl = this.posterService.getMediaPosterUrl(this.movie);
   }
 }

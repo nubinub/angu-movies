@@ -19,8 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { RuntimePipe } from './pipes/runtime/runtime.pipe';
 import { ReleaseDatePipe } from './pipes/release-date/release-date.pipe';
-import { MoviesListComponent } from './components/movies-list/movies-list.component';
-import { MoviesComponent } from './views/movies/movies.component';
+import { MediasComponent } from './views/medias/medias.component';
 import { MovieComponent } from './views/movie/movie.component';
 import { MoviePosterComponent } from './components/movie-poster/movie-poster.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
@@ -34,6 +33,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SettingsComponent } from './views/settings/settings.component';
 import { MOVIE_API_BASE_URL } from './services/movie-repository/movie-repository.service';
 import { IMAGE_BASE_URL } from './services/poster/poster.service';
+import { TvShowCardComponent } from './components/tv-show-card/tv-show-card.component';
+import { MediasListComponent } from './components/medias-list/medias-list.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,8 @@ import { IMAGE_BASE_URL } from './services/poster/poster.service';
     MovieCardComponent,
     RuntimePipe,
     ReleaseDatePipe,
-    MoviesListComponent,
-    MoviesComponent,
+    MediasListComponent,
+    MediasComponent,
     MovieComponent,
     MoviePosterComponent,
     MovieInfoComponent,
@@ -54,6 +55,7 @@ import { IMAGE_BASE_URL } from './services/poster/poster.service';
     SeenListToggleComponent,
     NavBarComponent,
     SettingsComponent,
+    TvShowCardComponent,
   ],
   imports: [
     BrowserModule,

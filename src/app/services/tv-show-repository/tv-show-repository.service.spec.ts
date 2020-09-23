@@ -3,10 +3,10 @@ import { TestBed } from '@angular/core/testing';
 import { ApiKeyService } from '../api-key/api-key.service';
 import { MOVIE_API_BASE_URL } from '../movie-repository/movie-repository.service';
 
-import { TvShowRepositoryService } from './tv-show-repository.service';
+import { TvShowRepository } from './tv-show-repository.service';
 
 describe('TvShowRepositoryService', () => {
-  let service: TvShowRepositoryService;
+  let service: TvShowRepository;
 
   beforeEach(() => {
     const spy = jasmine.createSpyObj('ApiKeyService', ['getKeyOrNavigate']);
@@ -18,7 +18,7 @@ describe('TvShowRepositoryService', () => {
         {provide: MOVIE_API_BASE_URL, useValue: 'movie-api'},
       ]
     });
-    service = TestBed.inject(TvShowRepositoryService);
+    service = TestBed.inject(TvShowRepository);
   });
 
   it('should be created', () => {

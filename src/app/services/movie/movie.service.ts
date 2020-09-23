@@ -4,6 +4,7 @@ import Movie from '../../model/movie/movie';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Cast from '../../model/cast/cast';
+import EType from 'src/app/model/type/type-enum';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class MovieService {
   getDefaultMovies(): Observable<Movie[]> {
     return this.repository.getPopular().pipe(
       map(
-        response => response.results
+        response => response.results.map((m) => ({...m, type: EType.Movie}))
       )
     );
   }
@@ -50,7 +51,7 @@ export class MovieService {
   searchMovies(value: string): Observable<Movie[]> {
     return this.repository.search(value).pipe(
       map(
-        response => response.results
+        response => response.results.map((m) => ({...m, type: EType.Movie}))
       )
     );
   }

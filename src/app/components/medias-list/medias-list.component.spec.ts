@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MoviesListComponent } from './movies-list.component';
+import { MediasListComponent } from './medias-list.component';
 import { MockComponent, MockModule } from 'ng-mocks';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import movies from 'src/testing/mock/movies-mock';
@@ -9,14 +9,14 @@ import { MovieService } from 'src/app/services/movie/movie.service';
 import { of } from 'rxjs';
 
 describe('MoviesListComponent', () => {
-  let component: MoviesListComponent;
-  let fixture: ComponentFixture<MoviesListComponent>;
+  let component: MediasListComponent;
+  let fixture: ComponentFixture<MediasListComponent>;
 
   beforeEach(async(() => {
     const spy = jasmine.createSpyObj('MovieService', ['getDefaultMovies']);
     spy.getDefaultMovies.and.returnValue(of(movies));
     TestBed.configureTestingModule({
-      declarations: [ MoviesListComponent, MockComponent(MovieCardComponent)],
+      declarations: [ MediasListComponent, MockComponent(MovieCardComponent)],
       providers: [
         { provide: MovieService, useValue: spy}
       ]
@@ -25,7 +25,7 @@ describe('MoviesListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MoviesListComponent);
+    fixture = TestBed.createComponent(MediasListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -35,7 +35,7 @@ describe('MoviesListComponent', () => {
   });
 
   it('should render n movie-card', () => {
-    component.movies = movies;
+    component.items = movies;
     fixture.detectChanges();
     const cards = fixture.debugElement.queryAll(By.css('movie-card'));
     expect(cards.length).toEqual(movies.length);

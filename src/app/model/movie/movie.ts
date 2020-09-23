@@ -1,4 +1,5 @@
 import Genre from '../genre/genre';
+import EType from '../type/type-enum';
 
 interface Movie {
   id: number;
@@ -8,6 +9,7 @@ interface Movie {
   runtime?: number;
   overview: string;
   genres?: Genre[];
+  type: EType.Movie;
 }
 
 export default Movie;

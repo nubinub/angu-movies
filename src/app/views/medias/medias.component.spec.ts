@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MoviesComponent } from './movies.component';
+import { MediasComponent } from './medias.component';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { of } from 'rxjs';
 import movies from 'src/testing/mock/movies-mock';
 import { MovieService } from 'src/app/services/movie/movie.service';
 
 describe('MoviesComponent', () => {
-  let component: MoviesComponent;
-  let fixture: ComponentFixture<MoviesComponent>;
+  let component: MediasComponent;
+  let fixture: ComponentFixture<MediasComponent>;
 
   beforeEach(async(() => {
     const spy = jasmine.createSpyObj('MovieService', ['getDefaultMovies']);
     spy.getDefaultMovies.and.returnValue(of(movies));
     TestBed.configureTestingModule({
-      declarations: [ MoviesComponent ],
+      declarations: [ MediasComponent ],
       providers: [{
         provide: MovieService, useValue: spy
       }],
@@ -24,7 +24,7 @@ describe('MoviesComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MoviesComponent);
+    fixture = TestBed.createComponent(MediasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
