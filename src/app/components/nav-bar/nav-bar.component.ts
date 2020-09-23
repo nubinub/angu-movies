@@ -18,7 +18,7 @@ export class NavBarComponent implements OnInit {
   constructor(private location: Location, private router: Router) { }
 
   private isMovieDetailPage(): boolean  {
-    return !!this.router.url.match('movies/[0-9]+');
+    return !!this.router.url.match('movies/[0-9]+|tv/[0-9]+');
   }
 
   ngOnInit(): void {

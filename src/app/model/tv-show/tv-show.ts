@@ -1,5 +1,4 @@
-import { TvShowService } from 'src/app/services/tv-show/tv-show.service';
-import Movie from '../movie/movie';
+import Genre from '../genre/genre';
 import EType from '../type/type-enum';
 
 interface TvShow {
@@ -9,6 +8,7 @@ interface TvShow {
     first_air_date: string;
     overview: string;
     type: EType.TvShow;
+    genres?: Genre[];
 }
 
 export default TvShow;

@@ -1,0 +1,11 @@
+.tv-show-view {
+    .tv-show-casting-list, .tv-show-info {
+        display: flex;
+        cast-card, media-poster {
+        margin-right: 1rem;
+        }
+    }
+    .tv-show-info {
+        margin-bottom: 1rem;
+    }
+}

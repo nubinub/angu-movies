@@ -22,7 +22,6 @@ import { RuntimePipe } from './pipes/runtime/runtime.pipe';
 import { ReleaseDatePipe } from './pipes/release-date/release-date.pipe';
 import { MediasComponent } from './views/medias/medias.component';
 import { MovieComponent } from './views/movie/movie.component';
-import { MoviePosterComponent } from './components/movie-poster/movie-poster.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { CastCardComponent } from './components/cast-card/cast-card.component';
 import { MediaSearchComponent } from './components/media-search/media-search.component';
@@ -36,6 +35,8 @@ import { TvShowCardComponent } from './components/tv-show-card/tv-show-card.comp
 import { MediasListComponent } from './components/medias-list/medias-list.component';
 import { SeenListComponent } from './views/seen-list/seen-list.component';
 import { WatchListComponent } from './views/watch-list/watch-list.component';
+import { MediaPosterComponent } from './components/media-poster/media-poster.component';
+import { TvShowComponent } from './views/tv-show/tv-show.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { WatchListComponent } from './views/watch-list/watch-list.component';
     MediasListComponent,
     MediasComponent,
     MovieComponent,
-    MoviePosterComponent,
+    MediaPosterComponent,
     MovieInfoComponent,
     CastCardComponent,
     MediaSearchComponent,
@@ -57,6 +58,7 @@ import { WatchListComponent } from './views/watch-list/watch-list.component';
     NavBarComponent,
     SettingsComponent,
     TvShowCardComponent,
+    TvShowComponent,
   ],
   imports: [
     BrowserModule,

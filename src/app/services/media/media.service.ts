@@ -19,4 +19,16 @@ export class MediaService {
       return this.tvShowService.searchTvShows(searchParams.query);
     }
   }
+
+  /**
+   * Get the title from the given media according to its type
+   * @param media Media
+   */
+  getTitle(media: Media) {
+    if (media.type === EType.Movie) {
+      return media.original_title;
+    } else if (media.type === EType.TvShow) {
+      return media.original_name;
+    }
+  }
 }

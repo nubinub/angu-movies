@@ -29,7 +29,11 @@ export class MovieService {
    * @param id Movie id
    */
   getMovie(id: number): Observable<Movie> {
-    return this.repository.getById(id);
+    return this.repository.getById(id).pipe(
+      map(
+        response => ({...response, type: EType.Movie})
+      )
+    );
   }
 
   /**

@@ -1,18 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MediaService } from 'src/app/services/media/media.service';
 import { MOVIE_API_BASE_URL } from 'src/app/services/movie-repository/movie-repository.service';
 import { IMAGE_BASE_URL } from 'src/app/services/poster/poster.service';
 
-import { MoviePosterComponent } from './movie-poster.component';
+import { MediaPosterComponent } from './media-poster.component';
 
-describe('MoviePosterComponent', () => {
-  let component: MoviePosterComponent;
-  let fixture: ComponentFixture<MoviePosterComponent>;
+describe('MediaPosterComponent', () => {
+  let component: MediaPosterComponent;
+  let fixture: ComponentFixture<MediaPosterComponent>;
 
   beforeEach(async(() => {
+    const spy = jasmine.createSpyObj('MediaService', ['getMediaPosterUrl', 'getTitle']);
     TestBed.configureTestingModule({
-      declarations: [ MoviePosterComponent ],
+      declarations: [ MediaPosterComponent ],
       providers: [
-        { provide: MOVIE_API_BASE_URL, useValue: 'movie-api' },
+        { provide: MediaService, useValue: spy },
         { provide: IMAGE_BASE_URL, useValue: 'image-api' },
       ]
     })
@@ -20,7 +22,7 @@ describe('MoviePosterComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MoviePosterComponent);
+    fixture = TestBed.createComponent(MediaPosterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

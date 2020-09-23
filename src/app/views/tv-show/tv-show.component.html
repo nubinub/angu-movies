@@ -1,0 +1,12 @@
+<div class="tv-show-view" *ngIf="tvShow">
+    <div class="tv-show-info">
+        <media-poster [media]="tvShow"></media-poster>
+    </div>
+    <div class="tv-show-casting">
+        <h2>Casting</h2>
+        <div class="tv-show-casting-list">
+        <cast-card *ngFor="let cast of casts" [cast]="cast"></cast-card>
+        </div>
+    </div>
+</div>
+  
