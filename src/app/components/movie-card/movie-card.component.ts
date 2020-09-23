@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import Movie from 'src/app/model/movie/movie';
 import { PosterService } from 'src/app/services/poster/poster.service';
 
@@ -7,7 +7,7 @@ import { PosterService } from 'src/app/services/poster/poster.service';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-export class MovieCardComponent implements OnChanges, OnInit {
+export class MovieCardComponent implements OnChanges {
   @Input() movie: Movie;
 
   moviePosterUrl: string;
@@ -15,18 +15,7 @@ export class MovieCardComponent implements OnChanges, OnInit {
   constructor(private posterService: PosterService) {
   }
 
-  ngOnInit(): void {
-    this.updateMoviePosterUrl();
-  }
-
   ngOnChanges(): void {
-    this.updateMoviePosterUrl();
-  }
-
-  /**
-   * Update the moviePosterUrl variable accodring to the movie
-   */
-  private updateMoviePosterUrl() {
     this.moviePosterUrl = this.posterService.getMediaPosterUrl(this.movie);
   }
 }
