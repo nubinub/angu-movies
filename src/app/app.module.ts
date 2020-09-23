@@ -12,6 +12,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +25,7 @@ import { MovieComponent } from './views/movie/movie.component';
 import { MoviePosterComponent } from './components/movie-poster/movie-poster.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { CastCardComponent } from './components/cast-card/cast-card.component';
-import { MovieSearchComponent } from './components/movie-search/movie-search.component';
+import { MediaSearchComponent } from './components/media-search/media-search.component';
 import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
 import { WatchMoviesComponent } from './views/watch-movies/watch-movies.component';
 import { WatchListToggleComponent } from './components/watch-list-toggle/watch-list-toggle.component';
@@ -48,7 +49,7 @@ import { MediasListComponent } from './components/medias-list/medias-list.compon
     MoviePosterComponent,
     MovieInfoComponent,
     CastCardComponent,
-    MovieSearchComponent,
+    MediaSearchComponent,
     SeenMoviesComponent,
     WatchMoviesComponent,
     WatchListToggleComponent,
@@ -75,6 +76,7 @@ import { MediasListComponent } from './components/medias-list/medias-list.compon
     MatTooltipModule,
     MatSidenavModule,
     MatListModule,
+    MatRadioModule,
   ],
   providers: [
     {provide: MOVIE_API_BASE_URL, useValue: 'https://api.themoviedb.org/3/'},

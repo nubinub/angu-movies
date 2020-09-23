@@ -8,18 +8,13 @@ import { By } from '@angular/platform-browser';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { of } from 'rxjs';
 
-describe('MoviesListComponent', () => {
+describe('MediasListComponent', () => {
   let component: MediasListComponent;
   let fixture: ComponentFixture<MediasListComponent>;
 
   beforeEach(async(() => {
-    const spy = jasmine.createSpyObj('MovieService', ['getDefaultMovies']);
-    spy.getDefaultMovies.and.returnValue(of(movies));
     TestBed.configureTestingModule({
       declarations: [ MediasListComponent, MockComponent(MovieCardComponent)],
-      providers: [
-        { provide: MovieService, useValue: spy}
-      ]
     })
     .compileComponents();
   }));

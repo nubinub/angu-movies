@@ -49,10 +49,14 @@ export class MovieService {
    * @param value Search value
    */
   searchMovies(value: string): Observable<Movie[]> {
-    return this.repository.search(value).pipe(
-      map(
-        response => response.results.map((m) => ({...m, type: EType.Movie}))
-      )
-    );
+    if (value) {
+      return this.repository.search(value).pipe(
+        map(
+          response => response.results.map((m) => ({...m, type: EType.Movie}))
+        )
+      );
+    } else {
+      return this.getDefaultMovies();
+    }
   }
 }

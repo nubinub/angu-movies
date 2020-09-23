@@ -15,11 +15,15 @@ export class TvShowService {
   constructor(private tvShowRepository: TvShowRepository) { }
 
   searchTvShows(value: string): Observable<TvShow[]> {
-    return this.tvShowRepository.search(value).pipe(
-      map(
-        response => response.results.map(mapTvShow)
-      )
-    );
+    if (value) {
+      return this.tvShowRepository.search(value).pipe(
+        map(
+          response => response.results.map(mapTvShow)
+        )
+      );
+    } else {
+      return this.getDefaultTvShows();
+    }
   }
 
   getDefaultTvShows(): Observable<TvShow[]> {

@@ -4,19 +4,19 @@ import { MediasComponent } from './medias.component';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { of } from 'rxjs';
 import movies from 'src/testing/mock/movies-mock';
-import { MovieService } from 'src/app/services/movie/movie.service';
+import { MediaService } from 'src/app/services/media/media.service';
 
-describe('MoviesComponent', () => {
+describe('MediasComponent', () => {
   let component: MediasComponent;
   let fixture: ComponentFixture<MediasComponent>;
 
   beforeEach(async(() => {
-    const spy = jasmine.createSpyObj('MovieService', ['getDefaultMovies']);
-    spy.getDefaultMovies.and.returnValue(of(movies));
+    const spy = jasmine.createSpyObj('MediaService', ['search']);
+    spy.search.and.returnValue(of(movies));
     TestBed.configureTestingModule({
       declarations: [ MediasComponent ],
       providers: [{
-        provide: MovieService, useValue: spy
+        provide: MediaService, useValue: spy
       }],
       schemas: [ NO_ERRORS_SCHEMA ]
     })

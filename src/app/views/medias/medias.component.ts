@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from 'src/app/services/movie/movie.service';
-import { TvShowService } from 'src/app/services/tv-show/tv-show.service';
 import { Media } from 'src/app/model/media/media';
 import SearchParams from 'src/app/model/search-params/search-params';
+import EType from 'src/app/model/type/type-enum';
+import { MediaService } from 'src/app/services/media/media.service';
 
 @Component({
   selector: 'app-medias',
@@ -12,29 +12,13 @@ import SearchParams from 'src/app/model/search-params/search-params';
 export class MediasComponent implements OnInit {
   public items: Media[] = [];
 
-  constructor(private movieService: MovieService) { }
+  constructor(private mediaService: MediaService) { }
 
   ngOnInit(): void {
-    this.movieService.getDefaultMovies().subscribe({
-      next: (movies) => {
-        this.items = movies;
-      }
-    });
+    this.mediaService.search({type: EType.Movie}).subscribe((medias) => this.items = medias);
   }
 
   onSearch(searchParams: SearchParams): void {
-    if (searchParams.query) {
-      this.movieService.searchMovies(searchParams.query).subscribe({
-        next: (movies) => {
-          this.items = movies;
-        }
-      });
-    } else {
-      this.movieService.getDefaultMovies().subscribe({
-        next: (movies) => {
-          this.items = movies;
-        }
-      });
-    }
+   this.mediaService.search(searchParams).subscribe((medias) => this.items = medias);
   }
 }

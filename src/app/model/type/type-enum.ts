@@ -3,4 +3,9 @@ enum EType {
     TvShow = 'TvShow',
 }
 
+export const types = [
+    EType.Movie,
+    EType.TvShow,
+];
+
 export default EType;
