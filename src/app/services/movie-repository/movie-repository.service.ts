@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import Movie from '../../model/movie/movie';
 import CreditsResponse from '../../model/credits-response/credits-response';
 import { ApiKeyService } from '../api-key/api-key.service';
+import SearchMovieResponse from 'src/app/model/search-movie-response/search-movie-response';
 
 export const MOVIE_API_BASE_URL = new InjectionToken<string>('API base url');
 
@@ -63,7 +64,7 @@ export class MovieRepository {
    * Returns the list of the movies matching the given value.
    * @param value Search value
    */
-  search(value: string): Observable<PopularResponse> {
+  search(value: string): Observable<SearchMovieResponse> {
     const params = new HttpParams()
       .set('api_key', this.apiKeyService.getKeyOrNavigate())
       .set('language', 'en-US')
@@ -71,7 +72,7 @@ export class MovieRepository {
       .set('includ_adult', 'false')
       .set('query', value);
 
-    return this.httpClient.get<PopularResponse>(`${this.movieApiBaseUrl}search/movie`,
+    return this.httpClient.get<SearchMovieResponse>(`${this.movieApiBaseUrl}search/movie`,
       {responseType: 'json', params}
     );
   }
