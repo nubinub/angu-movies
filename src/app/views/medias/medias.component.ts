@@ -16,8 +16,8 @@ export class MediasComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getDefaultMovies().subscribe({
-      next: (tvShows) => {
-        this.items = tvShows;
+      next: (movies) => {
+        this.items = movies;
       }
     });
   }
