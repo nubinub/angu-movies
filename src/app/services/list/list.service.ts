@@ -1,14 +1,14 @@
 import { Injectable, InjectionToken } from '@angular/core';
-import Movie from '../../model/movie/movie';
+import { Media } from 'src/app/model/media/media';
 
 export const WATCH_LIST_SERVICE = new InjectionToken<ListService>('Watch list service', {
   providedIn: 'root',
   factory: () => new ListService('watch-list'),
 });
 
-export const SEEN_MOVIES_SERVICE = new InjectionToken<ListService>('Watch list service', {
+export const SEEN_LIST_SERVICE = new InjectionToken<ListService>('Watch list service', {
   providedIn: 'root',
-  factory: () => new ListService('seen-movies')
+  factory: () => new ListService('seen-list')
 });
 
 @Injectable({
@@ -17,7 +17,7 @@ export const SEEN_MOVIES_SERVICE = new InjectionToken<ListService>('Watch list s
 })
 export class ListService {
 
-  private list: Movie[];
+  private list: Media[];
 
   private key: string;
 
@@ -34,22 +34,22 @@ export class ListService {
   }
 
   /**
-   * Add the given movie to the list and persist the list.
+   * Add the given media to the list and persist the list.
    *
-   * @param movie Movie to be added
+   * @param media Movie to be added
    */
-  private _addMovie(movie: Movie): void {
-    this.list.push(movie);
+  private _addMedia(media: Media): void {
+    this.list.push(media);
     this._persist();
   }
 
   /**
-   * Remove the given movie from the list, and persist the list.
+   * Remove the given media from the list, and persist the list.
    *
-   * @param movie Movie to be removed
+   * @param media Media to be removed
    */
-  private _removeMovie(movie: Movie): void {
-    const index = this.list.findIndex((m) => m.id === movie.id);
+  private _removeMedia(media: Media): void {
+    const index = this.list.findIndex((m) => m.id === media.id && m.type === media.type);
     if (index !== -1) {
       this.list.splice(index, 1);
     }
@@ -57,30 +57,30 @@ export class ListService {
   }
 
   /**
-   * Add the movie to the list if not already in it, esle remove it from the list.
-   * @param movie Movie to be toggle
+   * Add the media to the list if not already in it, esle remove it from the list.
+   * @param media Media to be toggled
    */
-  toggleMovie(movie: Movie) {
-    if (this.hasMovie(movie)) {
-      this._removeMovie(movie);
+  toggleMedia(media: Media) {
+    if (this.hasMedia(media)) {
+      this._removeMedia(media);
     } else {
-      this._addMovie(movie);
+      this._addMedia(media);
     }
   }
 
   /**
-   * Reutrn true if the given movie is already in the list, false if not.
+   * Reutrn true if the given media is already in the list, false if not.
    *
-   * @param movie Movie to check
+   * @param media Media to check
    */
-  hasMovie(movie: Movie): boolean {
-    return !!movie && !!this.list.find(m => m.id === movie.id);
+  hasMedia(media: Media): boolean {
+    return !!media && !!this.list.find(m => m.id === media.id && m.type === media.type);
   }
 
   /**
    * Returns the list
    */
-  getList(): Movie[] {
+  getList(): Media[] {
     return this.list;
   }
 }

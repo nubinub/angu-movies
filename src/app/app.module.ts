@@ -26,8 +26,6 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { CastCardComponent } from './components/cast-card/cast-card.component';
 import { MediaSearchComponent } from './components/media-search/media-search.component';
-import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
-import { WatchMoviesComponent } from './views/watch-movies/watch-movies.component';
 import { WatchListToggleComponent } from './components/watch-list-toggle/watch-list-toggle.component';
 import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list-toggle.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -36,6 +34,8 @@ import { MOVIE_API_BASE_URL } from './services/movie-repository/movie-repository
 import { IMAGE_BASE_URL } from './services/poster/poster.service';
 import { TvShowCardComponent } from './components/tv-show-card/tv-show-card.component';
 import { MediasListComponent } from './components/medias-list/medias-list.component';
+import { SeenListComponent } from './views/seen-list/seen-list.component';
+import { WatchListComponent } from './views/watch-list/watch-list.component';
 
 @NgModule({
   declarations: [
@@ -50,8 +50,8 @@ import { MediasListComponent } from './components/medias-list/medias-list.compon
     MovieInfoComponent,
     CastCardComponent,
     MediaSearchComponent,
-    SeenMoviesComponent,
-    WatchMoviesComponent,
+    SeenListComponent,
+    WatchListComponent,
     WatchListToggleComponent,
     SeenListToggleComponent,
     NavBarComponent,
