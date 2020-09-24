@@ -37,6 +37,7 @@ import { SeenListComponent } from './views/seen-list/seen-list.component';
 import { WatchListComponent } from './views/watch-list/watch-list.component';
 import { MediaPosterComponent } from './components/media-poster/media-poster.component';
 import { TvShowComponent } from './views/tv-show/tv-show.component';
+import { TvShowInfoComponent } from './components/tv-show-info/tv-show-info.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { TvShowComponent } from './views/tv-show/tv-show.component';
     SettingsComponent,
     TvShowCardComponent,
     TvShowComponent,
+    TvShowInfoComponent,
   ],
   imports: [
     BrowserModule,

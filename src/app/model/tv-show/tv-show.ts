@@ -9,6 +9,8 @@ interface TvShow {
     overview: string;
     type: EType.TvShow;
     genres?: Genre[];
+    number_of_episodes?: number;
+    number_of_seasons?: number;
 }
 
 export default TvShow;
