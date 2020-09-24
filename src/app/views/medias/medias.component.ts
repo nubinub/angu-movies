@@ -16,4 +16,8 @@ export class MediasComponent {
   onSearch(searchParams: SearchParams): void {
    this.mediaService.search(searchParams).subscribe((medias) => this.items = medias);
   }
+
+  onAttach() {
+    this.items = this.items.map((media) => ({...media}));
+  }
 }

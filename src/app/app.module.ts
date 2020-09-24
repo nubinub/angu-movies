@@ -38,6 +38,8 @@ import { WatchListComponent } from './views/watch-list/watch-list.component';
 import { MediaPosterComponent } from './components/media-poster/media-poster.component';
 import { TvShowComponent } from './views/tv-show/tv-show.component';
 import { TvShowInfoComponent } from './components/tv-show-info/tv-show-info.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { CacheRouteReuseStrategy } from './strategies/cache-route-reuse-strategy';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,10 @@ import { TvShowInfoComponent } from './components/tv-show-info/tv-show-info.comp
     MatRadioModule,
   ],
   providers: [
+    {
+      provide: RouteReuseStrategy,
+      useClass: CacheRouteReuseStrategy,
+    },
     {provide: MOVIE_API_BASE_URL, useValue: 'https://api.themoviedb.org/3/'},
     {provide: IMAGE_BASE_URL, useValue: 'https://image.tmdb.org/'},
   ],
