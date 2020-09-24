@@ -10,6 +10,7 @@ import { MockComponent } from 'ng-mocks';
 import { SimpleChange } from '@angular/core';
 import { MOVIE_API_BASE_URL } from 'src/app/services/movie-repository/movie-repository.service';
 import { IMAGE_BASE_URL } from 'src/app/services/poster/poster.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -17,6 +18,9 @@ describe('MovieCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         MovieCardComponent,
         RuntimePipe,

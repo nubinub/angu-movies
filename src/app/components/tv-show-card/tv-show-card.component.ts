@@ -1,4 +1,6 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, ViewChild } from '@angular/core';
+import { MatTooltip } from '@angular/material/tooltip';
+import { Router } from '@angular/router';
 import TvShow from 'src/app/model/tv-show/tv-show';
 import { PosterService } from 'src/app/services/poster/poster.service';
 
@@ -13,9 +15,16 @@ export class TvShowCardComponent implements OnChanges {
 
   tvShowPosterUrl: string;
 
-  constructor(private posterService: PosterService) { }
+  @ViewChild(MatTooltip) tooltip: MatTooltip;
+
+  constructor(private posterService: PosterService, private router: Router) { }
 
   ngOnChanges(): void {
     this.tvShowPosterUrl = this.posterService.getMediaPosterUrl(this.tvShow);
+  }
+
+  goToTvShow() {
+    this.tooltip.ngOnDestroy();
+    this.router.navigate(['tv', this.tvShow.id]);
   }
 }
