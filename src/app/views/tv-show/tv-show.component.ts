@@ -32,7 +32,7 @@ export class TvShowComponent implements OnInit {
     ).subscribe(
       ([tvShow, casts]) => {
         this.tvShow = tvShow;
-        this.casts = casts;
+        this.casts = casts.slice(0, 5);
       }
     );
   }
