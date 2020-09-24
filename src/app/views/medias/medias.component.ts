@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Media } from 'src/app/model/media/media';
-import SearchParams from 'src/app/model/search-params/search-params';
+import { SearchParams } from 'src/app/model/search-params/search-params';
 import { MediaService } from 'src/app/services/media/media.service';
 
 @Component({

@@ -8,4 +8,8 @@
       {{type}}
     </mat-radio-button>
   </mat-radio-group>
+  <mat-form-field appearance="outline" class="media-search-group">
+    <mat-label>Year</mat-label>
+    <input matInput placeholder="Year" [formControl]="yearControl" type="number">
+  </mat-form-field>
 </form>

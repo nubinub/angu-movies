@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Cast from 'src/app/model/cast/cast';
+import { SearchParams } from 'src/app/model/search-params/search-params';
 import TvShow from 'src/app/model/tv-show/tv-show';
 import EType from 'src/app/model/type/type-enum';
 import { TvShowRepository } from '../tv-show-repository/tv-show-repository.service';
@@ -15,9 +16,12 @@ export class TvShowService {
 
   constructor(private tvShowRepository: TvShowRepository) { }
 
-  searchTvShows(value: string): Observable<TvShow[]> {
-    if (value) {
-      return this.tvShowRepository.search(value).pipe(
+  searchTvShows(searchParams: SearchParams): Observable<TvShow[]> {
+    if (searchParams && searchParams.query) {
+      return this.tvShowRepository.search({
+        query: searchParams.query,
+        first_air_date_year: searchParams.year,
+      }).pipe(
         map(
           response => response.results.map(mapTvShow)
         )

@@ -6,6 +6,7 @@ import CreditsResponse from '../../model/credits-response/credits-response';
 import { ApiKeyService } from '../api-key/api-key.service';
 import SearchMovieResponse from 'src/app/model/search-movie-response/search-movie-response';
 import PopularMoviesResponse from 'src/app/model/popular-movies-response/popular-movies-response';
+import { MoviesSearchParams } from 'src/app/model/search-params/search-params';
 
 export const MOVIE_API_BASE_URL = new InjectionToken<string>('API base url');
 
@@ -62,15 +63,19 @@ export class MovieRepository {
 
   /**
    * Returns the list of the movies matching the given value.
-   * @param value Search value
+   * @param searchParams Search parameters
    */
-  search(value: string): Observable<SearchMovieResponse> {
-    const params = new HttpParams()
+  search(searchParams: MoviesSearchParams): Observable<SearchMovieResponse> {
+    let params = new HttpParams()
       .set('api_key', this.apiKeyService.getKeyOrNavigate())
       .set('language', 'en-US')
       .set('page', '1')
       .set('includ_adult', 'false')
-      .set('query', value);
+      .set('query', searchParams.query);
+
+    if (searchParams.primary_release_year) {
+      params = params.set('primary_release_year', searchParams.primary_release_year.toString());
+    }
 
     return this.httpClient.get<SearchMovieResponse>(`${this.movieApiBaseUrl}search/movie`,
       {responseType: 'json', params}

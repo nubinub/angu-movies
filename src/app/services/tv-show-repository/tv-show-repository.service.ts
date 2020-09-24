@@ -3,6 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import CreditsResponse from 'src/app/model/credits-response/credits-response';
 import PopularTvShowsResponse from 'src/app/model/popular-tv-shows-response/popular-tv-shows-response';
+import { TvShowsSearchParams } from 'src/app/model/search-params/search-params';
 import SearchTvResponse from 'src/app/model/search-tv-response/search-tv-response';
 import TvShow from 'src/app/model/tv-show/tv-show';
 import { ApiKeyService } from '../api-key/api-key.service';
@@ -21,15 +22,19 @@ export class TvShowRepository {
 
   /**
    * Returns the list of the tv shows matching the given value.
-   * @param value Search value
+   * @param searchParams Search parameters
    */
-  search(value: string): Observable<SearchTvResponse> {
-    const params = new HttpParams()
+  search(searchParams: TvShowsSearchParams): Observable<SearchTvResponse> {
+    let params = new HttpParams()
       .set('api_key', this.apiKeyService.getKeyOrNavigate())
       .set('language', 'en-US')
       .set('page', '1')
       .set('includ_adult', 'false')
-      .set('query', value);
+      .set('query', searchParams.query);
+
+    if (searchParams.first_air_date_year) {
+      params = params.set('first_air_date_year', searchParams.first_air_date_year.toString());
+    }
 
     return this.httpClient.get<SearchTvResponse>(`${this.movieApiBaseUrl}search/tv`,
       {responseType: 'json', params}
