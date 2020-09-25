@@ -1,12 +1,12 @@
-<div class="tv-show-view" *ngIf="tvShow">
+<div class="tv-show-view" *ngIf="data$ | async as data">
     <div class="tv-show-info">
-        <media-poster [media]="tvShow"></media-poster>
-        <tv-show-info [tvShow]="tvShow"></tv-show-info>
+        <media-poster [media]="data[0]"></media-poster>
+        <tv-show-info [tvShow]="data[0]"></tv-show-info>
     </div>
     <div class="tv-show-casting">
         <h2>Casting</h2>
         <div class="tv-show-casting-list">
-        <cast-card *ngFor="let cast of casts" [cast]="cast"></cast-card>
+        <cast-card *ngFor="let cast of data[1] | slice:0:5" [cast]="cast"></cast-card>
         </div>
     </div>
 </div>
