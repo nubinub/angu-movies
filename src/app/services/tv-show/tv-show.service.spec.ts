@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { casts } from 'src/testing/mock/casts.mock';
-import tvShows from 'src/testing/mock/tv-shows-mock';
+import { tvShows } from 'src/testing/mock/tv-shows-mock';
 import { TvShowRepository } from '../tv-show-repository/tv-show-repository.service';
 
 import { TvShowService } from './tv-show.service';
