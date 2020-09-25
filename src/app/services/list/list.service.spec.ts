@@ -1,9 +1,8 @@
-import { TestBed } from '@angular/core/testing';
 import movies from 'src/testing/mock/movies-mock';
 
 import { ListService } from './list.service';
 
-describe('ListService', () => {
+describe('Services: ListService', () => {
     let service: ListService;
 
     beforeEach(() => {
@@ -11,17 +10,13 @@ describe('ListService', () => {
         service = new ListService('test');
     });
 
-    it('should be created', () => {
-        expect(service).toBeTruthy();
-    });
-
-    describe('getList', () => {
+    describe('#getList', () => {
         it('should have an empty list by default', () => {
             expect(service.getList().length).toBe(0);
         });
     });
 
-    describe('toggleMedia', () => {
+    describe('#toggleMedia', () => {
         it('should add the given media to the list', () => {
             service.toggleMedia(movies[0]);
             const list = service.getList();
@@ -44,7 +39,7 @@ describe('ListService', () => {
         });
     });
 
-    describe('hasMedia', () => {
+    describe('#hasMedia', () => {
         it('should return true if the given movie is in the list', () => {
             (service as any).list = [...movies];
             expect(service.hasMedia(movies[3])).toBeTrue();

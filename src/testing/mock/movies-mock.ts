@@ -1,7 +1,8 @@
+import TvShow from 'src/app/model/tv-show/tv-show';
 import EType from 'src/app/model/type/type-enum';
 import Movie from '../../app/model/movie/movie';
 
-const movies: Movie[] = [
+export const movies: Movie[] = [
   {
     poster_path: '/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg',
     id: 454626,
