@@ -21,9 +21,9 @@ export class WatchListToggleComponent implements OnChanges {
   }
 
   /**
-   * Add the movie to the watch list if it not already in it, else removes it
+   * Add the media to the watch list if it not already in it, else removes it
    */
-  toggleMovie(): void {
+  toggleMedia(): void {
     this.toBeWatched = this.watchListService.toggleMedia(this.media);
   }
 }
