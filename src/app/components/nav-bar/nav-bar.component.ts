@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
-import { NavigationEnd, Router } from '@angular/router';
+import { Event, NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
@@ -17,14 +17,15 @@ export class NavBarComponent implements OnInit {
 
   constructor(private location: Location, private router: Router) { }
 
-  private isMovieDetailPage(): boolean  {
-    return !!this.router.url.match('movies/[0-9]+|tv/[0-9]+');
-  }
-
   ngOnInit(): void {
-    this.isMovieDetails$ = this.router.events.pipe(filter(
-      event => event instanceof NavigationEnd
-    ), map(() => this.isMovieDetailPage()));
+    this.isMovieDetails$ = this.router.events.pipe(
+      filter(
+        event => event instanceof NavigationEnd
+      ),
+      map(
+        (event: NavigationEnd) => !!event.url.match('movies/[0-9]+|tv/[0-9]+')
+      )
+    );
   }
 
   goBack(): void {
