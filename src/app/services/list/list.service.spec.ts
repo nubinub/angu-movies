@@ -17,11 +17,12 @@ describe('Services: ListService', () => {
     });
 
     describe('#toggleMedia', () => {
-        it('should add the given media to the list', () => {
-            service.toggleMedia(movies[0]);
+        it('should add the given media to the list and return true', () => {
+            const result = service.toggleMedia(movies[0]);
             const list = service.getList();
             expect(list.length).toBe(1);
             expect(list[0]).toEqual(movies[0]);
+            expect(result).toBe(true);
         });
 
         it('should let the list in the same state when called twice with the same item', () => {
@@ -32,10 +33,11 @@ describe('Services: ListService', () => {
             expect(list.length).toBe(0);
         });
 
-        it('should remove a media from the list if already in it', () => {
+        it('should remove a media from the list if already in it and returns false', () => {
             (service as any).list = [movies[0]];
-            service.toggleMedia(movies[0]);
+            const result = service.toggleMedia(movies[0]);
             expect(service.getList()).not.toContain(movies[0]);
+            expect(result).toBe(false);
         });
     });
 

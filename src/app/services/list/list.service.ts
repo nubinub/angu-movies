@@ -59,12 +59,15 @@ export class ListService {
   /**
    * Add the media to the list if not already in it, esle remove it from the list.
    * @param media Media to be toggled
+   * @returns True if the media has been added to the list, else returns false
    */
-  toggleMedia(media: Media) {
+  toggleMedia(media: Media): boolean {
     if (this.hasMedia(media)) {
       this._removeMedia(media);
+      return false;
     } else {
       this._addMedia(media);
+      return true;
     }
   }
 
