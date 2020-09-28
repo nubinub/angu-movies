@@ -1,6 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppModule } from 'src/app/app.module';
 import { MediaService } from 'src/app/services/media/media.service';
 import { IMAGE_BASE_URL, PosterService } from 'src/app/services/poster/poster.service';
 
@@ -17,7 +16,7 @@ describe('Component: MediaPosterComponent', () => {
     posterServiceSpy.getMediaPosterUrl.and.returnValue('media-poster-url');
     TestBed.configureTestingModule({
       declarations: [ MediaPosterComponent ],
-      imports: [AppModule],
+      imports: [],
       providers: [
         { provide: MediaService, useValue: mediaServiceSpy },
         { provide: PosterService, useValue: posterServiceSpy },
