@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReleaseDatePipe } from 'src/app/pipes/release-date/release-date.pipe';
 
@@ -10,6 +11,7 @@ describe('TvShowInfoComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TvShowInfoComponent, ReleaseDatePipe ],
+      schemas: [ NO_ERRORS_SCHEMA ],
     })
     .compileComponents();
   }));

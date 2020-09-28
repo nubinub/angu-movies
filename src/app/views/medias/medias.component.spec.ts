@@ -5,6 +5,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { of } from 'rxjs';
 import movies from 'src/testing/mock/movies-mock';
 import { MediaService } from 'src/app/services/media/media.service';
+import { AppModule } from 'src/app/app.module';
 
 describe('MediasComponent', () => {
   let component: MediasComponent;
@@ -15,6 +16,7 @@ describe('MediasComponent', () => {
     spy.search.and.returnValue(of(movies));
     TestBed.configureTestingModule({
       declarations: [ MediasComponent ],
+      imports: [AppModule],
       providers: [{
         provide: MediaService, useValue: spy
       }],

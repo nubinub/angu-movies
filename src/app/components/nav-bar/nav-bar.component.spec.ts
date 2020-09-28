@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -12,7 +13,8 @@ describe('NavBarComponent', () => {
       imports: [
         RouterTestingModule
       ],
-      declarations: [ NavBarComponent ]
+      declarations: [ NavBarComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));

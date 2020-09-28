@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SettingsComponent } from './settings.component';
 import { ApiKeyService } from 'src/app/services/api-key/api-key.service';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('SettingsComponent', () => {
   let component: SettingsComponent;
@@ -14,7 +15,8 @@ describe('SettingsComponent', () => {
       declarations: [SettingsComponent],
       providers: [
         { provide: ApiKeyService, useValue: spy }
-      ]
+      ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
       .compileComponents();
   }));

@@ -1,12 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MediasListComponent } from './medias-list.component';
-import { MockComponent, MockModule } from 'ng-mocks';
-import { MovieCardComponent } from '../movie-card/movie-card.component';
 import movies from 'src/testing/mock/movies-mock';
 import { By } from '@angular/platform-browser';
-import { MovieService } from 'src/app/services/movie/movie.service';
-import { of } from 'rxjs';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('MediasListComponent', () => {
   let component: MediasListComponent;
@@ -14,7 +11,8 @@ describe('MediasListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MediasListComponent, MockComponent(MovieCardComponent)],
+      declarations: [ MediasListComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));

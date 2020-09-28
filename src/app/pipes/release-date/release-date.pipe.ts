@@ -12,6 +12,10 @@ export class ReleaseDatePipe implements PipeTransform {
    * @param value Date value respecting the 'YYYY-MM-DD' format
    */
   transform(value: string): string {
-    return value ? format(parse(value, 'yyyy-MM-dd', new Date()), 'MMM d, yyyy') : 'Invalid date';
+    try {
+      return format(parse(value, 'yyyy-MM-dd', new Date()), 'MMM d, yyyy');
+    } catch (error) {
+      return 'Unknown date';
+    }
   }
 }
