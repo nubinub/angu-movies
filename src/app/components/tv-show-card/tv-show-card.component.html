@@ -1,0 +1,21 @@
+<mat-card class="tv-show-card">
+    <img mat-card-image [src]="tvShowPosterUrl" [alt]="tvShow?.original_name">
+    <mat-card-header>
+        <mat-card-title>{{tvShow?.original_name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="info-content">
+        <mat-icon>calendar_today</mat-icon><span class="info-label">{{tvShow?.first_air_date | releaseDate}}</span>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-icon-button (click)="goToTvShow()" matTooltip="Open tv show detail"  matTooltipPosition="below">
+            <mat-icon>open_in_new</mat-icon>
+        </a>
+        <span class="tv-show-card-actions">
+            <seen-list-toggle [media]="tvShow"></seen-list-toggle>
+            <watch-list-toggle [media]="tvShow"></watch-list-toggle>
+        </span>
+    </mat-card-actions>
+</mat-card>
+  

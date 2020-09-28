@@ -1,0 +1,15 @@
+<form class="media-search" ngNoForm onsubmit="return false;">
+  <mat-form-field appearance="outline" class="media-search-group">
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Search" [formControl]="searchControl">
+  </mat-form-field>
+  <mat-radio-group [formControl]="typeControl" class="media-search-group">
+    <mat-radio-button class="media-search-radio-button" *ngFor="let type of types" [value]="type">
+      {{type}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field appearance="outline" class="media-search-group">
+    <mat-label>Year</mat-label>
+    <input matInput placeholder="Year" [formControl]="yearControl" type="number">
+  </mat-form-field>
+</form>

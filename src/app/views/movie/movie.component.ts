@@ -4,6 +4,8 @@ import Movie from 'src/app/model/movie/movie';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import Cast from 'src/app/model/cast/cast';
 import { Location } from '@angular/common';
+import { combineLatest, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie',
@@ -11,32 +13,23 @@ import { Location } from '@angular/common';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-
-  public movie: Movie;
-
-  public casts: Cast[];
+  /**
+   * @internal
+   */
+  public data$: Observable<[Movie, Cast[]]>;
 
   constructor(private route: ActivatedRoute, private movieService: MovieService, private location: Location) {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.movieService.getMovie(params.id).subscribe(
-        {
-          next: (movie) => {
-            this.movie = movie;
-          }
-        }
-      );
-
-      this.movieService.getCast(params.id).subscribe(
-        {
-          next: (cast) => {
-            this.casts = cast.slice(0, 5);
-          }
-        }
-      );
-    });
+    this.data$ = this.route.params.pipe(
+      switchMap(
+        params => combineLatest([
+          this.movieService.getMovie(params.id),
+          this.movieService.getCast(params.id),
+        ])
+      )
+    );
   }
 
   getBack() {

@@ -12,6 +12,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,21 +20,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { RuntimePipe } from './pipes/runtime/runtime.pipe';
 import { ReleaseDatePipe } from './pipes/release-date/release-date.pipe';
-import { MoviesListComponent } from './components/movies-list/movies-list.component';
-import { MoviesComponent } from './views/movies/movies.component';
+import { MediasComponent } from './views/medias/medias.component';
 import { MovieComponent } from './views/movie/movie.component';
-import { MoviePosterComponent } from './components/movie-poster/movie-poster.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { CastCardComponent } from './components/cast-card/cast-card.component';
-import { MovieSearchComponent } from './components/movie-search/movie-search.component';
-import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
-import { WatchMoviesComponent } from './views/watch-movies/watch-movies.component';
+import { MediaSearchComponent } from './components/media-search/media-search.component';
 import { WatchListToggleComponent } from './components/watch-list-toggle/watch-list-toggle.component';
 import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list-toggle.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SettingsComponent } from './views/settings/settings.component';
 import { MOVIE_API_BASE_URL } from './services/movie-repository/movie-repository.service';
 import { IMAGE_BASE_URL } from './services/poster/poster.service';
+import { TvShowCardComponent } from './components/tv-show-card/tv-show-card.component';
+import { MediasListComponent } from './components/medias-list/medias-list.component';
+import { SeenListComponent } from './views/seen-list/seen-list.component';
+import { WatchListComponent } from './views/watch-list/watch-list.component';
+import { MediaPosterComponent } from './components/media-poster/media-poster.component';
+import { TvShowComponent } from './views/tv-show/tv-show.component';
+import { TvShowInfoComponent } from './components/tv-show-info/tv-show-info.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { CacheRouteReuseStrategy } from './strategies/cache-route-reuse-strategy';
 
 @NgModule({
   declarations: [
@@ -41,19 +47,22 @@ import { IMAGE_BASE_URL } from './services/poster/poster.service';
     MovieCardComponent,
     RuntimePipe,
     ReleaseDatePipe,
-    MoviesListComponent,
-    MoviesComponent,
+    MediasListComponent,
+    MediasComponent,
     MovieComponent,
-    MoviePosterComponent,
+    MediaPosterComponent,
     MovieInfoComponent,
     CastCardComponent,
-    MovieSearchComponent,
-    SeenMoviesComponent,
-    WatchMoviesComponent,
+    MediaSearchComponent,
+    SeenListComponent,
+    WatchListComponent,
     WatchListToggleComponent,
     SeenListToggleComponent,
     NavBarComponent,
     SettingsComponent,
+    TvShowCardComponent,
+    TvShowComponent,
+    TvShowInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,8 +82,13 @@ import { IMAGE_BASE_URL } from './services/poster/poster.service';
     MatTooltipModule,
     MatSidenavModule,
     MatListModule,
+    MatRadioModule,
   ],
   providers: [
+    {
+      provide: RouteReuseStrategy,
+      useClass: CacheRouteReuseStrategy,
+    },
     {provide: MOVIE_API_BASE_URL, useValue: 'https://api.themoviedb.org/3/'},
     {provide: IMAGE_BASE_URL, useValue: 'https://image.tmdb.org/'},
   ],

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import Cast from 'src/app/model/cast/cast';
 import { PosterService } from 'src/app/services/poster/poster.service';
 
@@ -7,7 +7,7 @@ import { PosterService } from 'src/app/services/poster/poster.service';
   templateUrl: './cast-card.component.html',
   styleUrls: ['./cast-card.component.scss']
 })
-export class CastCardComponent implements OnInit, OnChanges {
+export class CastCardComponent implements OnChanges {
 
   @Input() cast: Cast;
 
@@ -15,15 +15,7 @@ export class CastCardComponent implements OnInit, OnChanges {
 
   constructor(private posterService: PosterService) { }
 
-  ngOnInit(): void {
-    this.updateProfileUrl();
-  }
-
   ngOnChanges(): void {
-    this.updateProfileUrl();
-  }
-
-  private updateProfileUrl() {
     this.profileUrl = this.posterService.getCastPosterUrl(this.cast);
   }
 }

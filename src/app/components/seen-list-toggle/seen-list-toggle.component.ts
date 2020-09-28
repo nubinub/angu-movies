@@ -1,33 +1,29 @@
 import { Component, OnInit, Input, Inject, OnChanges } from '@angular/core';
-import Movie from 'src/app/model/movie/movie';
-import { ListService, SEEN_MOVIES_SERVICE } from 'src/app/services/list/list.service';
+import { Media } from 'src/app/model/media/media';
+import { ListService, SEEN_LIST_SERVICE } from 'src/app/services/list/list.service';
 
 @Component({
   selector: 'seen-list-toggle',
   templateUrl: './seen-list-toggle.component.html',
   styleUrls: ['./seen-list-toggle.component.scss']
 })
-export class SeenListToggleComponent implements OnInit, OnChanges {
+export class SeenListToggleComponent implements OnChanges {
 
-  @Input() movie: Movie;
+  @Input() media: Media;
 
   hasBeenSeen: boolean;
 
-  constructor(@Inject(SEEN_MOVIES_SERVICE) private seenListService: ListService) { }
-
-  ngOnInit(): void {
-    this.hasBeenSeen = this.seenListService.hasMovie(this.movie);
-  }
+  constructor(@Inject(SEEN_LIST_SERVICE) private seenListService: ListService) { }
 
   ngOnChanges() {
-    this.hasBeenSeen = this.seenListService.hasMovie(this.movie);
+    this.hasBeenSeen = this.seenListService.hasMedia(this.media);
   }
 
   /**
    * Add the movie to the seen list if the movie is not already in it, else removes it
    */
   toggleMovie(): void {
-    this.seenListService.toggleMovie(this.movie);
-    this.hasBeenSeen = this.seenListService.hasMovie(this.movie);
+    this.seenListService.toggleMedia(this.media);
+    this.hasBeenSeen = this.seenListService.hasMedia(this.media);
   }
 }

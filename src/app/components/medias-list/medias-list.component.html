@@ -1,0 +1,7 @@
+<div class="medias-list">
+  <ng-container  *ngFor="let item of items">
+    <movie-card [movie]="item" *ngIf="item.type === movieType"></movie-card>
+    <tv-show-card [tvShow]="item" *ngIf="item.type === tvShowType" ></tv-show-card>
+  </ng-container>
+</div>
+

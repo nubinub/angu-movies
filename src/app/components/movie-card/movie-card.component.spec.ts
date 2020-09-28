@@ -4,12 +4,10 @@ import { MovieCardComponent } from './movie-card.component';
 import movies from 'src/testing/mock/movies-mock';
 import { RuntimePipe } from 'src/app/pipes/runtime/runtime.pipe';
 import { ReleaseDatePipe } from 'src/app/pipes/release-date/release-date.pipe';
-import { MatCard, MatCardContent, MatCardHeader, MatCardActions, MatCardTitle } from '@angular/material/card';
-import { MatIcon } from '@angular/material/icon';
-import { MockComponent } from 'ng-mocks';
-import { SimpleChange } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MOVIE_API_BASE_URL } from 'src/app/services/movie-repository/movie-repository.service';
 import { IMAGE_BASE_URL } from 'src/app/services/poster/poster.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -17,21 +15,19 @@ describe('MovieCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         MovieCardComponent,
         RuntimePipe,
         ReleaseDatePipe,
-        MockComponent(MatCard),
-        MockComponent(MatCardHeader),
-        MockComponent(MatCardContent),
-        MockComponent(MatIcon),
-        MockComponent(MatCardActions),
-        MockComponent(MatCardTitle)
       ],
       providers: [
         {provide: MOVIE_API_BASE_URL, useValue: 'movie-api'},
         {provide: IMAGE_BASE_URL, useValue: 'image'}
-      ]
+      ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));

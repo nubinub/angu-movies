@@ -1,4 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, ViewChild } from '@angular/core';
+import { MatTooltip } from '@angular/material/tooltip';
+import { Router } from '@angular/router';
 import Movie from 'src/app/model/movie/movie';
 import { PosterService } from 'src/app/services/poster/poster.service';
 
@@ -7,26 +9,22 @@ import { PosterService } from 'src/app/services/poster/poster.service';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-export class MovieCardComponent implements OnChanges, OnInit {
+export class MovieCardComponent implements OnChanges {
   @Input() movie: Movie;
 
   moviePosterUrl: string;
 
-  constructor(private posterService: PosterService) {
-  }
+  @ViewChild(MatTooltip)tooltip: MatTooltip;
 
-  ngOnInit(): void {
-    this.updateMoviePosterUrl();
+  constructor(private posterService: PosterService, private router: Router) {
   }
 
   ngOnChanges(): void {
-    this.updateMoviePosterUrl();
+    this.moviePosterUrl = this.posterService.getMediaPosterUrl(this.movie);
   }
 
-  /**
-   * Update the moviePosterUrl variable accodring to the movie
-   */
-  private updateMoviePosterUrl() {
-    this.moviePosterUrl = this.posterService.getMoviePosterUrl(this.movie);
+  goToMovie() {
+    this.tooltip.ngOnDestroy();
+    this.router.navigate(['movies', this.movie.id]);
   }
 }

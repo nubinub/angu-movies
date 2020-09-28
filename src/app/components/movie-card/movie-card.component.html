@@ -9,12 +9,12 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-      <a mat-icon-button [routerLink]="['/movies', movie?.id]" matTooltip="Open movie detail"  matTooltipPosition="below">
+      <a mat-icon-button (click)="goToMovie()" matTooltip="Open movie detail"  matTooltipPosition="below">
         <mat-icon>open_in_new</mat-icon>
       </a>
       <span class="movie-card-actions">
-        <seen-list-toggle [movie]="movie"></seen-list-toggle>
-        <watch-list-toggle [movie]="movie"></watch-list-toggle>
+        <seen-list-toggle [media]="movie"></seen-list-toggle>
+        <watch-list-toggle [media]="movie"></watch-list-toggle>
       </span>
   </mat-card-actions>
 </mat-card>

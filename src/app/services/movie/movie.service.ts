@@ -4,6 +4,8 @@ import Movie from '../../model/movie/movie';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Cast from '../../model/cast/cast';
+import EType from 'src/app/model/type/type-enum';
+import { SearchParams } from 'src/app/model/search-params/search-params';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +20,7 @@ export class MovieService {
   getDefaultMovies(): Observable<Movie[]> {
     return this.repository.getPopular().pipe(
       map(
-        response => response.results
+        response => response.results.map((m) => ({...m, type: EType.Movie}))
       )
     );
   }
@@ -28,7 +30,11 @@ export class MovieService {
    * @param id Movie id
    */
   getMovie(id: number): Observable<Movie> {
-    return this.repository.getById(id);
+    return this.repository.getById(id).pipe(
+      map(
+        response => ({...response, type: EType.Movie})
+      )
+    );
   }
 
   /**
@@ -45,13 +51,20 @@ export class MovieService {
 
   /**
    * Returns the movies matching the given search value
-   * @param value Search value
+   * @param searchParams Search parameters
    */
-  searchMovies(value: string): Observable<Movie[]> {
-    return this.repository.search(value).pipe(
-      map(
-        response => response.results
-      )
-    );
+  searchMovies(searchParams: SearchParams): Observable<Movie[]> {
+    if (searchParams && searchParams.query) {
+      return this.repository.search({
+        query: searchParams.query,
+        primary_release_year: searchParams.year,
+      }).pipe(
+        map(
+          response => response.results.map((m) => ({...m, type: EType.Movie}))
+        )
+      );
+    } else {
+      return this.getDefaultMovies();
+    }
   }
 }

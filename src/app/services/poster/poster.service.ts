@@ -1,6 +1,6 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import Cast from 'src/app/model/cast/cast';
-import Movie from 'src/app/model/movie/movie';
+import { Media } from 'src/app/model/media/media';
 
 export const IMAGE_BASE_URL = new InjectionToken<string>('Image base url');
 
@@ -12,10 +12,10 @@ export class PosterService {
 
   /**
    * Get the movie poster url
-   * @param movie The movie
+   * @param media The media
    */
-  getMoviePosterUrl(movie: Movie) {
-    return movie ? `${this.imageBaseUrl}t/p/w500${movie.poster_path}` : '';
+  getMediaPosterUrl(media: Media) {
+    return media ? `${this.imageBaseUrl}t/p/w500${media.poster_path}` : '';
   }
 
   /**

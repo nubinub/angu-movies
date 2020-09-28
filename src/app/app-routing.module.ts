@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MoviesComponent } from './views/movies/movies.component';
+import { MediasComponent } from './views/medias/medias.component';
 import { MovieComponent } from './views/movie/movie.component';
-import { SeenMoviesComponent } from './views/seen-movies/seen-movies.component';
-import { WatchMoviesComponent } from './views/watch-movies/watch-movies.component';
 import { SettingsComponent } from './views/settings/settings.component';
+import { SeenListComponent } from './views/seen-list/seen-list.component';
+import { WatchListComponent } from './views/watch-list/watch-list.component';
+import { TvShowComponent } from './views/tv-show/tv-show.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/movies', pathMatch: 'full'},
-  { path: 'movies/seen', component: SeenMoviesComponent},
-  { path: 'movies/watch', component: WatchMoviesComponent},
-  { path: 'movies', component: MoviesComponent},
+  { path: '', redirectTo: '/medias', pathMatch: 'full'},
+  { path: 'medias/seen', component: SeenListComponent},
+  { path: 'medias/watch', component: WatchListComponent},
+  { path: 'medias', component: MediasComponent},
   { path: 'movies/:id', component:  MovieComponent},
+  { path: 'tv/:id', component:  TvShowComponent},
   { path: 'settings', component:  SettingsComponent},
 ];
 
