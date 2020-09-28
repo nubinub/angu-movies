@@ -7,17 +7,13 @@ import { ListService, SEEN_LIST_SERVICE } from 'src/app/services/list/list.servi
   templateUrl: './seen-list-toggle.component.html',
   styleUrls: ['./seen-list-toggle.component.scss']
 })
-export class SeenListToggleComponent implements OnInit, OnChanges {
+export class SeenListToggleComponent implements OnChanges {
 
   @Input() media: Media;
 
   hasBeenSeen: boolean;
 
   constructor(@Inject(SEEN_LIST_SERVICE) private seenListService: ListService) { }
-
-  ngOnInit(): void {
-    this.hasBeenSeen = this.seenListService.hasMedia(this.media);
-  }
 
   ngOnChanges() {
     this.hasBeenSeen = this.seenListService.hasMedia(this.media);

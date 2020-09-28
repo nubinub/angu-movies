@@ -14,7 +14,7 @@ export class MediaSearchComponent implements OnInit, OnDestroy {
 
   public searchControl: FormControl = new FormControl();
   public yearControl: FormControl = new FormControl();
-  private sub: Subscription;
+  private sub: Subscription = new Subscription();
   public typeControl: FormControl = new FormControl(EType.Movie);
 
   public types: string[] = types;
@@ -22,7 +22,7 @@ export class MediaSearchComponent implements OnInit, OnDestroy {
   @Output() search: EventEmitter<SearchParams> = new EventEmitter<SearchParams>();
 
   ngOnInit(): void {
-    this.sub = combineLatest(
+    const searchSubscription = combineLatest(
       [
         this.searchControl.valueChanges.pipe(
           debounceTime(500),
@@ -40,17 +40,24 @@ export class MediaSearchComponent implements OnInit, OnDestroy {
         )
       ]
     ).subscribe(([query, type, year]) => {
-      if (!query) {
-        this.yearControl.disable({emitEvent: false});
-      } else if (query) {
-        this.yearControl.enable({emitEvent: false});
-      }
       this.search.emit({
         type,
         query,
         year,
       });
     });
+
+    const disableSuscription = this.searchControl.valueChanges.subscribe((query) => {
+      if (query) {
+        this.yearControl.enable({emitEvent: false});
+      } else {
+        this.yearControl.disable({emitEvent: false});
+      }
+    });
+
+    this.sub.add(disableSuscription).add(searchSubscription);
+
+    this.yearControl.disable({emitEvent: false});
   }
 
   ngOnDestroy(): void {
