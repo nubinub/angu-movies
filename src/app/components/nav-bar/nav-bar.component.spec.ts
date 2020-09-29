@@ -41,7 +41,7 @@ describe('Component: NavBarComponent', () => {
       scheduler.run(({expectObservable, cold}) => {
         (router as any).events = cold('a', {a: new NavigationEnd(1, 'movies/7', 'movies/7')});
         fixture.detectChanges();
-        expectObservable(component.isMovieDetails$).toBe('a', {a: true});
+        expectObservable(component.isMediaDetails$).toBe('a', {a: true});
       });
     });
 
@@ -49,7 +49,7 @@ describe('Component: NavBarComponent', () => {
       scheduler.run(({expectObservable, cold}) => {
         (router as any).events = cold('a', {a: new NavigationEnd(1, 'movies/seen', 'movies/seen')});
         fixture.detectChanges();
-        expectObservable(component.isMovieDetails$).toBe('a', {a: false});
+        expectObservable(component.isMediaDetails$).toBe('a', {a: false});
       });
     });
 
@@ -60,7 +60,7 @@ describe('Component: NavBarComponent', () => {
           b: new NavigationEnd(1, 'movies/seen', 'movies/seen')
         });
         fixture.detectChanges();
-        expectObservable(component.isMovieDetails$).toBe('-b', {b: false});
+        expectObservable(component.isMediaDetails$).toBe('-b', {b: false});
       });
     });
   });
