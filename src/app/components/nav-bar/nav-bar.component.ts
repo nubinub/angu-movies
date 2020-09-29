@@ -13,12 +13,12 @@ export class NavBarComponent implements OnInit {
 
   @Output() drawerToggle: EventEmitter<void> = new EventEmitter<void>();
 
-  isMovieDetails$: Observable<boolean>;
+  isMediaDetails$: Observable<boolean>;
 
   constructor(private location: Location, private router: Router) { }
 
   ngOnInit(): void {
-    this.isMovieDetails$ = this.router.events.pipe(
+    this.isMediaDetails$ = this.router.events.pipe(
       filter(
         event => event instanceof NavigationEnd
       ),
