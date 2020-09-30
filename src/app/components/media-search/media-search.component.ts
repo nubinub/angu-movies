@@ -1,9 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { combineLatest, Observable, Subscription } from 'rxjs';
-import { debounceTime, map, startWith, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { SearchParams } from 'src/app/model/search-params/search-params';
 import EType, { types } from 'src/app/model/type/type-enum';
+import { MediaService } from 'src/app/services/media/media.service';
 
 @Component({
   selector: 'media-search',
@@ -17,7 +17,7 @@ export class MediaSearchComponent {
 
   @Output() search: Observable<SearchParams>;
 
-  constructor() {
+  constructor(private mediaService: MediaService) {
     const yearControl = new FormControl({ disabled: true });
     const queryControl = new FormControl();
     const typeControl = new FormControl(EType.Movie);
@@ -30,38 +30,6 @@ export class MediaSearchComponent {
 
     yearControl.disable({ emitEvent: false });
 
-    this.setUpObservables();
-  }
-
-  setUpObservables() {
-    const yearControl = this.formGroup.get('year');
-    const queryControl = this.formGroup.get('query');
-    const typeControl = this.formGroup.get('type');
-
-    this.search = combineLatest(
-      [
-        queryControl.valueChanges.pipe(
-          tap(
-            (query) => query ? yearControl.enable({ emitEvent: false }) : yearControl.disable({ emitEvent: false })
-          ),
-          debounceTime(500),
-          startWith(''),
-        ),
-        typeControl.valueChanges.pipe(
-          startWith(EType.Movie)
-        ),
-        yearControl.valueChanges.pipe(
-          debounceTime(500),
-          map(
-            year => parseInt(year, 10),
-          ),
-          startWith(NaN),
-        ),
-      ]
-    ).pipe(
-      map(
-        ([query, type, year]) => ({ query, type, year })
-      )
-    );
+    this.search = this.mediaService.getSearchFormObservable(queryControl, yearControl, typeControl);
   }
 }

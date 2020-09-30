@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { combineLatest, Observable } from 'rxjs';
+import { debounceTime, map, startWith, tap } from 'rxjs/operators';
 import { Media } from 'src/app/model/media/media';
 import { SearchParams } from 'src/app/model/search-params/search-params';
 import EType from 'src/app/model/type/type-enum';
@@ -30,5 +32,36 @@ export class MediaService {
     } else if (media.type === EType.TvShow) {
       return media.original_name;
     }
+  }
+
+  /**
+   * Returns an observable which emit SearchParams when form has changed
+   * @param queryControl The query field FormControl
+   * @param yearControl The year field FormControl
+   * @param typeControl The type field FormControl
+   * @returns Observable which emit SearchParams
+   */
+  getSearchFormObservable(queryControl: FormControl, yearControl: FormControl, typeControl: FormControl): Observable<SearchParams> {
+    return combineLatest(
+      [
+        queryControl.valueChanges.pipe(
+          tap(query => query ? yearControl.enable({ emitEvent: false }) : yearControl.disable({ emitEvent: false })),
+          debounceTime(500),
+          startWith(''),
+        ),
+        typeControl.valueChanges.pipe(
+          startWith(EType.Movie)
+        ),
+        yearControl.valueChanges.pipe(
+          debounceTime(500),
+          map(year => parseInt(year, 10)),
+          startWith(NaN),
+        ),
+      ]
+    ).pipe(
+      map(
+        ([query, type, year]) => ({ query, type, year })
+      )
+    );
   }
 }
