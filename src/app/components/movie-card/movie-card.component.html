@@ -4,15 +4,15 @@
     <mat-card-title>{{movie?.original_title}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div class="info-content">
-      <mat-icon>calendar_today</mat-icon><span class="info-label">{{movie?.release_date | releaseDate}}</span>
+    <div class="movie-card_info-content">
+      <mat-icon class="movie-card_calendar-icon">calendar_today</mat-icon><span class="movie-card_info-label">{{movie?.release_date | releaseDate}}</span>
     </div>
   </mat-card-content>
   <mat-card-actions>
       <a mat-icon-button (click)="goToMovie()" matTooltip="Open movie detail"  matTooltipPosition="below">
         <mat-icon>open_in_new</mat-icon>
       </a>
-      <span class="movie-card-actions">
+      <span class="movie-card_actions">
         <seen-list-toggle [media]="movie"></seen-list-toggle>
         <watch-list-toggle [media]="movie"></watch-list-toggle>
       </span>

@@ -1,5 +1,9 @@
 @import "./abstracts";
-@import "./vendors";
+
+.ngm-vendors {
+    @import "./vendors";
+}
+
 @import "./base";
 @import "./components";
 @import "./layout";

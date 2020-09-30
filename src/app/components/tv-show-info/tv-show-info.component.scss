@@ -1,25 +1,23 @@
-.tv-show-info {
-    .tv-show-info-genres {
-      .tv-show-info-genre::after {
-        content: ', ';
-      }
-      .tv-show-info-genre:last-of-type::after {
-        content: '';
-      }
-    }
-    .material-icons {
-      vertical-align: bottom;
-    }
-  
-    .tv-show-info-overview {
-      text-align: justify;
-    }
-  
-    .tv-show-info-panel {
-      margin-bottom: 1rem;
-      .tv-show-info-release-date {
-        margin-right: 1rem;
-      }
-    }
-  }
-  
+.tv-show-info-genre::after {
+  content: ', ';
+}
+
+.tv-show-info-genre:last-of-type::after {
+  content: '';
+}
+
+.tv-show-info_overview {
+  text-align: justify;
+}
+
+.tv-show-info-panel {
+  margin-bottom: 1rem;
+}
+
+.tv-show-info_icons {
+  vertical-align: bottom;
+}
+
+.tv-show-info_release-date {
+  margin-right: 1rem;
+}
