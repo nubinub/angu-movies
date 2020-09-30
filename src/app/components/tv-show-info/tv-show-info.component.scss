@@ -1,8 +1,8 @@
-.tv-show-info-genre::after {
+.tv-show-info_genre::after {
   content: ', ';
 }
 
-.tv-show-info-genre:last-of-type::after {
+.tv-show-info_genre:last-of-type::after {
   content: '';
 }
 
