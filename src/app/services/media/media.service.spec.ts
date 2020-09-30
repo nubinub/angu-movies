@@ -60,7 +60,7 @@ describe('Service: MediaService', () => {
     beforeEach(() => {
       queryControl = new FormControl();
       yearControl = new FormControl();
-     typeControl = new FormControl();
+      typeControl = new FormControl();
     });
 
     it('should be movie type by default and have an empty query field', async () => {
