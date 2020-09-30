@@ -1,4 +1,4 @@
-<button mat-icon-button (click)="toggleMovie()">
+<button mat-icon-button (click)="toggleMedia()">
   <mat-icon *ngIf="hasBeenSeen; else elseBlock" matTooltip="Remove from seen list"  matTooltipPosition="below" color="primary">visibility_off</mat-icon>
   <ng-template #elseBlock><mat-icon matTooltip="Add to seen list"  matTooltipPosition="below">visibility</mat-icon></ng-template>
 </button>

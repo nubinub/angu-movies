@@ -1,22 +1,24 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppModule } from 'src/app/app.module';
 import { MOVIE_API_BASE_URL } from 'src/app/services/movie-repository/movie-repository.service';
-import { IMAGE_BASE_URL } from 'src/app/services/poster/poster.service';
+import { IMAGE_BASE_URL, PosterService } from 'src/app/services/poster/poster.service';
 
 import { CastCardComponent } from './cast-card.component';
 
-describe('CastCardComponent', () => {
+describe('Component: CastCardComponent', () => {
   let component: CastCardComponent;
   let fixture: ComponentFixture<CastCardComponent>;
 
   beforeEach(async(() => {
+    const spy = jasmine.createSpyObj('PosterService', ['getCastPosterUrl']);
+    spy.getCastPosterUrl.and.returnValue('url-test');
     TestBed.configureTestingModule({
       declarations: [ CastCardComponent ],
-      imports: [AppModule],
+      imports: [],
       providers: [
         { provide: MOVIE_API_BASE_URL, useValue: 'movie-api' },
         { provide: IMAGE_BASE_URL, useValue: 'image-api' },
+        { provide: PosterService, useValue: spy },
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
@@ -26,10 +28,17 @@ describe('CastCardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CastCardComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('#ngOnChanges', () => {
+    it('should set profileUrl value', () => {
+      component.profileUrl = 'test';
+      component.ngOnChanges();
+      expect(component.profileUrl).toBe('url-test');
+    });
   });
 });

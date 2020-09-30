@@ -20,9 +20,9 @@ export class SeenListToggleComponent implements OnChanges {
   }
 
   /**
-   * Add the movie to the seen list if the movie is not already in it, else removes it
+   * Add the media to the seen list if the media is not already in it, else removes it
    */
-  toggleMovie(): void {
+  toggleMedia(): void {
     this.hasBeenSeen = this.seenListService.toggleMedia(this.media);
   }
 }

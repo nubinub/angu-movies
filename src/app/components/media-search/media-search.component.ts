@@ -1,66 +1,35 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { combineLatest, Subscription } from 'rxjs';
-import { debounceTime, map, startWith } from 'rxjs/operators';
+import { Component, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { SearchParams } from 'src/app/model/search-params/search-params';
 import EType, { types } from 'src/app/model/type/type-enum';
+import { MediaService } from 'src/app/services/media/media.service';
 
 @Component({
   selector: 'media-search',
   templateUrl: './media-search.component.html',
   styleUrls: ['./media-search.component.scss']
 })
-export class MediaSearchComponent implements OnInit, OnDestroy {
-
-  public searchControl: FormControl = new FormControl();
-  public yearControl: FormControl = new FormControl();
-  private sub: Subscription = new Subscription();
-  public typeControl: FormControl = new FormControl(EType.Movie);
+export class MediaSearchComponent {
+  public formGroup: FormGroup;
 
   public types: string[] = types;
 
-  @Output() search: EventEmitter<SearchParams> = new EventEmitter<SearchParams>();
+  @Output() search: Observable<SearchParams>;
 
-  ngOnInit(): void {
-    const searchSubscription = combineLatest(
-      [
-        this.searchControl.valueChanges.pipe(
-          debounceTime(500),
-          startWith(''),
-        ),
-        this.typeControl.valueChanges.pipe(
-          startWith(EType.Movie)
-        ),
-        this.yearControl.valueChanges.pipe(
-          debounceTime(500),
-          map(
-            year => parseInt(year, 10),
-          ),
-          startWith(NaN),
-        )
-      ]
-    ).subscribe(([query, type, year]) => {
-      this.search.emit({
-        type,
-        query,
-        year,
-      });
+  constructor(private mediaService: MediaService) {
+    const yearControl = new FormControl({ disabled: true });
+    const queryControl = new FormControl();
+    const typeControl = new FormControl(EType.Movie);
+
+    this.formGroup = new FormGroup({
+      query: queryControl,
+      year: yearControl,
+      type: typeControl,
     });
 
-    const disableSuscription = this.searchControl.valueChanges.subscribe((query) => {
-      if (query) {
-        this.yearControl.enable({emitEvent: false});
-      } else {
-        this.yearControl.disable({emitEvent: false});
-      }
-    });
+    yearControl.disable({ emitEvent: false });
 
-    this.sub.add(disableSuscription).add(searchSubscription);
-
-    this.yearControl.disable({emitEvent: false});
-  }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.search = this.mediaService.getSearchFormObservable(queryControl, yearControl, typeControl);
   }
 }
