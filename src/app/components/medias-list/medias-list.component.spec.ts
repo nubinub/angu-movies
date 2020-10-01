@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MediasListComponent } from './medias-list.component';
-import movies from 'src/testing/mock/movies-mock';
+import movies from 'src/testing/data/movies-mock';
 import { By } from '@angular/platform-browser';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 

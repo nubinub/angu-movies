@@ -1,7 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { WATCH_LIST_SERVICE } from 'src/app/services/list/list.service';
-import movies from 'src/testing/mock/movies-mock';
+import movies from 'src/testing/data/movies-mock';
 
 import { WatchListToggleComponent } from './watch-list-toggle.component';
 

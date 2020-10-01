@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { FormControl } from '@angular/forms';
 import { TestScheduler } from 'rxjs/testing';
 import EType from 'src/app/model/type/type-enum';
-import movies from 'src/testing/mock/movies-mock';
-import { tvShows } from 'src/testing/mock/tv-shows-mock';
+import movies from 'src/testing/data/movies-mock';
+import { tvShows } from 'src/testing/data/tv-shows-mock';
 import { MovieService } from '../movie/movie.service';
 import { TvShowService } from '../tv-show/tv-show.service';
 

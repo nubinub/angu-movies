@@ -1,4 +1,4 @@
-import movies from 'src/testing/mock/movies-mock';
+import movies from 'src/testing/data/movies-mock';
 
 import { ListService } from './list.service';
 
