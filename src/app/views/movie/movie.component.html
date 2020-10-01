@@ -1,12 +1,12 @@
 <div class="movie-view" *ngIf="data$ | async as data">
-  <div class="movie-info">
-    <media-poster [media]="data[0]"></media-poster>
+  <div class="movie-view_info">
+    <media-poster class="movie-view_media-poster" [media]="data[0]"></media-poster>
     <movie-info [movie]="data[0]"></movie-info>
   </div>
-  <div class="movie-casting">
+  <div class="moive-view_casting">
     <h2>Casting</h2>
-    <div class="movie-casting-list">
-      <cast-card *ngFor="let cast of data[1] | slice:0:5" [cast]="cast"></cast-card>
+    <div class="movie-view_casting_list">
+      <cast-card class="movie-view_cast-card" *ngFor="let cast of data[1] | slice:0:5" [cast]="cast"></cast-card>
     </div>
   </div>
 </div>

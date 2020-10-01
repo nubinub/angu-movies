@@ -1,6 +1,8 @@
-<form onsubmit="return false;">
-    <mat-form-field appearance="outline">
-      <mat-label>Please provide your moviedb api key</mat-label>
-      <input matInput placeholder="api key" [formControl]="keyControl">
-    </mat-form-field>
-</form>
+<div class="settings-view">
+  <form onsubmit="return false;">
+      <mat-form-field class="settings-view_form-field" appearance="outline">
+        <mat-label>Please provide your moviedb api key</mat-label>
+        <input matInput placeholder="api key" [formControl]="keyControl">
+      </mat-form-field>
+  </form>
+</div>
