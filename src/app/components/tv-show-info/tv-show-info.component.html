@@ -1,13 +1,13 @@
 <div class="tv-show-info">
     <h1>{{tvShow?.original_name}}</h1>
-    <div class="tv-show-info-genres">
-        <span *ngFor="let genre of tvShow?.genres" class="tv-show-info-genre">{{genre.name}}</span>
+    <div class="tv-show-info_genres">
+        <span *ngFor="let genre of tvShow?.genres" class="tv-show-info_genre">{{genre.name}}</span>
     </div>
-    <div class="tv-show-info-panel">
-        <span class="tv-show-info-release-date">
-            <mat-icon>calendar_today</mat-icon><span>{{tvShow?.first_air_date | releaseDate}}</span>
+    <div class="tv-show-info_panel">
+        <span class="tv-show-info_release-date">
+            <mat-icon class="tv-show-info_icons">calendar_today</mat-icon><span>{{tvShow?.first_air_date | releaseDate}}</span>
         </span>
-        <span class="tv-show-info-seasons">
+        <span class="tv-show_info_seasons">
             {{tvShow?.number_of_seasons}} seasons, {{tvShow?.number_of_episodes}} episodes
         </span>
     </div>

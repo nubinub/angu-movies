@@ -2,26 +2,18 @@
   width: 150px;
   margin-right: 1rem;
   margin-bottom: 1rem;
+}
 
-  /* using ::ng-deeep selector, need to come up with a better solution in the future */
-  mat-card-header::ng-deep .mat-card-header-text {
-    margin: 0;
+.movie-card_actions {
+  float: right;
+}
 
-    .mat-card-title {
-      font-size: 15px;
-    }
-  }
+.movie-card_info-content {
+  margin-bottom: 1rem;
+}
 
-  .movie-card-actions {
-    float: right;
-  }
-
-  .info-content {
-    margin-bottom: 1rem;
-    .material-icons {
-      vertical-align: bottom;
-      margin-right: 1rem;
-      font-weight: bold;
-    }
-  }
+.movie-card_calendar-icon {
+  vertical-align: bottom;
+  margin-right: 1rem;
+  font-weight: bold;
 }

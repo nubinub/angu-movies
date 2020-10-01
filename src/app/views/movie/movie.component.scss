@@ -1,11 +1,16 @@
-.movie-view {
-  .movie-casting-list, .movie-info {
-    display: flex;
-    cast-card, media-poster {
-      margin-right: 1rem;
-    }
-  }
-  .movie-info {
-    margin-bottom: 1rem;
-  }
+.movie-view_info {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.movie-view_media-poster {
+  margin-right: 1rem;
+}
+
+.movie-view_casting_list {
+  display: flex;
+}
+
+.movie-view_cast-card {
+  margin-right: 1rem;
 }

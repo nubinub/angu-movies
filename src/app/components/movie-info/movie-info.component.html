@@ -1,17 +1,17 @@
 <div class="movie-info">
   <h1>{{movie?.original_title}}</h1>
-  <div class="movie-info-genres">
-    <span *ngFor="let genre of movie?.genres" class="movie-info-genre">{{genre.name}}</span>
+  <div class="movie-info_genres">
+    <span *ngFor="let genre of movie?.genres" class="movie-info_genre">{{genre.name}}</span>
   </div>
-  <div class="movie-info-panel">
-    <span class="movie-info-release-date">
-      <mat-icon>calendar_today</mat-icon><span>{{movie?.release_date | releaseDate}}</span>
+  <div class="movie-info_panel">
+    <span class="movie-info_release-date">
+      <mat-icon class="movie-info_icons">calendar_today</mat-icon><span>{{movie?.release_date | releaseDate}}</span>
     </span>
-    <span class="movie-info-timer">
-      <mat-icon>timer</mat-icon><span>{{movie?.runtime | runtime }}</span>
+    <span class="movie-info_timer">
+      <mat-icon class="movie-info_icons">timer</mat-icon><span>{{movie?.runtime | runtime }}</span>
     </span>
   </div>
-  <p class="movie-info-overview">{{movie?.overview}}</p>
+  <p class="movie-info_overview">{{movie?.overview}}</p>
   <seen-list-toggle [media]="movie"></seen-list-toggle>
   <watch-list-toggle [media]="movie"></watch-list-toggle>
 </div>
