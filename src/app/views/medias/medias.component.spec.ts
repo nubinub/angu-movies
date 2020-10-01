@@ -1,11 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MediasComponent } from './medias.component';
-import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { of } from 'rxjs';
-import movies from 'src/testing/mock/movies-mock';
+import movies from 'src/testing/data/movies-mock';
 import { MediaService } from 'src/app/services/media/media.service';
-import { AppModule } from 'src/app/app.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('MediasComponent', () => {
