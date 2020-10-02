@@ -11,6 +11,7 @@ interface TvShow {
     genres?: Genre[];
     number_of_episodes?: number;
     number_of_seasons?: number;
+    backdrop_path: string;
 }
 
 export default TvShow;

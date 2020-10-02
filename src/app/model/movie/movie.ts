@@ -10,6 +10,7 @@ interface Movie {
   overview: string;
   genres?: Genre[];
   type: EType.Movie;
+  backdrop_path: string;
 }
 
 export default Movie;

@@ -6,8 +6,9 @@ import { RuntimePipe } from 'src/app/pipes/runtime/runtime.pipe';
 import { ReleaseDatePipe } from 'src/app/pipes/release-date/release-date.pipe';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MOVIE_API_BASE_URL } from 'src/app/services/movie-repository/movie-repository.service';
-import { IMAGE_BASE_URL } from 'src/app/services/poster/poster.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { IMAGE_BASE_URL } from 'src/app/tokens/image-base-url.token';
+import { MediaPosterPipe } from 'src/app/pipes/media-poster/media-poster.pipe';
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -22,6 +23,7 @@ describe('MovieCardComponent', () => {
         MovieCardComponent,
         RuntimePipe,
         ReleaseDatePipe,
+        MediaPosterPipe,
       ],
       providers: [
         {provide: MOVIE_API_BASE_URL, useValue: 'movie-api'},
@@ -44,7 +46,6 @@ describe('MovieCardComponent', () => {
 
   it('should render an image with the given movie poster_path', () => {
     component.movie = movies[0];
-    component.ngOnChanges();
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement; // 2
     const img = compiled.querySelector('img');

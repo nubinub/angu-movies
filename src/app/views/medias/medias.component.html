@@ -6,7 +6,7 @@
     </div>
 </div>
 <ng-container *ngIf="moviesData$ | async as data">
-    <div class="box-office" [ngStyle]="{'background-image': 'url(' + getPosterUrl(data.movie) + ')'}">
+    <div class="box-office" style.background-image="url({{data.movie | mediaBackdrop}})">
         <div class="box-office_overlay">
             <div class="box-office_content">
                 <h2 class="box-office_title">Box office</h2>

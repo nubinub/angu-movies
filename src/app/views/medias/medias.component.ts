@@ -5,8 +5,8 @@ import Cast from 'src/app/model/cast/cast';
 import { Media } from 'src/app/model/media/media';
 import Movie from 'src/app/model/movie/movie';
 import TvShow from 'src/app/model/tv-show/tv-show';
+import { MediaPosterPipe } from 'src/app/pipes/media-poster/media-poster.pipe';
 import { MovieService } from 'src/app/services/movie/movie.service';
-import { PosterService } from 'src/app/services/poster/poster.service';
 import { TvShowService } from 'src/app/services/tv-show/tv-show.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class MediasComponent implements OnInit {
 
   public popularTvShows$: Observable<TvShow[]>;
 
-  constructor(private movieService: MovieService, private tvShowService: TvShowService, private posterService: PosterService) { }
+  constructor(private movieService: MovieService, private tvShowService: TvShowService) { }
 
   ngOnInit() {
     this.moviesData$ = this.movieService.getDefaultMovies().pipe(
@@ -33,9 +33,5 @@ export class MediasComponent implements OnInit {
       ))
     );
     this.popularTvShows$ = this.tvShowService.getDefaultTvShows();
-  }
-
-  getPosterUrl(media: Media)  {
-    return this.posterService.getMediaPosterUrl(media);
   }
 }

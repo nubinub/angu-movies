@@ -1,4 +1,4 @@
 <div class="cast-card">
-  <img class="cast-card_image" mat-card-image [src]="profileUrl" [alt]="cast?.name">
+  <img class="cast-card_image" mat-card-image [src]="cast | castPoster" [alt]="cast?.name">
   <h3 class="cast-card_title">{{cast?.name}}</h3>
 </div>

@@ -1,5 +1,5 @@
 <mat-card class="movie-card">
-  <img mat-card-image [src]="moviePosterUrl" [alt]="movie?.original_title">
+  <img mat-card-image [src]="movie | mediaPoster" [alt]="movie?.original_title">
   <mat-card-header>
     <mat-card-title>{{movie?.original_title}}</mat-card-title>
   </mat-card-header>

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,7 +29,6 @@ import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SettingsComponent } from './views/settings/settings.component';
 import { MOVIE_API_BASE_URL } from './services/movie-repository/movie-repository.service';
-import { IMAGE_BASE_URL } from './services/poster/poster.service';
 import { TvShowCardComponent } from './components/tv-show-card/tv-show-card.component';
 import { MediasListComponent } from './components/medias-list/medias-list.component';
 import { MediaPosterComponent } from './components/media-poster/media-poster.component';
@@ -40,6 +39,10 @@ import { MediaCardComponent } from './components/media-card/media-card.component
 import { MediaTitlePipe } from './pipes/media-title/media-title.pipe';
 import { MediaDatePipe } from './pipes/media-date/media-date.pipe';
 import { PopularMediasComponent } from './components/popular-medias/popular-medias.component';
+import { MediaPosterPipe } from './pipes/media-poster/media-poster.pipe';
+import { MediaBackdropPipe } from './pipes/media-backdrop/media-backdrop.pipe';
+import { CastPosterPipe } from './pipes/cast-poster/cast-poster.pipe';
+import { IMAGE_BASE_URL } from './tokens/image-base-url.token';
 
 @NgModule({
   declarations: [
@@ -63,6 +66,9 @@ import { PopularMediasComponent } from './components/popular-medias/popular-medi
     MediaTitlePipe,
     MediaDatePipe,
     PopularMediasComponent,
+    MediaPosterPipe,
+    MediaBackdropPipe,
+    CastPosterPipe,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <mat-card class="tv-show-card">
-    <img mat-card-image [src]="tvShowPosterUrl" [alt]="tvShow?.original_name">
+    <img mat-card-image [src]="tvShow | mediaPoster" [alt]="tvShow?.original_name">
     <mat-card-header>
         <mat-card-title>{{tvShow?.original_name}}</mat-card-title>
     </mat-card-header>
