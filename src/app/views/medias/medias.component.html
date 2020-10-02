@@ -16,7 +16,7 @@
                 <div>
                     <movie-info [movie]="data.movie"></movie-info>
                     <div class="box-office_casting">
-                        <h3>Casting</h3>
+                        <h3 class="box-office_casting-title">Casting</h3>
                         <div class="box-office_casting_list">
                             <cast-card class="box-office_cast-card" *ngFor="let cast of data.casts | slice:0:5" [cast]="cast"></cast-card>
                         </div>

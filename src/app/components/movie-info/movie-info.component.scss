@@ -1,6 +1,9 @@
 .movie-info_title {
+  font: normal normal bold 50px Open Sans;
+  letter-spacing: -1.5px;
+  color: #FFFFFF;
+  opacity: 1;
   margin: 0;
-  font-size: 35px;
 }
 
 .movie-info_genres::after {
@@ -23,6 +26,10 @@
 
 .movie-info_overview {
   text-align: justify;
+  font: normal normal normal 20px/35px Open Sans;
+  letter-spacing: 0.32px;
+  color: #FFFFFF;
+  opacity: 1;
 }
 
 .movie-info_icons {

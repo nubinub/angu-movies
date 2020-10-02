@@ -32,7 +32,7 @@
 .box-office_background {
   background: transparent 0% 0% no-repeat padding-box;
   background-size: 100%;
-  opacity: 0.05;
+  opacity: 0.08;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -47,7 +47,10 @@
 
 .box-office_title {
   width: 100%;
-  padding-bottom: 0.2rem;
+  font: normal normal bold 48px/64px Open Sans;
+  letter-spacing: 0.96px;
+  color: #FFFFFF;
+  opacity: 1;
   border-bottom: 1px solid #707070;
 }
 
@@ -63,8 +66,17 @@
 
 .box-office_casting_list {
   display: flex;
+  justify-content: center;
+}
+
+.box-office_casting-title {
+  font: normal normal bold 24px/28px Open Sans;
+  letter-spacing: -0.14px;
+  color: #FFFFFF;
+  border-bottom: 1px solid #707070;
+  width: 100%;
 }
 
 .box-office_cast-card {
-  margin-right: 1rem;
+  margin-right: 3rem;
 }
