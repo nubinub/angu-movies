@@ -37,22 +37,20 @@
   min-height: 100vh;
   max-height: 100vh;
   margin: 0;
+  background-size: 100%;
 }
 
-.box-office_background {
-  background: transparent 0% 0% no-repeat padding-box;
-  background-size: 100%;
-  opacity: 0.08;
-  height: 100%;
-  width: 100%;
-  position: absolute;
+.box-office_overlay {
   min-height: 100vh;
   max-height: 100vh;
+  margin: 0;
+  background: rgba(22, 26, 26, 0.95);
 }
 
 .box-office_content {
   margin: 0 172px;
   padding-top: 20px;
+  height: 100%;
 }
 
 .box-office_title {
