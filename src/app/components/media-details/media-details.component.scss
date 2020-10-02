@@ -33,6 +33,11 @@
   margin: 10rem 5rem;
 }
 
+.media-details_poster-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .media-details_media-poster {
   margin-right: 5rem;
 }

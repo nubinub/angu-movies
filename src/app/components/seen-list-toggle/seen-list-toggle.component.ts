@@ -11,6 +11,8 @@ export class SeenListToggleComponent implements OnChanges {
 
   @Input() media: Media;
 
+  @Input() withText: boolean;
+
   hasBeenSeen: boolean;
 
   constructor(@Inject(SEEN_LIST_SERVICE) private seenListService: ListService) { }

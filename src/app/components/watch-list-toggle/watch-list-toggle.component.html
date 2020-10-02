@@ -1,4 +1,31 @@
-<button mat-icon-button (click)="toggleMedia()">
-  <mat-icon *ngIf="toBeWatched; else elseBlock" matTooltip="Remove from watch list"  matTooltipPosition="below" color="primary">tv_off</mat-icon>
-  <ng-template #elseBlock><mat-icon matTooltip="Add to watch list"  matTooltipPosition="below">tv</mat-icon></ng-template>
-</button>
+<div class="watch-list-toggle">
+  <button class="watch-list-toggle_button" mat-icon-button (click)="toggleMedia()">
+    <mat-icon 
+      *ngIf="toBeWatched; else elseIcon" 
+      matTooltip="Remove from watch list"  
+      matTooltipPosition="below" 
+      color="primary"
+    >
+      visibility
+    </mat-icon>
+    <ng-template #elseIcon>
+      <mat-icon 
+        class="material-icons-outlined" 
+        matTooltip="Add to watch list"  
+        matTooltipPosition="below"
+      >
+        visibility
+      </mat-icon>
+    </ng-template>
+  </button>
+  <ng-container *ngIf="withText">
+    <span *ngIf="toBeWatched; else elseSpan">
+      Remove from watch list
+    </span>
+    <ng-template #elseSpan>
+      <span>
+        Add to watch list
+      </span>
+    </ng-template>
+  </ng-container>
+</div>

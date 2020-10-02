@@ -3,7 +3,12 @@
         <div class="media-details_content">
             <h2 class="media-details_title" *ngIf="title" >{{title}}</h2>
             <div class="media-details_info">
-                <media-poster class="media-details_media-poster" [media]="data.media"></media-poster>
+                <div class="media-details_poster-wrapper">
+                    <media-poster class="media-details_media-poster" [media]="data.media"></media-poster>
+                    <seen-list-toggle [media]="data.media" [withText]="true" ></seen-list-toggle>
+                    <watch-list-toggle [media]="data.media" [withText]="true"></watch-list-toggle>
+                </div>
+                
                 <div>
                     <media-info [media]="data.media"></media-info>
                     <div class="media-details_casting">

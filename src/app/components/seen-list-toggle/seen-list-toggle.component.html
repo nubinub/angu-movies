@@ -1,4 +1,30 @@
-<button mat-icon-button (click)="toggleMedia()">
-  <mat-icon *ngIf="hasBeenSeen; else elseBlock" matTooltip="Remove from seen list"  matTooltipPosition="below" color="primary">visibility_off</mat-icon>
-  <ng-template #elseBlock><mat-icon matTooltip="Add to seen list"  matTooltipPosition="below">visibility</mat-icon></ng-template>
-</button>
+<div class="seen-list-toggle">
+  <button class="seen-list-toggle_button" mat-icon-button (click)="toggleMedia()">
+    <mat-icon 
+      *ngIf="hasBeenSeen; else elseIcon" 
+      matTooltip="Remove from favorites"  
+      matTooltipPosition="below" 
+      color="primary"
+    >
+      favorite
+    </mat-icon>
+    <ng-template #elseIcon>
+      <mat-icon 
+        matTooltip="Add to favorites"  
+        matTooltipPosition="below"
+      >
+        favorite_border
+      </mat-icon>
+    </ng-template>
+  </button>
+  <ng-container *ngIf="withText">
+    <span *ngIf="hasBeenSeen; else elseSpan">
+      Remove from favorites
+    </span>
+    <ng-template #elseSpan>
+      <span>
+        Add to favorites
+      </span>
+    </ng-template>
+  </ng-container>
+</div>

@@ -12,6 +12,8 @@ export class WatchListToggleComponent implements OnChanges {
 
   @Input() media: Media;
 
+  @Input() withText: boolean;
+
   toBeWatched: boolean;
 
   constructor(@Inject(WATCH_LIST_SERVICE) private watchListService: ListService) { }
