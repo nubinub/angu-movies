@@ -6,25 +6,7 @@
     </div>
 </div>
 <ng-container *ngIf="moviesData$ | async as data">
-    <div class="box-office" style.background-image="url({{data.movie | mediaBackdrop}})">
-        <div class="box-office_overlay">
-            <div class="box-office_content">
-                <h2 class="box-office_title">Box office</h2>
-                <div class="box-office_info">
-                    <media-poster class="box-office_media-poster" [media]="data.movie"></media-poster>
-                    <div>
-                        <movie-info [movie]="data.movie"></movie-info>
-                        <div class="box-office_casting">
-                            <h3 class="box-office_casting-title">Casting</h3>
-                            <div class="box-office_casting_list">
-                                <cast-card class="box-office_cast-card" *ngFor="let cast of data.casts | slice:0:5" [cast]="cast"></cast-card>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <media-details [media]="data.movie" [casts]="data.casts" title="Box Office"></media-details>
     <popular-medias id="popular-movies" [medias]="data.movies | slice:1:11" title="Most popular movies"></popular-medias>
 </ng-container>
 <popular-medias 

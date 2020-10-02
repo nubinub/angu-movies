@@ -43,6 +43,9 @@ import { MediaPosterPipe } from './pipes/media-poster/media-poster.pipe';
 import { MediaBackdropPipe } from './pipes/media-backdrop/media-backdrop.pipe';
 import { CastPosterPipe } from './pipes/cast-poster/cast-poster.pipe';
 import { IMAGE_BASE_URL } from './tokens/image-base-url.token';
+import { MediaDetailsComponent } from './components/media-details/media-details.component';
+import { MediaInfoComponent } from './components/media-info/media-info.component';
+import { MediaTimePipe } from './pipes/media-time/media-time.pipe';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { IMAGE_BASE_URL } from './tokens/image-base-url.token';
     MediaPosterPipe,
     MediaBackdropPipe,
     CastPosterPipe,
+    MediaDetailsComponent,
+    MediaInfoComponent,
+    MediaTimePipe,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Media } from 'src/app/model/media/media';
 import EType from 'src/app/model/type/type-enum';
-import { ReleaseDatePipe } from '../release-date/release-date.pipe';
 
 @Pipe({
   name: 'mediaDate'

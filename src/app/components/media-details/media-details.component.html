@@ -1,0 +1,19 @@
+<div class="media-details" style.background-image="url({{media | mediaBackdrop}})">
+    <div class="media-details_overlay">
+        <div class="media-details_content">
+            <h2 class="media-details_title" *ngIf="title" >{{title}}</h2>
+            <div class="media-details_info">
+                <media-poster class="media-details_media-poster" [media]="media"></media-poster>
+                <div>
+                    <movie-info [movie]="media"></movie-info>
+                    <div class="media-details_casting">
+                        <h3 class="media-details_casting-title">Casting</h3>
+                        <div class="media-details_casting_list">
+                            <cast-card class="media-details_cast-card" *ngFor="let cast of casts | slice:0:5" [cast]="cast"></cast-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
