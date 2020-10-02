@@ -4,10 +4,10 @@
       <mat-icon class="nav-bar_logo-icon material-icons-outlined">favorite_border</mat-icon>
       movie box
     </span>
-    <span class="nav-bar_home-link">
+    <a [routerLink]="['/medias']" fragment="home" class="nav-bar_home-link">
       <mat-icon class="nav-bar_home-icon material-icons-outlined">home</mat-icon>
       Home
-    </span>
+    </a>
   </div>
   <div class="nav-bar_search-zone">
     <div class="nav-bar_search-field-wrapper">

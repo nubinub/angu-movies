@@ -39,6 +39,7 @@ import { CacheRouteReuseStrategy } from './strategies/cache-route-reuse-strategy
 import { MediaCardComponent } from './components/media-card/media-card.component';
 import { MediaTitlePipe } from './pipes/media-title/media-title.pipe';
 import { MediaDatePipe } from './pipes/media-date/media-date.pipe';
+import { PopularMediasComponent } from './components/popular-medias/popular-medias.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { MediaDatePipe } from './pipes/media-date/media-date.pipe';
     MediaCardComponent,
     MediaTitlePipe,
     MediaDatePipe,
+    PopularMediasComponent,
   ],
   imports: [
     BrowserModule,

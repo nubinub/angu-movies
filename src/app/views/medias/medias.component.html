@@ -1,3 +1,10 @@
+<div id="home" class="home">
+    <div class="home_content">
+        <h1>Open the world of movie</h1>
+        <a mat-raised-button [routerLink] class="home_link" fragment="popular-movies">Popular movies</a>
+        <a mat-raised-button [routerLink] class="home_link" fragment="popular-tv-shows">Popular Tv Shows</a>
+    </div>
+</div>
 <ng-container *ngIf="moviesData$ | async as data">
     <div class="box-office">
         <div class="box-office_background" [ngStyle]="{'background-image': 'url(' + getPosterUrl(data.movie) + ')'}">
@@ -18,16 +25,11 @@
             </div>
         </div>
     </div>
-    <div class="popular-movies">
-        <div class="popular-movies_content">
-            <h1 class="popular-movies_title">Most popular movies</h1>
-            <medias-list [items]="data.movies | slice:1:11"></medias-list>
-        </div>
-    </div>
+    <popular-medias id="popular-movies" [medias]="data.movies | slice:1:11" title="Most popular movies"></popular-medias>
 </ng-container>
-<div class="popular-tv-shows">
-    <div class="popular-tv-shows_content">
-        <h1 class="popular-tv-shows_title">Most popular Tv Shows</h1>
-        <medias-list [items]="popularTvShows$ | async | slice:0:10"></medias-list>
-    </div>
-</div>
+<popular-medias 
+    id="popular-tv-shows"
+    *ngIf="popularTvShows$ | async as popularTvShows" 
+    [medias]="popularTvShows | slice:0:10" 
+    title="Most popular Tv Shows">
+</popular-medias>

@@ -1,15 +1,19 @@
 .nav-bar {
   position: fixed;
   z-index: 2;
-  background:  #161A1A 0% 0% no-repeat padding-box;
+  background: transparent;
   backdrop-filter: blur(50px);
-  opacity: 0.5;
   -webkit-backdrop-filter: blur(50px);
   color: white;
   letter-spacing: 0.11px;
   font-size: 15px;
   display: flex;
   justify-content: space-around;
+}
+
+.nav-bar_home-link {
+  text-decoration: none;
+  color: white;
 }
 
 .nav-bar_home-logo {
@@ -23,6 +27,7 @@
   position: relative;
   top: 6px;
 }
+
 
 .nav-bar_logo-icon {
   margin-right: 0.2rem;
