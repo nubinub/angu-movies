@@ -19,16 +19,12 @@ export class MediaCardComponent {
   openDetails(event) {
     event.preventDefault();
     event.stopPropagation();
-    const dialogRef = this.matDialog.open(MediaDetailsDialogComponent, {
+    this.matDialog.open(MediaDetailsDialogComponent, {
       data: {
         media: this.media,
       },
       width: '100%',
       panelClass: 'custom-dialog-container'
-    });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('closed');
     });
   }
 }
