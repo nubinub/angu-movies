@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MediaDatePipe } from 'src/app/pipes/media-date/media-date.pipe';
 import { MediaTitlePipe } from 'src/app/pipes/media-title/media-title.pipe';
 import { ReleaseDatePipe } from 'src/app/pipes/release-date/release-date.pipe';
@@ -14,6 +15,9 @@ describe('MediaCardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MediaCardComponent, MediaTitlePipe, ReleaseDatePipe, MediaDatePipe ],
+      imports: [
+        MatDialogModule
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();

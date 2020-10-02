@@ -5,9 +5,9 @@
         <a mat-raised-button [routerLink] class="home_link" fragment="popular-tv-shows">Popular Tv Shows</a>
     </div>
 </div>
-<ng-container *ngIf="moviesData$ | async as data">
-    <media-details [media]="data.movie" [casts]="data.casts" title="Box Office"></media-details>
-    <popular-medias id="popular-movies" [medias]="data.movies | slice:1:11" title="Most popular movies"></popular-medias>
+<ng-container *ngIf="popularMovies$ | async as popularMovies">
+    <media-details [media]="popularMovies[0]" title="Box Office"></media-details>
+    <popular-medias id="popular-movies" [medias]="popularMovies | slice:1:11" title="Most popular movies"></popular-medias>
 </ng-container>
 <popular-medias 
     id="popular-tv-shows"

@@ -46,6 +46,8 @@ import { IMAGE_BASE_URL } from './tokens/image-base-url.token';
 import { MediaDetailsComponent } from './components/media-details/media-details.component';
 import { MediaInfoComponent } from './components/media-info/media-info.component';
 import { MediaTimePipe } from './pipes/media-time/media-time.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MediaDetailsDialogComponent } from './components/media-details-dialog/media-details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +77,7 @@ import { MediaTimePipe } from './pipes/media-time/media-time.pipe';
     MediaDetailsComponent,
     MediaInfoComponent,
     MediaTimePipe,
+    MediaDetailsDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +98,7 @@ import { MediaTimePipe } from './pipes/media-time/media-time.pipe';
     MatSidenavModule,
     MatListModule,
     MatRadioModule,
+    MatDialogModule,
   ],
   providers: [
     {
@@ -103,6 +107,7 @@ import { MediaTimePipe } from './pipes/media-time/media-time.pipe';
     },
     {provide: MOVIE_API_BASE_URL, useValue: 'https://api.themoviedb.org/3/'},
     {provide: IMAGE_BASE_URL, useValue: 'https://image.tmdb.org/'},
+    RuntimePipe,
   ],
   bootstrap: [AppComponent]
 })

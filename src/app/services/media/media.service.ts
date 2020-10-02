@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { combineLatest, Observable } from 'rxjs';
 import { debounceTime, map, startWith, tap } from 'rxjs/operators';
+import Cast from 'src/app/model/cast/cast';
 import { Media } from 'src/app/model/media/media';
 import { SearchParams } from 'src/app/model/search-params/search-params';
 import EType from 'src/app/model/type/type-enum';
@@ -63,5 +64,23 @@ export class MediaService {
         ([query, type, year]) => ({ query, type, year })
       )
     );
+  }
+
+  getMediaDetails(media: Media): Observable<[Media, Cast[]]> {
+    if (media.type === EType.Movie) {
+      return combineLatest(
+        [
+          this.movieService.getMovie(media.id),
+          this.movieService.getCast(media.id)
+        ]
+      );
+    } else if (media.type === EType.TvShow) {
+      return combineLatest(
+        [
+          this.tvShowService.getTvShow(media.id),
+          this.tvShowService.getCast(media.id)
+        ]
+      );
+    }
   }
 }

@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Media } from 'src/app/model/media/media';
+import { MediaDetailsDialogComponent } from '../media-details-dialog/media-details-dialog.component';
+import { MediaDetailsComponent } from '../media-details/media-details.component';
 
 @Component({
   selector: 'media-card',
@@ -9,4 +12,23 @@ import { Media } from 'src/app/model/media/media';
 export class MediaCardComponent {
 
   @Input() media: Media;
+
+  constructor(private matDialog: MatDialog) {
+  }
+
+  openDetails(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const dialogRef = this.matDialog.open(MediaDetailsDialogComponent, {
+      data: {
+        media: this.media,
+      },
+      width: '100%',
+      panelClass: 'custom-dialog-container'
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('closed');
+    });
+  }
 }
