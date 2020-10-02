@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { InjectionToken, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,8 +33,6 @@ import { TvShowCardComponent } from './components/tv-show-card/tv-show-card.comp
 import { MediasListComponent } from './components/medias-list/medias-list.component';
 import { MediaPosterComponent } from './components/media-poster/media-poster.component';
 import { TvShowInfoComponent } from './components/tv-show-info/tv-show-info.component';
-import { RouteReuseStrategy } from '@angular/router';
-import { CacheRouteReuseStrategy } from './strategies/cache-route-reuse-strategy';
 import { MediaCardComponent } from './components/media-card/media-card.component';
 import { MediaTitlePipe } from './pipes/media-title/media-title.pipe';
 import { MediaDatePipe } from './pipes/media-date/media-date.pipe';
@@ -48,6 +46,8 @@ import { MediaInfoComponent } from './components/media-info/media-info.component
 import { MediaTimePipe } from './pipes/media-time/media-time.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MediaDetailsDialogComponent } from './components/media-details-dialog/media-details-dialog.component';
+import { WatchListComponent } from './views/watch-list/watch-list.component';
+import { FavoritesListComponent } from './views/favorites-list/favorites-list.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +78,8 @@ import { MediaDetailsDialogComponent } from './components/media-details-dialog/m
     MediaInfoComponent,
     MediaTimePipe,
     MediaDetailsDialogComponent,
+    WatchListComponent,
+    FavoritesListComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,10 +103,6 @@ import { MediaDetailsDialogComponent } from './components/media-details-dialog/m
     MatDialogModule,
   ],
   providers: [
-    {
-      provide: RouteReuseStrategy,
-      useClass: CacheRouteReuseStrategy,
-    },
     {provide: MOVIE_API_BASE_URL, useValue: 'https://api.themoviedb.org/3/'},
     {provide: IMAGE_BASE_URL, useValue: 'https://image.tmdb.org/'},
     RuntimePipe,

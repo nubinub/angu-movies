@@ -16,14 +16,14 @@
     </div>
   </div>
   <div class="nav-bar_list-zone">
-    <span class="nav-bar_fav-list">
+    <a [routerLink]="['/medias', 'favorites']" class="nav-bar_fav-link">
       <mat-icon class="nav-bar_fav-icon material-icons-outlined">favorite_border</mat-icon>
       My favorites
-    </span>
+    </a>
    
-    <span class="nav-bar_watch-list">
+    <a [routerLink]="['/medias', 'watch']" class="nav-bar_watch-link">
       <mat-icon class="nav-bar_watch-icon material-icons-outlined">visibility</mat-icon>
       My watch list
-    </span>
+    </a>
   </div>
 </mat-toolbar>

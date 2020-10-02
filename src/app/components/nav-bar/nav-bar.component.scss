@@ -67,9 +67,11 @@
   text-align: center;
 }
 
-.nav-bar_fav-list {
+.nav-bar_fav-link {
   margin-right: 1rem;
   position: relative;
+  text-decoration: none;
+  color: white;
 }
 
 .nav-bar_fav-icon {
@@ -77,6 +79,11 @@
   height: 15px;
   position: relative;
   top: 6px;
+}
+
+.nav-bar_watch-link {
+  text-decoration: none;
+  color: white;
 }
 
 .nav-bar_watch-icon {
