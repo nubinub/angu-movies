@@ -1,0 +1,73 @@
+.box-office {
+  min-height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+}
+
+.box-office_background {
+  background: transparent 0% 0% no-repeat padding-box;
+  background-size: 100%;
+  opacity: 0.05;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.box-office_content {
+  margin: 0 172px;
+  padding-top: 20px;
+}
+
+.box-office_title {
+  width: 100%;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #707070;
+}
+
+.box-office_info {
+  display: flex;
+  margin-top: 10rem;
+  margin-left: 5rem;
+}
+
+.box-office_media-poster {
+  margin-right: 5rem;
+}
+
+.box-office_casting_list {
+  display: flex;
+}
+
+.box-office_cast-card {
+  margin-right: 1rem;
+}
+
+.popular-movies {
+  min-height: 100vh;
+}
+
+.popular-movies_content {
+  margin: 0 172px;
+}
+
+.popular-movies_title {
+  width: 100%;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #707070;
+}
+
+.popular-tv-shows {
+  min-height: calc(100vh - 64px);
+}
+
+.popular-tv-shows_content {
+  margin: 0 172px;
+}
+
+.popular-tv-shows_title {
+  width: 100%;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #707070;
+}

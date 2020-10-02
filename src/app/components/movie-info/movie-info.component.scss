@@ -1,3 +1,12 @@
+.movie-info_title {
+  margin: 0;
+  font-size: 35px;
+}
+
+.movie-info_genres::after {
+  content: ' | ';
+}
+
 .movie-info_genre::after {
   content: ', ';
 }
@@ -8,6 +17,8 @@
 
 .movie-info_panel {
   margin-bottom: 1rem;
+  color: #2DCEEF;
+  font-size: 12px;
 }
 
 .movie-info_overview {
@@ -18,8 +29,8 @@
   vertical-align: bottom;
 }
 
-.movie-info_release-date {
-  margin-right: 1rem;
+.movie-info_release-date::after {
+  content: ' | ';
 }
 
 

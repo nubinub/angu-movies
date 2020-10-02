@@ -16,7 +16,7 @@ $ngm-app-accent:  mat-palette($mat-deep-orange, A400, A100, A700);
 $ngm-app-warn:    mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$ngm-app-theme: mat-light-theme($ngm-app-primary, $ngm-app-accent, $ngm-app-warn);
+$ngm-app-theme: mat-dark-theme($ngm-app-primary, $ngm-app-accent, $ngm-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

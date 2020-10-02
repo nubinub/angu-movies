@@ -35,33 +35,4 @@ describe('Component: NavBarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  describe('isMovieDetails$', () => {
-    it('should emit true when NavigationEnd with matchin url', () => {
-      scheduler.run(({expectObservable, cold}) => {
-        (router as any).events = cold('a', {a: new NavigationEnd(1, 'movies/7', 'movies/7')});
-        fixture.detectChanges();
-        expectObservable(component.isMediaDetails$).toBe('a', {a: true});
-      });
-    });
-
-    it('should emit false when NavigationEnd with non matching url', () => {
-      scheduler.run(({expectObservable, cold}) => {
-        (router as any).events = cold('a', {a: new NavigationEnd(1, 'movies/seen', 'movies/seen')});
-        fixture.detectChanges();
-        expectObservable(component.isMediaDetails$).toBe('a', {a: false});
-      });
-    });
-
-    it('should emit only when NavigationEnd', () => {
-      scheduler.run(({expectObservable, cold}) => {
-        (router as any).events = cold('ab', {
-          a: new NavigationStart(1, 'movies/seen'),
-          b: new NavigationEnd(1, 'movies/seen', 'movies/seen')
-        });
-        fixture.detectChanges();
-        expectObservable(component.isMediaDetails$).toBe('-b', {b: false});
-      });
-    });
-  });
 });

@@ -1,23 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { combineLatest, Observable } from 'rxjs';
+import { flatMap, map, mergeAll, switchMap, tap } from 'rxjs/operators';
+import Cast from 'src/app/model/cast/cast';
 import { Media } from 'src/app/model/media/media';
-import { SearchParams } from 'src/app/model/search-params/search-params';
-import { MediaService } from 'src/app/services/media/media.service';
+import Movie from 'src/app/model/movie/movie';
+import TvShow from 'src/app/model/tv-show/tv-show';
+import { MovieService } from 'src/app/services/movie/movie.service';
+import { PosterService } from 'src/app/services/poster/poster.service';
+import { TvShowService } from 'src/app/services/tv-show/tv-show.service';
 
 @Component({
   selector: 'app-medias',
   templateUrl: './medias.component.html',
   styleUrls: ['./medias.component.scss']
 })
-export class MediasComponent {
-  public items: Media[] = [];
+export class MediasComponent implements OnInit {
+  public moviesData$: Observable<{movies: Movie[], movie: Movie, casts: Cast[]}>;
 
-  constructor(private mediaService: MediaService) { }
+  public popularTvShows$: Observable<TvShow[]>;
 
-  onSearch(searchParams: SearchParams): void {
-   this.mediaService.search(searchParams).subscribe((medias) => this.items = medias);
+  constructor(private movieService: MovieService, private tvShowService: TvShowService, private posterService: PosterService) { }
+
+  ngOnInit() {
+    this.moviesData$ = this.movieService.getDefaultMovies().pipe(
+      flatMap((movies) => combineLatest([
+        this.movieService.getMovie(movies[0].id),
+        this.movieService.getCast(movies[0].id)
+      ]).pipe(
+        map(
+          ([movie, casts]) => ({movies, movie, casts})
+        ),
+      ))
+    );
+    this.popularTvShows$ = this.tvShowService.getDefaultTvShows();
   }
 
-  onAttach() {
-    this.items = this.items.map((media) => ({...media}));
+  getPosterUrl(media: Media)  {
+    return this.posterService.getMediaPosterUrl(media);
   }
 }

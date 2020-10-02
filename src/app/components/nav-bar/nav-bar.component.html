@@ -1,11 +1,29 @@
-<mat-toolbar class="nav-bar" color="primary">
-  <a mat-icon-button *ngIf="isMediaDetails$ | async; else elseBlock" (click)="goBack()">
-    <mat-icon>arrow_back</mat-icon>
-  </a>
-  <ng-template #elseBlock>
-    <a mat-icon-button (click)="drawerToggle.emit()">
-      <mat-icon>menu</mat-icon>
-    </a>
-  </ng-template>
-  <span>Angular Movies</span>
+<mat-toolbar class="nav-bar">
+  <div class="nav-bar_home-zone">
+    <span class="nav-bar_home-logo">
+      <mat-icon class="nav-bar_logo-icon material-icons-outlined">favorite_border</mat-icon>
+      movie box
+    </span>
+    <span class="nav-bar_home-link">
+      <mat-icon class="nav-bar_home-icon material-icons-outlined">home</mat-icon>
+      Home
+    </span>
+  </div>
+  <div class="nav-bar_search-zone">
+    <div class="nav-bar_search-field-wrapper">
+      <mat-icon class="nav-bar_search-field-icon">search</mat-icon>
+      <input class="nav-bar_search-field" />
+    </div>
+  </div>
+  <div class="nav-bar_list-zone">
+    <span class="nav-bar_fav-list">
+      <mat-icon class="nav-bar_fav-icon material-icons-outlined">favorite_border</mat-icon>
+      My favorites
+    </span>
+   
+    <span class="nav-bar_watch-list">
+      <mat-icon class="nav-bar_watch-icon material-icons-outlined">visibility</mat-icon>
+      My watch list
+    </span>
+  </div>
 </mat-toolbar>

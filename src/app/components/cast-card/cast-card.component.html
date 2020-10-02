@@ -1,8 +1,4 @@
-<mat-card class="cast-card">
-  <img mat-card-image [src]="profileUrl" [alt]="cast?.name">
-  <mat-card-header>
-    <mat-card-title>{{cast?.name}}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-  </mat-card-content>
-</mat-card>
+<div class="cast-card">
+  <img class="cast-card_image" mat-card-image [src]="profileUrl" [alt]="cast?.name">
+  <h3 class="cast-card_title">{{cast?.name}}</h3>
+</div>

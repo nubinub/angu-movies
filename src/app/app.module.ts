@@ -21,7 +21,6 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { RuntimePipe } from './pipes/runtime/runtime.pipe';
 import { ReleaseDatePipe } from './pipes/release-date/release-date.pipe';
 import { MediasComponent } from './views/medias/medias.component';
-import { MovieComponent } from './views/movie/movie.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { CastCardComponent } from './components/cast-card/cast-card.component';
 import { MediaSearchComponent } from './components/media-search/media-search.component';
@@ -33,13 +32,13 @@ import { MOVIE_API_BASE_URL } from './services/movie-repository/movie-repository
 import { IMAGE_BASE_URL } from './services/poster/poster.service';
 import { TvShowCardComponent } from './components/tv-show-card/tv-show-card.component';
 import { MediasListComponent } from './components/medias-list/medias-list.component';
-import { SeenListComponent } from './views/seen-list/seen-list.component';
-import { WatchListComponent } from './views/watch-list/watch-list.component';
 import { MediaPosterComponent } from './components/media-poster/media-poster.component';
-import { TvShowComponent } from './views/tv-show/tv-show.component';
 import { TvShowInfoComponent } from './components/tv-show-info/tv-show-info.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CacheRouteReuseStrategy } from './strategies/cache-route-reuse-strategy';
+import { MediaCardComponent } from './components/media-card/media-card.component';
+import { MediaTitlePipe } from './pipes/media-title/media-title.pipe';
+import { MediaDatePipe } from './pipes/media-date/media-date.pipe';
 
 @NgModule({
   declarations: [
@@ -49,20 +48,19 @@ import { CacheRouteReuseStrategy } from './strategies/cache-route-reuse-strategy
     ReleaseDatePipe,
     MediasListComponent,
     MediasComponent,
-    MovieComponent,
     MediaPosterComponent,
     MovieInfoComponent,
     CastCardComponent,
     MediaSearchComponent,
-    SeenListComponent,
-    WatchListComponent,
     WatchListToggleComponent,
     SeenListToggleComponent,
     NavBarComponent,
     SettingsComponent,
     TvShowCardComponent,
-    TvShowComponent,
     TvShowInfoComponent,
+    MediaCardComponent,
+    MediaTitlePipe,
+    MediaDatePipe,
   ],
   imports: [
     BrowserModule,

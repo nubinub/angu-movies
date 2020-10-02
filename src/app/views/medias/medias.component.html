@@ -1,2 +1,33 @@
-<media-search (search)="onSearch($event)"></media-search>
-<medias-list [items]="items"></medias-list>
+<ng-container *ngIf="moviesData$ | async as data">
+    <div class="box-office">
+        <div class="box-office_background" [ngStyle]="{'background-image': 'url(' + getPosterUrl(data.movie) + ')'}">
+        </div>
+        <div class="box-office_content">
+            <h2 class="box-office_title">Box office</h2>
+            <div class="box-office_info">
+                <media-poster class="box-office_media-poster" [media]="data.movie"></media-poster>
+                <div>
+                    <movie-info [movie]="data.movie"></movie-info>
+                    <div class="box-office_casting">
+                        <h3>Casting</h3>
+                        <div class="box-office_casting_list">
+                            <cast-card class="box-office_cast-card" *ngFor="let cast of data.casts | slice:0:5" [cast]="cast"></cast-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popular-movies">
+        <div class="popular-movies_content">
+            <h1 class="popular-movies_title">Most popular movies</h1>
+            <medias-list [items]="data.movies | slice:1:11"></medias-list>
+        </div>
+    </div>
+</ng-container>
+<div class="popular-tv-shows">
+    <div class="popular-tv-shows_content">
+        <h1 class="popular-tv-shows_title">Most popular Tv Shows</h1>
+        <medias-list [items]="popularTvShows$ | async | slice:0:10"></medias-list>
+    </div>
+</div>

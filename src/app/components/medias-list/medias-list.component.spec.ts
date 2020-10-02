@@ -26,11 +26,4 @@ describe('MediasListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should render n movie-card', () => {
-    component.items = movies;
-    fixture.detectChanges();
-    const cards = fixture.debugElement.queryAll(By.css('movie-card'));
-    expect(cards.length).toEqual(movies.length);
-  });
 });
