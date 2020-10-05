@@ -46,6 +46,7 @@ import { WatchListComponent } from './views/watch-list/watch-list.component';
 import { FavoritesListComponent } from './views/favorites-list/favorites-list.component';
 import { MediaRatingComponent } from './components/media-rating/media-rating.component';
 import { MediaVotePipe } from './pipes/media-vote/media-vote.pipe';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { MediaVotePipe } from './pipes/media-vote/media-vote.pipe';
     FavoritesListComponent,
     MediaRatingComponent,
     MediaVotePipe,
+    PageHeaderComponent,
   ],
   imports: [
     BrowserModule,
