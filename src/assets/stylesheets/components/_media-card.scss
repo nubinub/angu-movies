@@ -30,7 +30,6 @@
 
 .media-card_action-buttons .mat-icon-button {
     color: $ngm-white-color;
-    background-color: $ngm-background-blue-color;
-    background-image: $ngm-background-blue-gradient;
+    background: $ngm-button-background;
     margin-bottom: 0.5rem;
 }

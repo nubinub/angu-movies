@@ -1,0 +1,39 @@
+.home {
+  min-height: 100vh;
+  min-width: 100%;
+  max-height: 100vh;
+  margin: 0;
+  background-size: 100%;
+  position: relative;
+}
+
+.home_content {
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 25vh;
+  filter: none;
+  text-align: center;
+}
+
+.home_title {
+  font: normal normal 900 48px/64px Lato;
+  letter-spacing: 0.96px;
+  color: $ngm-white-color;
+}
+
+.home_link {
+  background-color: transparent;
+  border-radius: 40px;
+  border: 2px solid $ngm-white-color;
+  box-shadow: 0px 0px 20px #0022FF66;
+  margin-right: 1rem;
+  font: normal normal bold 16px Open Sans;
+  letter-spacing: 0.1px;
+  padding: 0.5rem 2rem;
+  color: $ngm-white-color;
+}
+
+.home_link:hover {
+    background: $ngm-button-background;
+    border: 2px solid transparent;
+}
