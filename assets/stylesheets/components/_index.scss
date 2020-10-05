@@ -1,0 +1,19 @@
+@import "media-card";
+@import "media-details";
+@import "media-details-dialog";
+@import "media-poster";
+@import "media-rating";
+@import "medias-list";
+@import "nav-bar";
+@import "popular-medias";
+@import "media-info";
+@import "home";
+@import "cast-card";
+@import "page-header";
+
+.custom-dialog-container .mat-dialog-container {
+    max-height: 80vh;
+    padding: 0; 
+    overflow: hidden;
+    border: $ngm-white-color solid 6px;
+}

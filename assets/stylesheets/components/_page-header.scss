@@ -1,0 +1,18 @@
+.page-header {
+    height: 298px;
+    background: url('assets/images/background.png') 0% 0% no-repeat;
+    position: relative;
+}
+
+.page-header_content {
+    position: absolute;
+    left: $ngm-content-margin;
+    bottom: 0;
+}
+
+.page-header_title {
+    font: normal normal bold 48px/64px Open Sans;
+    letter-spacing: 0.96px;
+    color: $ngm-white-color;
+    margin: 29px 0px;
+}
