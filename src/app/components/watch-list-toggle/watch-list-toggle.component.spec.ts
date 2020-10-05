@@ -36,7 +36,7 @@ describe('Component: WatchListToggleComponent', () => {
     it('should call list service toggleMedia and set toBeWatched', () => {
       component.media = movies[0];
       watchListServiceSpy.toggleMedia.and.returnValue(true);
-      component.toggleMedia();
+      component.toggleMedia({preventDefault: () => {}, stopPropagation: () => {}});
       expect(watchListServiceSpy.toggleMedia).toHaveBeenCalledWith(movies[0]);
       expect(component.toBeWatched).toBe(true);
     });
