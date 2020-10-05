@@ -49,6 +49,7 @@ import { MediaDetailsDialogComponent } from './components/media-details-dialog/m
 import { WatchListComponent } from './views/watch-list/watch-list.component';
 import { FavoritesListComponent } from './views/favorites-list/favorites-list.component';
 import { MediaRatingComponent } from './components/media-rating/media-rating.component';
+import { MediaVotePipe } from './pipes/media-vote/media-vote.pipe';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { MediaRatingComponent } from './components/media-rating/media-rating.com
     WatchListComponent,
     FavoritesListComponent,
     MediaRatingComponent,
+    MediaVotePipe,
   ],
   imports: [
     BrowserModule,

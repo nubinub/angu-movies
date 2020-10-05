@@ -1,12 +1,12 @@
-<div class="media-rating" *ngIf="(media?.vote_average / 2) as rating">
+<div class="media-rating" *ngIf="media | mediaVote as rating">
     <div class="media-rating_text">
         {{rating}}
     </div>
-    <div class="media-rating_star">
+    <div class="media-rating_stars">
         <ng-container *ngFor="let number of [0,1,2,3,4]">
-            <mat-icon *ngIf="rating >= number + 0.75">star</mat-icon>
-            <mat-icon *ngIf="rating >= number + 0.25 && rating < number + 0.75">star_half</mat-icon>
-            <mat-icon *ngIf="rating < number + 0.25">star_border</mat-icon>
+            <mat-icon class="media-rating_star" *ngIf="rating >= number + 0.75">star</mat-icon>
+            <mat-icon class="media-rating_star" *ngIf="rating >= number + 0.25 && rating < number + 0.75">star_half</mat-icon>
+            <mat-icon class="media-rating_star" *ngIf="rating < number + 0.25">star_border</mat-icon>
         </ng-container>
     </div>
 </div>
