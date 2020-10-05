@@ -1,8 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Location } from '@angular/common';
-import { Event, NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nav-bar',

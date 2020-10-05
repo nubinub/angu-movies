@@ -5,6 +5,10 @@
   color: $ngm-white-color;
   letter-spacing: 0.11px;
   font-size: 15px;
+  display: inline-block;
+  background: url('assets/images/Logo.png') 75px 50% no-repeat;
+  background-size: 100px;
+  padding-left: 150px;
 }
 
 .nav-bar_home-link {

@@ -1,8 +1,10 @@
 <div id="home" class="home">
+    <div class="home_content-background ">
+    </div>
     <div class="home_content">
         <h1 class="home_title">Open the world of movie.</h1>
-        <a mat-raised-button [routerLink] class="home_link" fragment="popular-movies">Popular movies</a>
-        <a mat-raised-button [routerLink] class="home_link" fragment="popular-tv-shows">Popular Tv Shows</a>
+        <a mat-button [routerLink] class="home_link" fragment="popular-movies">Popular movies</a>
+        <a mat-button [routerLink] class="home_link" fragment="popular-tv-shows">Popular Tv Shows</a>
     </div>
 </div>
 <ng-container *ngIf="popularMovies$ | async as popularMovies">
