@@ -10,7 +10,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $ngm-app-primary: mat-palette($mat-indigo);
-$ngm-app-accent:  mat-palette($mat-deep-orange, A400, A100, A700);
+$ngm-app-accent:  mat-palette($mat-pink, A400, A100, A700);
 
 // The warn palette is optional (defaults to red).
 $ngm-app-warn:    mat-palette($mat-red);

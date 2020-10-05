@@ -15,7 +15,7 @@
   </div>
   <div class="nav-bar_list-zone">
     <a [routerLink]="['/medias', 'favorites']" class="nav-bar_fav-link">
-      <mat-icon class="nav-bar_fav-icon material-icons-outlined">favorite_border</mat-icon>
+      <mat-icon class="nav-bar_fav-icon material-icons-outlined" [matBadge]="favList.length"  matBadgeColor="accent" >favorite_border</mat-icon>
       My favorites
     </a>
    

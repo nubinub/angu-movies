@@ -13,6 +13,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -95,6 +96,7 @@ import { MediaVotePipe } from './pipes/media-vote/media-vote.pipe';
     MatListModule,
     MatRadioModule,
     MatDialogModule,
+    MatBadgeModule,
   ],
   providers: [
     {provide: MOVIE_API_BASE_URL, useValue: 'https://api.themoviedb.org/3/'},
