@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MediaVotePipe } from 'src/app/pipes/media-vote/media-vote.pipe';
 
 import { MediaRatingComponent } from './media-rating.component';
 
@@ -8,7 +9,7 @@ describe('MediaRatingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MediaRatingComponent ]
+      declarations: [ MediaRatingComponent, MediaVotePipe ]
     })
     .compileComponents();
   }));
