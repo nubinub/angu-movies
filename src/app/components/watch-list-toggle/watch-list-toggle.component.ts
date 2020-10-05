@@ -12,6 +12,8 @@ export class WatchListToggleComponent implements OnChanges {
 
   @Input() media: Media;
 
+  @Input() withText: boolean;
+
   toBeWatched: boolean;
 
   constructor(@Inject(WATCH_LIST_SERVICE) private watchListService: ListService) { }
@@ -23,7 +25,9 @@ export class WatchListToggleComponent implements OnChanges {
   /**
    * Add the media to the watch list if it not already in it, else removes it
    */
-  toggleMedia(): void {
+  toggleMedia(event: any): void {
+    event.preventDefault();
+    event.stopPropagation();
     this.toBeWatched = this.watchListService.toggleMedia(this.media);
   }
 }

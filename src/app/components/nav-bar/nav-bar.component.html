@@ -1,11 +1,27 @@
-<mat-toolbar class="nav-bar" color="primary">
-  <a mat-icon-button *ngIf="isMediaDetails$ | async; else elseBlock" (click)="goBack()">
-    <mat-icon>arrow_back</mat-icon>
-  </a>
-  <ng-template #elseBlock>
-    <a mat-icon-button (click)="drawerToggle.emit()">
-      <mat-icon>menu</mat-icon>
+<mat-toolbar class="nav-bar">
+  <div class="nav-bar_home-zone">
+    <span class="nav-bar_home-logo">
+    </span>
+    <a [routerLink]="['/medias']" fragment="home" class="nav-bar_home-link">
+      <mat-icon class="nav-bar_home-icon material-icons-outlined">home</mat-icon>
+      Home
     </a>
-  </ng-template>
-  <span>Angular Movies</span>
+  </div>
+  <div class="nav-bar_search-zone">
+    <div class="nav-bar_search-field-wrapper">
+      <mat-icon class="nav-bar_search-field-icon">search</mat-icon>
+      <input class="nav-bar_search-field" />
+    </div>
+  </div>
+  <div class="nav-bar_list-zone">
+    <a [routerLink]="['/medias', 'favorites']" class="nav-bar_fav-link">
+      <mat-icon class="nav-bar_fav-icon material-icons-outlined" [matBadge]="favList.length"  matBadgeColor="accent" >favorite_border</mat-icon>
+      My favorites
+    </a>
+   
+    <a [routerLink]="['/medias', 'watch']" class="nav-bar_watch-link">
+      <mat-icon class="nav-bar_watch-icon material-icons-outlined">visibility</mat-icon>
+      My watch list
+    </a>
+  </div>
 </mat-toolbar>

@@ -1,0 +1,15 @@
+<div class="media-card">
+    <div class="media-card_poster-wrapper">
+        <media-poster [media]="media"></media-poster>
+        <div class="media-card_poster-overlay" (click)="openDetails($event)">
+            <media-rating class="media-card_rating" [media]="media"></media-rating>
+            <div class="media-card_action-buttons">
+                <seen-list-toggle [media]="media"></seen-list-toggle>
+                <watch-list-toggle [media]="media"></watch-list-toggle>
+            </div>
+        </div>
+    </div>
+    <h2 class="media-card_title">{{media | mediaTitle}}</h2>
+    <h3 class="media-card_subtitle">{{media | mediaDate | releaseDate}}</h3>
+</div>
+

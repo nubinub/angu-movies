@@ -1,0 +1,20 @@
+.media-info_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.media-info_genres::after {
+  content: ' | ';
+}
+
+.media-info_genre::after {
+  content: ', ';
+}
+
+.media-info_genre:last-of-type::after {
+  content: '';
+}
+
+.media-info_release-date::after {
+  content: ' | ';
+}

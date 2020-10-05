@@ -1,0 +1,28 @@
+.media-card_poster-wrapper {
+    position: relative;
+}
+
+.media-card_poster-wrapper:hover .media-card_poster-overlay {
+    display: block;
+}
+
+.media-card_poster-overlay {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    display: none;
+    cursor: pointer;
+}
+
+.media-card_rating {
+    position: absolute;
+    left: 15px;
+    bottom: 20px;
+}
+
+.media-card_action-buttons {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}

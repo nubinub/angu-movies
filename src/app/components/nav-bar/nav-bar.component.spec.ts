@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TestScheduler } from 'rxjs/testing';
+import { SEEN_LIST_SERVICE } from 'src/app/services/list/list.service';
 
 import { NavBarComponent } from './nav-bar.component';
 
@@ -13,11 +14,16 @@ describe('Component: NavBarComponent', () => {
   let router: Router;
 
   beforeEach(async(() => {
+    const spy = jasmine.createSpyObj('ListService', ['getList']);
+    spy.getList.and.returnValue([]);
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [ NavBarComponent ],
+      providers: [
+        {provide: SEEN_LIST_SERVICE, useValue: spy}
+      ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
@@ -34,34 +40,5 @@ describe('Component: NavBarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  describe('isMovieDetails$', () => {
-    it('should emit true when NavigationEnd with matchin url', () => {
-      scheduler.run(({expectObservable, cold}) => {
-        (router as any).events = cold('a', {a: new NavigationEnd(1, 'movies/7', 'movies/7')});
-        fixture.detectChanges();
-        expectObservable(component.isMediaDetails$).toBe('a', {a: true});
-      });
-    });
-
-    it('should emit false when NavigationEnd with non matching url', () => {
-      scheduler.run(({expectObservable, cold}) => {
-        (router as any).events = cold('a', {a: new NavigationEnd(1, 'movies/seen', 'movies/seen')});
-        fixture.detectChanges();
-        expectObservable(component.isMediaDetails$).toBe('a', {a: false});
-      });
-    });
-
-    it('should emit only when NavigationEnd', () => {
-      scheduler.run(({expectObservable, cold}) => {
-        (router as any).events = cold('ab', {
-          a: new NavigationStart(1, 'movies/seen'),
-          b: new NavigationEnd(1, 'movies/seen', 'movies/seen')
-        });
-        fixture.detectChanges();
-        expectObservable(component.isMediaDetails$).toBe('-b', {b: false});
-      });
-    });
   });
 });

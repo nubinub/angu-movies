@@ -36,7 +36,7 @@ describe('Component: SeenListToggleComponent', () => {
     it('should call list service toggleMedia and set hasBeenSeen', () => {
       component.media = movies[0];
       listServiceSpy.toggleMedia.and.returnValue(true);
-      component.toggleMedia();
+      component.toggleMedia({preventDefault: () => {}, stopPropagation: () => {}});
       expect(listServiceSpy.toggleMedia).toHaveBeenCalledWith(movies[0]);
       expect(component.hasBeenSeen).toBe(true);
     });

@@ -1,23 +1,24 @@
-import { Component } from '@angular/core';
-import { Media } from 'src/app/model/media/media';
-import { SearchParams } from 'src/app/model/search-params/search-params';
-import { MediaService } from 'src/app/services/media/media.service';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import Movie from 'src/app/model/movie/movie';
+import TvShow from 'src/app/model/tv-show/tv-show';
+import { MovieService } from 'src/app/services/movie/movie.service';
+import { TvShowService } from 'src/app/services/tv-show/tv-show.service';
 
 @Component({
   selector: 'app-medias',
   templateUrl: './medias.component.html',
   styleUrls: ['./medias.component.scss']
 })
-export class MediasComponent {
-  public items: Media[] = [];
+export class MediasComponent implements OnInit {
+  public popularMovies$: Observable<Movie[]>;
 
-  constructor(private mediaService: MediaService) { }
+  public popularTvShows$: Observable<TvShow[]>;
 
-  onSearch(searchParams: SearchParams): void {
-   this.mediaService.search(searchParams).subscribe((medias) => this.items = medias);
-  }
+  constructor(private movieService: MovieService, private tvShowService: TvShowService) { }
 
-  onAttach() {
-    this.items = this.items.map((media) => ({...media}));
+  ngOnInit() {
+    this.popularMovies$ = this.movieService.getDefaultMovies();
+    this.popularTvShows$ = this.tvShowService.getDefaultTvShows();
   }
 }

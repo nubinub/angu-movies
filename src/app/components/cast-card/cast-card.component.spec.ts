@@ -1,7 +1,8 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CastPosterPipe } from 'src/app/pipes/cast-poster/cast-poster.pipe';
 import { MOVIE_API_BASE_URL } from 'src/app/services/movie-repository/movie-repository.service';
-import { IMAGE_BASE_URL, PosterService } from 'src/app/services/poster/poster.service';
+import { IMAGE_BASE_URL } from 'src/app/tokens/image-base-url.token';
 
 import { CastCardComponent } from './cast-card.component';
 
@@ -10,15 +11,12 @@ describe('Component: CastCardComponent', () => {
   let fixture: ComponentFixture<CastCardComponent>;
 
   beforeEach(async(() => {
-    const spy = jasmine.createSpyObj('PosterService', ['getCastPosterUrl']);
-    spy.getCastPosterUrl.and.returnValue('url-test');
     TestBed.configureTestingModule({
-      declarations: [ CastCardComponent ],
+      declarations: [ CastCardComponent, CastPosterPipe ],
       imports: [],
       providers: [
         { provide: MOVIE_API_BASE_URL, useValue: 'movie-api' },
         { provide: IMAGE_BASE_URL, useValue: 'image-api' },
-        { provide: PosterService, useValue: spy },
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
@@ -32,13 +30,5 @@ describe('Component: CastCardComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  describe('#ngOnChanges', () => {
-    it('should set profileUrl value', () => {
-      component.profileUrl = 'test';
-      component.ngOnChanges();
-      expect(component.profileUrl).toBe('url-test');
-    });
   });
 });

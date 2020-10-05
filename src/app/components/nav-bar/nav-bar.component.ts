@@ -1,34 +1,16 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Location } from '@angular/common';
-import { Event, NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Component, Inject } from '@angular/core';
+import { Media } from 'src/app/model/media/media';
+import { ListService, SEEN_LIST_SERVICE } from 'src/app/services/list/list.service';
 
 @Component({
   selector: 'nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent {
+  public favList: Media[];
 
-  @Output() drawerToggle: EventEmitter<void> = new EventEmitter<void>();
-
-  isMediaDetails$: Observable<boolean>;
-
-  constructor(private location: Location, private router: Router) { }
-
-  ngOnInit(): void {
-    this.isMediaDetails$ = this.router.events.pipe(
-      filter(
-        event => event instanceof NavigationEnd
-      ),
-      map(
-        (event: NavigationEnd) => !!event.url.match('movies/[0-9]+|tv/[0-9]+')
-      )
-    );
-  }
-
-  goBack(): void {
-    this.location.back();
+  constructor(@Inject(SEEN_LIST_SERVICE) private seenListService: ListService) {
+    this.favList = this.seenListService.getList();
   }
 }

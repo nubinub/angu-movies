@@ -1,2 +1,19 @@
-<media-search (search)="onSearch($event)"></media-search>
-<medias-list [items]="items"></medias-list>
+<div id="home" class="home">
+    <div class="home_content-background ">
+    </div>
+    <div class="home_content">
+        <h1 class="home_title">Open the world of movie.</h1>
+        <a mat-button [routerLink] class="home_link" fragment="popular-movies">Popular movies</a>
+        <a mat-button [routerLink] class="home_link" fragment="popular-tv-shows">Popular Tv Shows</a>
+    </div>
+</div>
+<ng-container *ngIf="popularMovies$ | async as popularMovies">
+    <media-details [media]="popularMovies[0]" title="Box Office"></media-details>
+    <popular-medias id="popular-movies" [medias]="popularMovies | slice:1:11" title="Most popular movies"></popular-medias>
+</ng-container>
+<popular-medias 
+    id="popular-tv-shows"
+    *ngIf="popularTvShows$ | async as popularTvShows" 
+    [medias]="popularTvShows | slice:0:10" 
+    title="Most popular Tv Shows">
+</popular-medias>

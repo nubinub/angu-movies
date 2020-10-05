@@ -9,8 +9,4 @@ import EType from 'src/app/model/type/type-enum';
 })
 export class MediasListComponent {
   @Input() items: Media[] = [];
-
-  movieType: EType = EType.Movie;
-
-  tvShowType: EType = EType.TvShow;
 }

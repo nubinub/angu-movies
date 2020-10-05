@@ -1,0 +1,24 @@
+<div class="media-details" *ngIf="mediaDetails$ | async as data" style.background-image="url({{data.media | mediaBackdrop}})">
+    <div class="media-details_overlay">
+        <div class="media-details_content">
+            <h2 class="media-details_title" *ngIf="title" >{{title}}</h2>
+            <div class="media-details_info">
+                <div class="media-details_poster-wrapper">
+                    <media-poster class="media-details_media-poster" [media]="data.media"></media-poster>
+                    <seen-list-toggle [media]="data.media" [withText]="true" ></seen-list-toggle>
+                    <watch-list-toggle [media]="data.media" [withText]="true"></watch-list-toggle>
+                </div>
+                
+                <div>
+                    <media-info [media]="data.media"></media-info>
+                    <div class="media-details_casting">
+                        <h3 class="media-details_casting-title">Casting</h3>
+                        <div class="media-details_casting_list">
+                            <cast-card class="media-details_cast-card" *ngFor="let cast of data.casts | slice:0:5" [cast]="cast"></cast-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

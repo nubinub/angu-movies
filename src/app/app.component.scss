@@ -1,8 +1,6 @@
 .mat-drawer-container {
   .content-wrapper {
-    min-height: calc(100vh - 64px - 2rem);
-    margin: 1rem;
-    margin-top: calc(64px + 1rem);
+    background: rgba(22, 26, 26);
   }
   .mat-drawer {
     width: 250px;

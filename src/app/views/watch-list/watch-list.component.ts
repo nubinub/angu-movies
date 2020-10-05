@@ -8,12 +8,12 @@ import { ListService, WATCH_LIST_SERVICE } from 'src/app/services/list/list.serv
   styleUrls: ['./watch-list.component.scss']
 })
 export class WatchListComponent implements OnInit {
+  public medias: Media[];
 
-  medias: Media[];
+  constructor(@Inject(WATCH_LIST_SERVICE) private watchListService: ListService) {
+  }
 
-  constructor(@Inject(WATCH_LIST_SERVICE) private watchListService: ListService) { }
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.medias = this.watchListService.getList();
   }
 }
