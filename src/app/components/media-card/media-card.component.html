@@ -1,7 +1,25 @@
 <div class="media-card">
-    <a href="#" (click)="openDetails($event)">
+    <div class="media-card_poster-wrapper">
         <media-poster [media]="media"></media-poster>
-    </a>
+        <div class="media-card_poster-overlay" (click)="openDetails($event)">
+            <div class="media-card_rating" *ngIf="(media.vote_average / 2) as rating">
+                <div class="media-card_rating-text">
+                    {{rating}}
+                </div>
+                <div class="media-card_rating-star">
+                    <ng-container *ngFor="let number of [0,1,2,3,4]">
+                        <mat-icon *ngIf="rating >= number + 0.75">star</mat-icon>
+                        <mat-icon *ngIf="rating >= number + 0.25 && rating < number + 0.75">star_half</mat-icon>
+                        <mat-icon *ngIf="rating < number + 0.25">star_border</mat-icon>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="media-card_action-buttons">
+                <seen-list-toggle [media]="media"></seen-list-toggle>
+                <watch-list-toggle [media]="media"></watch-list-toggle>
+            </div>
+        </div>
+    </div>
     <h2 class="media-card_title">{{media | mediaTitle}}</h2>
     <h3 class="media-card_subtitle">{{media | mediaDate | releaseDate}}</h3>
 </div>

@@ -11,6 +11,7 @@ interface Movie {
   genres?: Genre[];
   type: EType.Movie;
   backdrop_path: string;
+  vote_average: number;
 }
 
 export default Movie;

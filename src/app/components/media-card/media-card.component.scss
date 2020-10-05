@@ -2,6 +2,46 @@
     margin: 0.5rem;
 }
 
+.media-card_poster-wrapper {
+    position: relative;
+    width: 245px;
+}
+
+.media-card_poster-wrapper:hover .media-card_poster-overlay {
+    display: block;
+}
+
+.media-card_poster-overlay {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(22, 26, 26, 0.7);
+    border-radius: 16px;
+    display: none;
+    cursor: pointer;
+}
+
+.media-card_rating {
+    position: absolute;
+    left: 15px;
+    bottom: 20px;
+}
+
+.media-card_rating-text {
+    font: normal normal normal 20px Open Sans;
+}
+
+.media-card_rating-star {
+    color: gold;
+}
+
+.media-card_action-buttons {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
 .media-card_title {
     margin: 0;
     margin-top: 0.2rem;

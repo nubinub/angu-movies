@@ -1,5 +1,5 @@
 <div class="seen-list-toggle">
-  <button class="seen-list-toggle_button" mat-icon-button (click)="toggleMedia()">
+  <button class="seen-list-toggle_button" mat-icon-button (click)="toggleMedia($event)">
     <mat-icon 
       *ngIf="hasBeenSeen; else elseIcon" 
       matTooltip="Remove from favorites"  

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject, OnChanges } from '@angular/core';
+import { Component, Input, Inject, OnChanges } from '@angular/core';
 import { Media } from 'src/app/model/media/media';
 import { ListService, SEEN_LIST_SERVICE } from 'src/app/services/list/list.service';
 
@@ -24,7 +24,9 @@ export class SeenListToggleComponent implements OnChanges {
   /**
    * Add the media to the seen list if the media is not already in it, else removes it
    */
-  toggleMedia(): void {
+  toggleMedia(event: any): void {
+    event.preventDefault();
+    event.stopPropagation();
     this.hasBeenSeen = this.seenListService.toggleMedia(this.media);
   }
 }

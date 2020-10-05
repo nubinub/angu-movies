@@ -1,5 +1,5 @@
 <div class="watch-list-toggle">
-  <button class="watch-list-toggle_button" mat-icon-button (click)="toggleMedia()">
+  <button class="watch-list-toggle_button" mat-icon-button (click)="toggleMedia($event)">
     <mat-icon 
       *ngIf="toBeWatched; else elseIcon" 
       matTooltip="Remove from watch list"  
