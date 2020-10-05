@@ -48,6 +48,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MediaDetailsDialogComponent } from './components/media-details-dialog/media-details-dialog.component';
 import { WatchListComponent } from './views/watch-list/watch-list.component';
 import { FavoritesListComponent } from './views/favorites-list/favorites-list.component';
+import { MediaRatingComponent } from './components/media-rating/media-rating.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { FavoritesListComponent } from './views/favorites-list/favorites-list.co
     MediaDetailsDialogComponent,
     WatchListComponent,
     FavoritesListComponent,
+    MediaRatingComponent,
   ],
   imports: [
     BrowserModule,
