@@ -1,0 +1,89 @@
+.nav-bar {
+  background: transparent;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  color: $ngm-white-color;
+  letter-spacing: 0.11px;
+  font-size: 15px;
+}
+
+.nav-bar_home-link {
+  text-decoration: none;
+  color: $ngm-white-color;
+}
+
+.nav-bar_home-logo {
+  margin-right: 1rem;
+}
+
+.nav-bar_home-icon {
+  margin-right: 0.2rem;
+  height: 15px;
+  position: relative;
+  top: 6px;
+}
+
+
+.nav-bar_logo-icon {
+  margin-right: 0.2rem;
+  height: 15px;
+  position: relative;
+  top: 6px;
+}
+
+.nav-bar_search-field-wrapper {
+  position: relative;
+}
+
+.nav-bar_search-field-icon {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+}
+
+.nav-bar_search-field {
+  width: 350px;
+  height: 28px;
+  border-radius: 25px;
+  border: $ngm-white-color solid 1px;
+  background-color: transparent;
+  padding-left: 35px;
+  color: $ngm-white-color;
+  outline: none;
+}
+
+.nav-bar_search-field:focus {
+  border: none;
+  background-color:  $ngm-white-color;
+  color: $ngm-black-color;
+}
+
+.nav-bar_fav-zone {
+  text-align: center;
+}
+
+.nav-bar_fav-link {
+  margin-right: 1rem;
+  position: relative;
+  text-decoration: none;
+  color: $ngm-white-color;
+}
+
+.nav-bar_fav-icon {
+  margin-right: 0.2rem;
+  height: 15px;
+  position: relative;
+  top: 6px;
+}
+
+.nav-bar_watch-link {
+  text-decoration: none;
+  color: $ngm-white-color;
+}
+
+.nav-bar_watch-icon {
+  margin-right: 0.2rem;
+  height: 15px;
+  position: relative;
+  top: 6px;
+}

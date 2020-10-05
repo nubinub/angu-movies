@@ -5,7 +5,10 @@
 }
 
 @import "./base";
-@import "./components";
-@import "./layout";
-@import "./pages";
-@import "./themes";
+
+.ngm-body {
+    @import "./components";
+    @import "./layout";
+    @import "./pages";
+    @import "./themes";
+}

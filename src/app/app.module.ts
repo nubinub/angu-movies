@@ -17,22 +17,17 @@ import { MatRadioModule } from '@angular/material/radio';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { RuntimePipe } from './pipes/runtime/runtime.pipe';
 import { ReleaseDatePipe } from './pipes/release-date/release-date.pipe';
 import { MediasComponent } from './views/medias/medias.component';
-import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { CastCardComponent } from './components/cast-card/cast-card.component';
-import { MediaSearchComponent } from './components/media-search/media-search.component';
 import { WatchListToggleComponent } from './components/watch-list-toggle/watch-list-toggle.component';
 import { SeenListToggleComponent } from './components/seen-list-toggle/seen-list-toggle.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SettingsComponent } from './views/settings/settings.component';
 import { MOVIE_API_BASE_URL } from './services/movie-repository/movie-repository.service';
-import { TvShowCardComponent } from './components/tv-show-card/tv-show-card.component';
 import { MediasListComponent } from './components/medias-list/medias-list.component';
 import { MediaPosterComponent } from './components/media-poster/media-poster.component';
-import { TvShowInfoComponent } from './components/tv-show-info/tv-show-info.component';
 import { MediaCardComponent } from './components/media-card/media-card.component';
 import { MediaTitlePipe } from './pipes/media-title/media-title.pipe';
 import { MediaDatePipe } from './pipes/media-date/media-date.pipe';
@@ -54,21 +49,16 @@ import { MediaVotePipe } from './pipes/media-vote/media-vote.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    MovieCardComponent,
     RuntimePipe,
     ReleaseDatePipe,
     MediasListComponent,
     MediasComponent,
     MediaPosterComponent,
-    MovieInfoComponent,
     CastCardComponent,
-    MediaSearchComponent,
     WatchListToggleComponent,
     SeenListToggleComponent,
     NavBarComponent,
     SettingsComponent,
-    TvShowCardComponent,
-    TvShowInfoComponent,
     MediaCardComponent,
     MediaTitlePipe,
     MediaDatePipe,

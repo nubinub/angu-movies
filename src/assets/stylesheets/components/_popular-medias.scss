@@ -1,0 +1,17 @@
+.popular-medias {
+  min-height: 100vh;
+}
+
+.popular-medias_content {
+  margin: 0 172px;
+  padding-top: 64px;
+}
+
+.popular-medias_title {
+  width: 100%;
+  border-bottom: 1px solid $ngm-border-color;
+  font: normal normal bold 48px/64px Open Sans;
+  letter-spacing: 0.96px;
+  color: $ngm-white-color;
+  opacity: 1;
+}
