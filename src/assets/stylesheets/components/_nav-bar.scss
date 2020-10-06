@@ -56,9 +56,13 @@
   outline: none;
 }
 
+.nav-bar_search-field::placeholder {
+  color: $ngm-white-color;
+}
+
 .nav-bar_search-field:focus {
   border: none;
-  background-color:  $ngm-white-color;
+  background-color: $ngm-white-color;
   color: $ngm-black-color;
 }
 

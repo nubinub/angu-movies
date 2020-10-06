@@ -6,13 +6,14 @@
   width: 100px;
   height: 100px;
   overflow: hidden;
-  border-radius: 150px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .cast-card_title {
   margin: 0;
   text-align: center;
-  font: normal normal normal 14px/19px Open Sans;
-  letter-spacing: 0.08px;
-  color: #D5D5D5;
+  font: normal normal normal 14px/19px $ngm-font-1;
+  letter-spacing: $ngm-letter-spacing-3;
+  color: $ngm-title-color;
 }
