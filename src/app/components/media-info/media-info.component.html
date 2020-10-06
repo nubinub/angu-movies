@@ -7,12 +7,8 @@
         <span class="media-info_genres">
             <span *ngFor="let genre of media?.genres" class="media-info_genre">{{genre.name}}</span>
         </span>
-        <span class="media-info_release-date">
-        <span>{{media | mediaDate | releaseDate}}</span>
-        </span>
-        <span class="media-info_timer">
-            <span>{{media | mediaTime }}</span>
-        </span>
+        <span class="media-info_release-date">{{media | mediaDate | releaseDate}}</span>
+        <span class="media-info_timer">{{media | mediaTime }}</span>
     </div>
     <p class="media-info_overview">{{media?.overview}}</p>
 </div>
