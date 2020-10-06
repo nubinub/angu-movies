@@ -21,8 +21,8 @@
 
 .media-details_title {
   width: 100%;
-  font: normal normal bold 48px/64px Open Sans;
-  letter-spacing: 0.96px;
+  font: normal normal bold 48px/64px $ngm-font-1;
+  letter-spacing: $ngm-letter-spacing-1;
   color: $ngm-white-color;
   opacity: 1;
   border-bottom: 1px solid $ngm-border-color;
@@ -32,13 +32,14 @@
   margin: 10rem 5rem;
 }
 
-.media-details_casting_list {
+.media-details_casting-list {
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .media-details_casting-title {
-  font: normal normal bold 24px/28px Open Sans;
-  letter-spacing: -0.14px;
+  font: normal normal bold 24px/28px $ngm-font-1;
+  letter-spacing: $ngm-letter-spacing-4;
   color: $ngm-white-color;
   border-bottom: 1px solid $ngm-border-color;
   width: 100%;
