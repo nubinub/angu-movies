@@ -17,16 +17,16 @@
     margin: 0;
     margin-top: 0.2rem;
     text-align: left;
-    letter-spacing: 0.09px;
-    font: normal normal normal 15px Open Sans;
+    letter-spacing: $ngm-letter-spacing-2;
+    font: normal normal normal 15px $ngm-font-1;
 }
 
 .media-card_subtitle {
     margin: 0;
     text-align: left;
-    font: normal normal normal 14px/17px Open Sans;
+    font: normal normal normal 14px/17px $ngm-font-1;
     color:$ngm-subtitle-color;
-    letter-spacing: 0.08px;
+    letter-spacing: $ngm-letter-spacing-3;
 }
 
 .media-card_action-buttons .mat-icon-button {

@@ -1,3 +1,5 @@
+$ngm-home-logo-size: 450px;
+
 .home {
   min-height: 100vh;
   min-width: 100%;
@@ -12,7 +14,7 @@
   height: 100vh;
   width: 100%;
   background: url('assets/images/logomoviebox.png') 50% 33% no-repeat;
-  background-size: 450px;
+  background-size: $ngm-home-logo-size;
   opacity: 0.3;
   top: 0px;
   left: 0px;
@@ -27,8 +29,8 @@
 }
 
 .home_title {
-  font: normal normal 900 48px/64px Lato;
-  letter-spacing: 0.96px;
+  font: normal normal 900 48px/64px $ngm-font-2;
+  letter-spacing: $ngm-letter-spacing-1;
   color: $ngm-white-color;
 }
 
@@ -37,7 +39,7 @@
   border-radius: 40px;
   border: 2px solid $ngm-white-color;
   margin-right: 1rem;
-  font: normal normal bold 16px Open Sans;
+  font: normal normal bold 16px $ngm-font-1;
   letter-spacing: 0.1px;
   padding: 0.5rem 2rem;
   color: $ngm-white-color;

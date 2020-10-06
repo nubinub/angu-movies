@@ -5,9 +5,7 @@
     </div>
     <div class="media-info_panel">
         <span class="media-info_genres">
-        <span *ngFor="let genre of media?.genres" class="media-info_genre">
-            {{genre.name}}
-        </span>
+            <span *ngFor="let genre of media?.genres" class="media-info_genre">{{genre.name}}</span>
         </span>
         <span class="media-info_release-date">
         <span>{{media | mediaDate | releaseDate}}</span>

@@ -1,5 +1,5 @@
 .media-info_title {
-  font: normal normal bold 50px Open Sans;
+  font: normal normal bold 50px $ngm-font-1;
   letter-spacing: -1.5px;
   color: $ngm-white-color;
   opacity: 1;
@@ -14,8 +14,8 @@
 
 .media-info_overview {
   text-align: justify;
-  font: normal normal normal 20px/35px Open Sans;
-  letter-spacing: 0.32px;
+  font: normal normal normal 20px/35px $ngm-font-1;
+  letter-spacing: $ngm-letter-spacing-5;
   color: $ngm-white-color;
   opacity: 1;
 }

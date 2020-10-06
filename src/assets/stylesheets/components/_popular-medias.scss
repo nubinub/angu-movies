@@ -10,8 +10,8 @@
 .popular-medias_title {
   width: 100%;
   border-bottom: 1px solid $ngm-border-color;
-  font: normal normal bold 48px/64px Open Sans;
-  letter-spacing: 0.96px;
+  font: normal normal bold 48px/64px $ngm-font-1;
+  letter-spacing: $ngm-letter-spacing-1;
   color: $ngm-white-color;
   opacity: 1;
 }
