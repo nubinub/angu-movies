@@ -3,7 +3,7 @@ import { MediaVotePipe } from 'src/app/pipes/media-vote/media-vote.pipe';
 
 import { MediaRatingComponent } from './media-rating.component';
 
-describe('MediaRatingComponent', () => {
+describe('Component: MediaRatingComponent', () => {
   let component: MediaRatingComponent;
   let fixture: ComponentFixture<MediaRatingComponent>;
 

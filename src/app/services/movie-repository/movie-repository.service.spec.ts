@@ -74,5 +74,13 @@ describe('Service: MovieRepository', () => {
       expect(request.params.get('api_key')).toBe('abcdef');
       expect(request.params.get('query')).toBe('test');
     });
+
+    it('should request with primary_release_year when given a primary_release_year', () => {
+      service.search({query: 'test', primary_release_year: 2020}).subscribe(() => {
+      });
+
+      const {request} = httpTestingController.expectOne(req => req.url === 'movie-api/search/movie');
+      expect(request.params.get('primary_release_year')).toBe('2020');
+    });
   });
 });

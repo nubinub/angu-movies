@@ -21,5 +21,9 @@ describe('Pipe: MediaTitlePipe', () => {
     it('should return original title when given a movie', () => {
       expect(pipe.transform(movies[0])).toEqual(movies[0].original_title);
     });
+
+    it('should return an empty string when given no media given', () => {
+      expect(pipe.transform(undefined)).toEqual('');
+    });
   });
 });

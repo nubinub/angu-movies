@@ -8,10 +8,14 @@ import EType from '../../model/type/type-enum';
 export class MediaTitlePipe implements PipeTransform {
 
   transform(value: Media): string {
-    if (value.type === EType.Movie) {
-      return value.original_title;
-    } else if (value.type === EType.TvShow) {
-      return value.original_name;
+    let output = '';
+    if (value) {
+      if (value.type === EType.Movie) {
+        output = value.original_title;
+      } else if (value.type === EType.TvShow) {
+        output = value.original_name;
+      }
     }
+    return output;
   }
 }
