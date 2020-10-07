@@ -24,7 +24,8 @@ export class MediaCardComponent {
         media: this.media,
       },
       width: '100%',
-      panelClass: 'custom-dialog-container'
+      panelClass: 'custom-dialog-container',
+      autoFocus: false,
     });
   }
 }

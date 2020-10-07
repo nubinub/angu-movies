@@ -59,6 +59,7 @@ describe('Component: MediaCardComponent', () => {
         },
         width: '100%',
         panelClass: 'custom-dialog-container',
+        autoFocus: false,
       });
     });
   });
