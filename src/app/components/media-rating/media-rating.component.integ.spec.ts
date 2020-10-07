@@ -51,6 +51,28 @@ describe('Component: MediaPosterComponent', () => {
             expect(spectator.queryAll('.media-rating_star').filter((star) => star.innerHTML === 'star_border')).toHaveLength(1);
         });
 
+        it('should display 4 full stars and bordered star when given a media with vote_average of 7.6', () => {
+            const movie: Movie = { ...movies[0], vote_average: 7.6 };
+            spectator = createHost(`<media-rating [media]="media"></media-rating>`, {
+                hostProps: {
+                    media: movie,
+                }
+            });
+            expect(spectator.queryAll('.media-rating_star').filter((star) => star.innerHTML === 'star')).toHaveLength(4);
+            expect(spectator.queryAll('.media-rating_star').filter((star) => star.innerHTML === 'star_border')).toHaveLength(1);
+        });
+
+        it('should display 3 full stars and 2 bordered star when given a media with vote_average of 6.4', () => {
+            const movie: Movie = { ...movies[0], vote_average: 6.4 };
+            spectator = createHost(`<media-rating [media]="media"></media-rating>`, {
+                hostProps: {
+                    media: movie,
+                }
+            });
+            expect(spectator.queryAll('.media-rating_star').filter((star) => star.innerHTML === 'star')).toHaveLength(3);
+            expect(spectator.queryAll('.media-rating_star').filter((star) => star.innerHTML === 'star_border')).toHaveLength(2);
+        });
+
         it('should display 4 full stars and a half star when given a media with vote_average of 8.5', () => {
             const tvShow: TvShow = { ...tvShows[0], vote_average: 8.5 };
             spectator = createHost(`<media-rating [media]="media"></media-rating>`, {
