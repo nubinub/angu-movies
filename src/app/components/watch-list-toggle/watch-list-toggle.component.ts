@@ -10,22 +10,22 @@ import { ListService, WATCH_LIST_SERVICE } from 'src/app/services/list/list.serv
 })
 export class WatchListToggleComponent implements OnChanges {
 
-  @Input() media: Media;
+  @Input() public media: Media;
 
-  @Input() withText: boolean;
+  @Input() public withText: boolean;
 
-  toBeWatched: boolean;
+  public toBeWatched: boolean;
 
   constructor(@Inject(WATCH_LIST_SERVICE) private watchListService: ListService) { }
 
-  ngOnChanges(): void {
+  public ngOnChanges(): void {
     this.toBeWatched = this.watchListService.hasMedia(this.media);
   }
 
   /**
    * Add the media to the watch list if it not already in it, else removes it
    */
-  toggleMedia(event: any): void {
+  public toggleMedia(event: any): void {
     event.preventDefault();
     event.stopPropagation();
     this.toBeWatched = this.watchListService.toggleMedia(this.media);

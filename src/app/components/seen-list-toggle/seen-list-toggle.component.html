@@ -17,13 +17,9 @@
     </ng-template>
   </button>
   <ng-container *ngIf="withText">
-    <span *ngIf="hasBeenSeen; else elseSpan">
-      Remove from favorites
-    </span>
+    <span class="seen-list-toggle_label" *ngIf="hasBeenSeen; else elseSpan">Remove from favorites</span>
     <ng-template #elseSpan>
-      <span>
-        Add to favorites
-      </span>
+      <span class="seen-list-toggle_label">Add to favorites</span>
     </ng-template>
   </ng-container>
 </div>

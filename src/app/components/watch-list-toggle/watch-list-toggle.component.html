@@ -18,13 +18,9 @@
     </ng-template>
   </button>
   <ng-container *ngIf="withText">
-    <span *ngIf="toBeWatched; else elseSpan">
-      Remove from watch list
-    </span>
+    <span class="watch-list-toggle_label" *ngIf="toBeWatched; else elseSpan">Remove from watch list</span>
     <ng-template #elseSpan>
-      <span>
-        Add to watch list
-      </span>
+      <span class="watch-list-toggle_label">Add to watch list</span>
     </ng-template>
   </ng-container>
 </div>
