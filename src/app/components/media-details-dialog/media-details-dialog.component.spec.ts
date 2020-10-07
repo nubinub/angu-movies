@@ -4,12 +4,13 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 
 import { MediaDetailsDialogComponent } from './media-details-dialog.component';
 
-describe('MediaDetailsDialogComponent', () => {
+describe('Component: MediaDetailsDialogComponent', () => {
   let component: MediaDetailsDialogComponent;
   let fixture: ComponentFixture<MediaDetailsDialogComponent>;
+  let spy;
 
   beforeEach(async(() => {
-    const spy = jasmine.createSpyObj('MatDialogRef', ['close']);
+    spy = jasmine.createSpyObj('MatDialogRef', ['close']);
     TestBed.configureTestingModule({
       declarations: [ MediaDetailsDialogComponent ],
       imports: [
@@ -33,5 +34,12 @@ describe('MediaDetailsDialogComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('#onClose', () => {
+    it('should call the MatDialogRef close method', () => {
+      component.onClose();
+      expect(spy.close).toHaveBeenCalled();
+    });
   });
 });

@@ -37,6 +37,12 @@ describe('TvShowRepositoryService', () => {
       expect(request.params.get('language')).toEqual('en-US');
       expect(request.params.get('query')).toEqual('test');
     });
+
+    it('should request with first_air_date_year when given first_air_date_year', () => {
+      service.search({query: 'test', first_air_date_year: 2020}).subscribe();
+      const { request } = httpTestingController.expectOne(req => req.url === 'movie-api/search/tv');
+      expect(request.params.get('first_air_date_year')).toEqual('2020');
+    });
   });
 
   describe('#getById', () => {

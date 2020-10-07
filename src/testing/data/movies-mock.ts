@@ -11,7 +11,7 @@ export const movies: Movie[] = [
     release_date: '2020-02-12',
     type: EType.Movie,
     backdrop_path: '/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg',
-    vote_average: 1
+    vote_average: 1,
   },
   {
     poster_path: '/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg',

@@ -9,5 +9,5 @@ import { Media } from 'src/app/model/media/media';
 export class PopularMediasComponent {
   @Input() medias: Media[];
 
-  @Input() title: string;
+  @Input() titleText: string;
 }

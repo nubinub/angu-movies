@@ -11,7 +11,7 @@ describe('Component: WatchListToggleComponent', () => {
   let watchListServiceSpy;
 
   beforeEach(async(() => {
-    watchListServiceSpy = jasmine.createSpyObj('ListService', ['toggleMedia']);
+    watchListServiceSpy = jasmine.createSpyObj('ListService', ['toggleMedia', 'hasMedia']);
     TestBed.configureTestingModule({
       declarations: [ WatchListToggleComponent ],
       providers: [
@@ -38,6 +38,17 @@ describe('Component: WatchListToggleComponent', () => {
       watchListServiceSpy.toggleMedia.and.returnValue(true);
       component.toggleMedia({preventDefault: () => {}, stopPropagation: () => {}});
       expect(watchListServiceSpy.toggleMedia).toHaveBeenCalledWith(movies[0]);
+      expect(component.toBeWatched).toBe(true);
+    });
+  });
+
+  describe('#ngOnChanges', () => {
+    it('should update toBeWatched value', () => {
+      component.media = movies[0];
+      component.toBeWatched = false;
+      watchListServiceSpy.hasMedia.and.returnValue(true);
+      component.ngOnChanges();
+      fixture.detectChanges();
       expect(component.toBeWatched).toBe(true);
     });
   });

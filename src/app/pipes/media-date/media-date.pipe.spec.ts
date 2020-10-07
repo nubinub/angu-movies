@@ -20,5 +20,9 @@ describe('Pipe: MediaDatePipe', () => {
     it('should reutrn release_date when given a movie', () => {
       expect(pipe.transform(movies[0])).toEqual(movies[0].release_date);
     });
+
+    it('should reutrn an empty string when given undefined', () => {
+      expect(pipe.transform(undefined)).toEqual('');
+    });
   });
 });

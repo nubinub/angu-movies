@@ -18,8 +18,4 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/fav.svg')
     );
   }
-
-  toggleDrawer(): void {
-    this.drawer.toggle();
-  }
 }

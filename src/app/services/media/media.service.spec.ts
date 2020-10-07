@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { FormControl } from '@angular/forms';
 import { TestScheduler } from 'rxjs/testing';
 import EType from 'src/app/model/type/type-enum';
+import { casts } from 'src/testing/data/casts.mock';
 import movies from 'src/testing/data/movies-mock';
 import { tvShows } from 'src/testing/data/tv-shows-mock';
 import { MovieService } from '../movie/movie.service';
@@ -16,8 +17,8 @@ describe('Service: MediaService', () => {
   let scheduler;
 
   beforeEach(() => {
-    movieServiceSpy = jasmine.createSpyObj('MovieService', ['searchMovies']);
-    tvShowServiceSpy = jasmine.createSpyObj('TvShowService', ['searchTvShows']);
+    movieServiceSpy = jasmine.createSpyObj('MovieService', ['searchMovies', 'getMovie', 'getCast']);
+    tvShowServiceSpy = jasmine.createSpyObj('TvShowService', ['searchTvShows', 'getTvShow', 'getCast']);
     TestBed.configureTestingModule({
       providers: [
         {provide: MovieService, useValue: movieServiceSpy},
@@ -98,6 +99,36 @@ describe('Service: MediaService', () => {
           a: {query: '', type: EType.Movie, year: NaN},
           b: {query: '', type: EType.TvShow, year: NaN},
         });
+      });
+    });
+  });
+
+  describe('#getMediaDetails', () => {
+    it('should call movie service when given a movie', () => {
+      service.getMediaDetails(movies[0]);
+      expect(movieServiceSpy.getMovie).toHaveBeenCalledWith(movies[0].id);
+      expect(movieServiceSpy.getCast).toHaveBeenCalledWith(movies[0].id);
+    });
+
+    it('should call tvShow service when given a tvShow', () => {
+      service.getMediaDetails(tvShows[0]);
+      expect(tvShowServiceSpy.getTvShow).toHaveBeenCalledWith(tvShows[0].id);
+      expect(tvShowServiceSpy.getCast).toHaveBeenCalledWith(tvShows[0].id);
+    });
+
+    it('should emit movie and cast wwhen given a movie', () => {
+      scheduler.run(({expectObservable, cold}) => {
+        movieServiceSpy.getMovie.and.returnValue(cold('a|', {a: movies[0]}));
+        movieServiceSpy.getCast.and.returnValue(cold('--a|', {a: casts}));
+        expectObservable(service.getMediaDetails(movies[0])).toBe('--a|', {a: [movies[0], casts]});
+      });
+    });
+
+    it('should emit tvShow and cast when given a tvShow', () => {
+      scheduler.run(({expectObservable, cold}) => {
+        tvShowServiceSpy.getTvShow.and.returnValue(cold('a|', {a: tvShows[0]}));
+        tvShowServiceSpy.getCast.and.returnValue(cold('--a|', {a: casts}));
+        expectObservable(service.getMediaDetails(tvShows[0])).toBe('--a|', {a: [tvShows[0], casts]});
       });
     });
   });

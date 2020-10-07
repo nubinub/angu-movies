@@ -9,11 +9,11 @@
 </div>
 <ng-container *ngIf="popularMovies$ | async as popularMovies">
     <media-details [media]="popularMovies[0]" title="Box Office"></media-details>
-    <popular-medias id="popular-movies" [medias]="popularMovies | slice:1:11" title="Most popular movies"></popular-medias>
+    <popular-medias id="popular-movies" [medias]="popularMovies | slice:1:11" titleText="Most popular movies"></popular-medias>
 </ng-container>
 <popular-medias 
     id="popular-tv-shows"
     *ngIf="popularTvShows$ | async as popularTvShows" 
     [medias]="popularTvShows | slice:0:10" 
-    title="Most popular Tv Shows">
+    titleText="Most popular Tv Shows">
 </popular-medias>

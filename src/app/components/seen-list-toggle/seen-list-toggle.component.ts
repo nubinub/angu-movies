@@ -9,22 +9,22 @@ import { ListService, SEEN_LIST_SERVICE } from 'src/app/services/list/list.servi
 })
 export class SeenListToggleComponent implements OnChanges {
 
-  @Input() media: Media;
+  @Input() public media: Media;
 
-  @Input() withText: boolean;
+  @Input() public withText: boolean;
 
-  hasBeenSeen: boolean;
+  public hasBeenSeen: boolean;
 
   constructor(@Inject(SEEN_LIST_SERVICE) private seenListService: ListService) { }
 
-  ngOnChanges() {
+  public ngOnChanges() {
     this.hasBeenSeen = this.seenListService.hasMedia(this.media);
   }
 
   /**
    * Add the media to the seen list if the media is not already in it, else removes it
    */
-  toggleMedia(event: any): void {
+  public toggleMedia(event: any): void {
     event.preventDefault();
     event.stopPropagation();
     this.hasBeenSeen = this.seenListService.toggleMedia(this.media);

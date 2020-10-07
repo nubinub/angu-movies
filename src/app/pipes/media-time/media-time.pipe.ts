@@ -16,7 +16,7 @@ export class MediaTimePipe implements PipeTransform {
       if (media.type === EType.Movie) {
         return this.runtimePipe.transform(media.runtime);
       } else if (media.type === EType.TvShow) {
-        return `${media.number_of_seasons} seasons, ${media.number_of_episodes} espisodes`;
+        return `${media.number_of_seasons} seasons, ${media.number_of_episodes} episodes`;
       }
     }
     return '';

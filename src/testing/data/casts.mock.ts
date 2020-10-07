@@ -6,5 +6,35 @@ export const casts: Cast[] = [
         character: 'Toto',
         name: 'John Doe',
         profile_path: 'test',
+    },
+    {
+        cast_id: 2,
+        character: 'Toto',
+        name: 'John Doe',
+        profile_path: 'test',
+    },
+    {
+        cast_id: 3,
+        character: 'Toto',
+        name: 'John Doe',
+        profile_path: 'test',
+    },
+    {
+        cast_id: 4,
+        character: 'Toto',
+        name: 'John Doe',
+        profile_path: 'test',
+    },
+    {
+        cast_id: 5,
+        character: 'Toto',
+        name: 'John Doe',
+        profile_path: 'test',
+    },
+    {
+        cast_id: 6,
+        character: 'Toto',
+        name: 'John Doe',
+        profile_path: 'test',
     }
 ];

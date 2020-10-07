@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MediaDatePipe } from 'src/app/pipes/media-date/media-date.pipe';
 import { MediaTimePipe } from 'src/app/pipes/media-time/media-time.pipe';
@@ -17,7 +18,8 @@ describe('MediaInfoComponent', () => {
       declarations: [ MediaInfoComponent, MediaTitlePipe, ReleaseDatePipe, MediaDatePipe, MediaTitlePipe, MediaTimePipe, RuntimePipe],
       providers: [
         {provide: RuntimePipe}
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
