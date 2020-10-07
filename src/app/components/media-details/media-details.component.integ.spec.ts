@@ -1,6 +1,5 @@
 import { MediaDetailsComponent } from './media-details.component';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import movies from 'src/testing/data/movies-mock';
 import { MediaBackdropPipe } from 'src/app/pipes/media-backdrop/media-backdrop.pipe';
 import { MediaService } from 'src/app/services/media/media.service';
@@ -24,7 +23,7 @@ describe('Component: MediaCardComponent', () => {
                 useValue: 'image-api/'
             }
         ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     describe('title', () => {

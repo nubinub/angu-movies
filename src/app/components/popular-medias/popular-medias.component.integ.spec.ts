@@ -1,12 +1,11 @@
 import { PopularMediasComponent } from './popular-medias.component';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('Component: PopularMediasComponent', () => {
     let spectator: SpectatorHost<PopularMediasComponent>;
     const createHost = createHostFactory({
         component: PopularMediasComponent,
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     describe('title', () => {

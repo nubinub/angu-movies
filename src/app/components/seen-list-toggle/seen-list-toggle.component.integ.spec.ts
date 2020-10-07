@@ -1,5 +1,4 @@
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SeenListToggleComponent } from './seen-list-toggle.component';
 import movies from 'src/testing/data/movies-mock';
 import { SEEN_LIST_SERVICE } from 'src/app/services/list/list.service';
@@ -11,7 +10,7 @@ describe('Component: SeenListToggleComponent', () => {
         providers: [
             {provide: SEEN_LIST_SERVICE}
         ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     beforeEach(() => {

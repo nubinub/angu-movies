@@ -1,6 +1,5 @@
 import { MediasListComponent } from './medias-list.component';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import movies from 'src/testing/data/movies-mock';
 import { tvShows } from 'src/testing/data/tv-shows-mock';
 
@@ -8,7 +7,7 @@ describe('Component: MediasListComponent', () => {
     let spectator: SpectatorHost<MediasListComponent>;
     const createHost = createHostFactory({
         component: MediasListComponent,
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     describe('cards', () => {

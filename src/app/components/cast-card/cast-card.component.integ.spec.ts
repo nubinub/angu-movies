@@ -11,7 +11,8 @@ describe('Component: CastCardComponent', () => {
         declarations: [CastPosterPipe],
         providers: [
             {provide: IMAGE_BASE_URL, useValue: 'image-api/'}
-        ]
+        ],
+        shallow: true,
     });
 
     describe('title', () => {

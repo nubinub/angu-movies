@@ -1,6 +1,5 @@
 import { MediaRatingComponent } from './media-rating.component';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import movies from 'src/testing/data/movies-mock';
 import { tvShows } from 'src/testing/data/tv-shows-mock';
 import { MediaVotePipe } from 'src/app/pipes/media-vote/media-vote.pipe';
@@ -14,7 +13,7 @@ describe('Component: MediaPosterComponent', () => {
         declarations: [
             MediaVotePipe,
         ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     describe('text', () => {

@@ -1,6 +1,5 @@
 import { MediaCardComponent } from './media-card.component';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MediaTitlePipe } from 'src/app/pipes/media-title/media-title.pipe';
 import { MediaDatePipe } from 'src/app/pipes/media-date/media-date.pipe';
 import { ReleaseDatePipe } from 'src/app/pipes/release-date/release-date.pipe';
@@ -17,7 +16,7 @@ describe('Component: MediaCardComponent', () => {
         providers: [
             {provide: MatDialog, useValue: jasmine.createSpyObj(MatDialog, ['open'])}
         ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     describe('title', () => {

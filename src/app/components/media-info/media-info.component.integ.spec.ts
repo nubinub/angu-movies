@@ -1,6 +1,5 @@
 import { MediaInfoComponent } from './media-info.component';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import movies from 'src/testing/data/movies-mock';
 import { MediaDatePipe } from 'src/app/pipes/media-date/media-date.pipe';
 import { MediaTimePipe } from 'src/app/pipes/media-time/media-time.pipe';
@@ -22,7 +21,7 @@ describe('Component: MediaInfoComponent', () => {
         providers: [
             { provide: RuntimePipe }
         ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     describe('title', () => {

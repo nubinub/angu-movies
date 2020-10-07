@@ -1,6 +1,5 @@
 import { MediaPosterComponent } from './media-poster.component';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import movies from 'src/testing/data/movies-mock';
 import { MediaPosterPipe } from 'src/app/pipes/media-poster/media-poster.pipe';
 import { IMAGE_BASE_URL } from 'src/app/tokens/image-base-url.token';
@@ -18,7 +17,7 @@ describe('Component: MediaPosterComponent', () => {
         providers: [
             { provide: IMAGE_BASE_URL, useValue: 'image-api/' }
         ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     describe('image', () => {

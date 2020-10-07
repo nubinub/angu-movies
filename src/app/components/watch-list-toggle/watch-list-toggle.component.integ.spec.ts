@@ -11,7 +11,7 @@ describe('Component: SeenListToggleComponent', () => {
         providers: [
             {provide: WATCH_LIST_SERVICE}
         ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     beforeEach(() => {

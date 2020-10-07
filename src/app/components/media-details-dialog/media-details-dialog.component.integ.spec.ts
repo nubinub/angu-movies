@@ -1,6 +1,5 @@
 import { MediaDetailsDialogComponent } from './media-details-dialog.component';
 import { createComponentFactory, Spectator } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import movies from 'src/testing/data/movies-mock';
 
@@ -14,7 +13,7 @@ describe('Component: MediaDetailsDialogComponent', () => {
             {provide: MAT_DIALOG_DATA, useValue: {media: movies[0]}},
             {provide: MatDialogRef, useValue: spy }
         ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     describe('close button', () => {

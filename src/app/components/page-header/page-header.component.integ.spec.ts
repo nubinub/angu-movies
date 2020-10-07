@@ -1,12 +1,11 @@
 import { PageHeaderComponent } from './page-header.component';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('Component: PageHeaderComponent', () => {
     let spectator: SpectatorHost<PageHeaderComponent>;
     const createHost = createHostFactory({
         component: PageHeaderComponent,
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        shallow: true,
     });
 
     describe('title', () => {
