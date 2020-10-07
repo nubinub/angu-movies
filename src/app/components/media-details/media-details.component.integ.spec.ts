@@ -1,5 +1,5 @@
 import { MediaDetailsComponent } from './media-details.component';
-import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
 import movies from 'src/testing/data/movies-mock';
 import { MediaBackdropPipe } from 'src/app/pipes/media-backdrop/media-backdrop.pipe';
 import { MediaService } from 'src/app/services/media/media.service';
@@ -9,15 +9,13 @@ import { IMAGE_BASE_URL } from 'src/app/tokens/image-base-url.token';
 
 describe('Component: MediaCardComponent', () => {
     let spectator: SpectatorHost<MediaDetailsComponent>;
-    const mediaServiceSpy = jasmine.createSpyObj(MediaService, ['getMediaDetails']);
     const createHost = createHostFactory({
         component: MediaDetailsComponent,
         declarations: [MediaBackdropPipe],
         providers: [
-            {
-                provide: MediaService,
-                useValue: mediaServiceSpy,
-            },
+            mockProvider(MediaService, {
+                getMediaDetails: () => of([movies[0], casts])
+            }),
             {
                 provide: IMAGE_BASE_URL,
                 useValue: 'image-api/'
@@ -28,18 +26,19 @@ describe('Component: MediaCardComponent', () => {
 
     describe('title', () => {
         it('should render no title when no title given', () => {
-            mediaServiceSpy.getMediaDetails.and.returnValue(of([movies[0], casts]));
             spectator = createHost(`<media-details [media]="media" [title]="title"></media-details>`, {
                 hostProps: {
                     media: movies[0],
                     title: undefined,
                 },
+                providers: [
+
+                ]
             });
             expect(spectator.query('.media-details_title')).not.toExist();
         });
 
         it('should render title when given title', () => {
-            mediaServiceSpy.getMediaDetails.and.returnValue(of([movies[0], casts]));
             spectator = createHost(`<media-details [media]="media" [title]="title"></media-details>`, {
                 hostProps: {
                     media: movies[0],
@@ -52,7 +51,6 @@ describe('Component: MediaCardComponent', () => {
 
     describe('casting list', () => {
         it('should render 5 cast-card when more than 5 cast cards', () => {
-            mediaServiceSpy.getMediaDetails.and.returnValue(of([movies[0], casts]));
             spectator = createHost(`<media-details [media]="media" [title]="title"></media-details>`, {
                 hostProps: {
                     media: movies[0],
@@ -63,12 +61,16 @@ describe('Component: MediaCardComponent', () => {
         });
 
         it('should render n cast-card when less than 5 cast cards', () => {
-            mediaServiceSpy.getMediaDetails.and.returnValue(of([movies[0], casts.slice(0, 2)]));
             spectator = createHost(`<media-details [media]="media" [title]="title"></media-details>`, {
                 hostProps: {
                     media: movies[0],
                     title: undefined,
                 },
+                providers: [
+                    mockProvider(MediaService, {
+                        getMediaDetails: () => of([movies[0], casts.slice(0, 2)])
+                    })
+                ]
             });
             expect(spectator.queryAll('cast-card')).toHaveLength(2);
         });

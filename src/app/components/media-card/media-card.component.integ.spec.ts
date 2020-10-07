@@ -1,5 +1,5 @@
 import { MediaCardComponent } from './media-card.component';
-import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
 import { MediaTitlePipe } from 'src/app/pipes/media-title/media-title.pipe';
 import { MediaDatePipe } from 'src/app/pipes/media-date/media-date.pipe';
 import { ReleaseDatePipe } from 'src/app/pipes/release-date/release-date.pipe';
@@ -14,7 +14,7 @@ describe('Component: MediaCardComponent', () => {
         imports: [MatDialogModule],
         declarations: [MediaTitlePipe, MediaDatePipe, ReleaseDatePipe],
         providers: [
-            {provide: MatDialog, useValue: jasmine.createSpyObj(MatDialog, ['open'])}
+            mockProvider(MatDialog)
         ],
         shallow: true,
     });
